@@ -8,7 +8,7 @@ import streamlit as st
 st.header('TC/L interaction probability model')
 st.caption("""Input a SMILES code of your molecule of choice (use e.g. https://pubchem.ncbi.nlm.nih.gov/edit3/index.html).
 A probability for interaction with taurocholate/lecithin is computed for the compound at pH 6.5, based on two descriptors: logD and CrippenMR.
-The model is based on results from Mol. Pharmaceutics 2022, 19, 2868−2876 (https://doi.org/10.1021/acs.molpharmaceut.2c00227),
+The model is based on Mol. Pharmaceutics 2022, 19, 2868−2876 (https://doi.org/10.1021/acs.molpharmaceut.2c00227),
 but descriptors are computed via rdkit/scopy instead of MOE/PaDEL and logD for pH 7.4 instead of 7.0 is used.
 Hence, small differences to the published dataset are expected.""")
 
