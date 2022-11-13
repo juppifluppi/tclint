@@ -9,14 +9,14 @@ st.header('TC/L interaction probability model')
 
 SMI = st.text_input('Enter Canonical SMILES of drug', 'CC(C)NCC(COC1=CC=C(C=C1)CCOC)O')
 
-dimorphite_dl = DimorphiteDL(
-    min_ph=6.5,
-    max_ph=6.5,
-    max_variants=1,
-    label_states=False,
-    pka_precision=1.0
-)
-SMI = str(dimorphite_dl.protonate(SMI)[0])
+#dimorphite_dl = DimorphiteDL(
+#    min_ph=6.5,
+#    max_ph=6.5,
+#    max_variants=1,
+#    label_states=False,
+#    pka_precision=1.0
+#)
+#SMI = str(dimorphite_dl.protonate(SMI)[0])
 
 mol = Chem.MolFromSmiles(SMI)
 sdm = pretreat.StandardizeMol()
