@@ -1,6 +1,5 @@
 rdkit-pypi
-Pillow
-py3Dmol
 stmol
 dimorphite_dl
 scopy
+scikit_learn
