@@ -5,7 +5,9 @@ import scopy.ScoDruglikeness
 from dimorphite_dl import DimorphiteDL
 import streamlit as st
 
-SMI='CC(C)(C)C1=CC(=CC(=C1O)C(C)(C)C)SC(C)(C)SC2=CC(=C(C(=C2)C(C)(C)C)O)C(C)(C)C'
+st.header('TC/L interaction probability model')
+
+SMI = st.text_input('Enter Canonical SMILES of drug', 'CC(C)NCC(COC1=CC=C(C=C1)CCOC)O')
 
 dimorphite_dl = DimorphiteDL(
     min_ph=6.5,
@@ -36,4 +38,6 @@ tcl3 = 1 / ( 1 + ( 2.718281828459045 ** ( -1 * ( 0.7999132 + tcl1 + tcl2 ) ) ) )
 print("TC/L probability: " + str(tcl3))
 
 st.image(im)
-
+st.text("logD: " + str(logd))
+st.text("CrippenMR: " + str(mr))
+st.text("TC/L probability: " + str(tcl3))
