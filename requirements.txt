@@ -2,3 +2,6 @@ rdkit-pypi
 Pillow
 py3Dmol
 stmol
+dimorphite_dl
+kotori_y
+scopy
