@@ -30,7 +30,7 @@ _RELEASE = False
 if not _RELEASE:
     _component_func = components.declare_component(
             "chemstreamlit",
-            url="http://localhost:3001"
+            url="http://<public_ip>:3001"
             )
 else:
     parent_dir = os.path.dirname(os.path.abspath(__file__))
