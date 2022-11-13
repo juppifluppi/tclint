@@ -14,11 +14,11 @@ but descriptors are computed via rdkit/scopy instead of MOE/PaDEL and logD for p
 SMI = st.text_input('Enter Canonical SMILES of drug molecule', 'CC(C)NCC(COC1=CC=C(C=C1)CCOC)O')
 
 dimorphite_dl = DimorphiteDL(
-    min_ph=6.5,
-    max_ph=6.5,
+    min_ph=6.4,
+    max_ph=6.6,
     max_variants=1,
     label_states=False,
-    pka_precision=0.5
+    pka_precision=0.1
 )
 SMI = str(dimorphite_dl.protonate(SMI)[0])
 
