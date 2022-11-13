@@ -2,4 +2,3 @@ rdkit-pypi
 stmol
 dimorphite_dl
 scopy
-scikit_learn
