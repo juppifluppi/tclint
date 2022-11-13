@@ -8,7 +8,7 @@ import streamlit as st
 st.header('TC/L interaction probability model')
 st.caption("""Input a SMILES code of your molecule of choice.
 A probability for interaction with taurocholate/lecithin is computed based on two descriptors, logD and CrippenMR.
-The model is based on results from Mol. Pharmaceutics 2022, 19, 2868−2876.""")
+The model is based on results from Mol. Pharmaceutics 2022, 19, 2868−2876, but descriptors are computed via rdkit/scopy instead of MOE/PaDEL.""")
 
 SMI = st.text_input('Enter Canonical SMILES of drug', 'CC(C)NCC(COC1=CC=C(C=C1)CCOC)O')
 
