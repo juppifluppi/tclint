@@ -16,11 +16,11 @@ try:
     SMI = st.text_input('Enter Canonical SMILES of drug molecule', 'CC(C)NCC(COC1=CC=C(C=C1)CCOC)O')
     
     dimorphite_dl = DimorphiteDL(
-        min_ph=6.4,
-        max_ph=6.6,
-        max_variants=1,
-        label_states=False,
-        pka_precision=0.1
+        min_ph = 6.4,
+        max_ph = 6.6,
+        max_variants = 1,
+        label_states = False,
+        pka_precision = 0.1
     )
     SMI = str(dimorphite_dl.protonate(SMI)[0])
     
@@ -29,7 +29,7 @@ try:
     mol = sdm.disconnect_metals(mol)
     
     m = Chem.MolFromSmiles(SMI)
-    im=Draw.MolToImage(m)
+    im = Draw.MolToImage(m)
     
     logd = scopy.ScoDruglikeness.molproperty.CalculateLogD(mol)
     mr = scopy.ScoDruglikeness.molproperty.CalculateMolMR(mol)
