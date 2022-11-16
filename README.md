@@ -8,3 +8,5 @@ Lipid interaction probability model (model3.py) is currently work in progress.
 
 Alternatively, enamine_db.html and zinc_db.html contain calculated TC/L and lipid probabilities with the original models 2 and 3 from the publication, using MOE/PaDEL descriptors.
 
+Enamine databank: https://github.com/juppifluppi/tcl-lipid-interaction/blob/main/enamine_db.html
+ZINC databank: https://github.com/juppifluppi/tcl-lipid-interaction/blob/main/zinc_db.html
