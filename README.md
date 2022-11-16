@@ -4,6 +4,7 @@ The model is based on results from Mol. Pharmaceutics 2022, 19, 2868−2876 (htt
 
 https://tcl-interaction.streamlit.app/
 
-Lipid interaction probability model (model3.py) is work in progress.
+Lipid interaction probability model (model3.py) is currently work in progress.
 
-Alternatively, enamine_db.html and zinc_db.html contain calculated probabilities with the original models 2 and 3 from the publication, using MOE/PaDEL descriptors.
+Alternatively, enamine_db.html and zinc_db.html contain calculated TC/L and lipid probabilities with the original models 2 and 3 from the publication, using MOE/PaDEL descriptors.
+
