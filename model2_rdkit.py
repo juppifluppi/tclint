@@ -8,9 +8,16 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-df  = pd.read_csv("trainvalues.csv")
-x = df["rd_logD"]
-y = df["rd_MR"]
+df  = pd.read_csv("data.csv")
+df.plot()  # plots all columns against index
+df.plot(kind='scatter',x='rd_logD',y='rd_MR') # scatter plot
+df.plot(kind='density')  # estimate density function
+
+plot0=df.figure
+st.pyplot(plot0)
+
+fig, ax = plt.subplots()
+ax.scatter(arr, bins=20)
 
 a = plt.plot(x, y)
 
