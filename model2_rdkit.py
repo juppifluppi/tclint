@@ -22,17 +22,7 @@ y2 = df2['rd_MR']
 df_1 = pd.read_csv('smiles_train.csv')
 df_2 = pd.read_csv('smiles_test.csv')
 
-df_smiles = df_1
-c_smiles = []
-for ds in df_smiles:
-    try:
-        cs = Chem.CanonSmiles(ds)
-        c_smiles.append(cs)
-    except:
-        print('Invalid SMILES:', ds)
-
-ms = [Chem.MolFromSmiles(x) for x in c_smiles]
-fps1 = [FingerprintMols.FingerprintMol(x) for x in ms]
+ms = [Chem.MolFromSmiles(x) for x in df_1]
 
 st.header('TC/L interaction probability model')
 st.caption("""Input a SMILES code of your molecule of choice (use e.g. https://pubchem.ncbi.nlm.nih.gov/edit3/index.html).
@@ -85,7 +75,6 @@ for mol in ms:
     Tan = DataStructs.TanimotoSimilarity(fp1,fp2)
     g.append(Tan)
 st.text(str(g))
-st.text(len(mol))
 
 fig=plt.figure()
 ax=fig.add_axes([0,0,1,1])
