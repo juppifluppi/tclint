@@ -128,3 +128,14 @@ ax.legend((l,p,o),("Training set", "Validation set", "Compound"))
 plt.show()
 
 st.pyplot(fig)
+
+
+fig=plt.figure()
+ax=fig.add_axes([0,0,1,1])
+ax.hist(x, density=True, bins=30)
+ax.set_ylabel('Probability')
+ax.set_xlabel('Data')
+ax.set_title('Compound vs. modeling set')
+plt.show()
+
+st.pyplot(fig)
