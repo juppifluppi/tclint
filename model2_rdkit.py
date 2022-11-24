@@ -118,10 +118,7 @@ for k in o:
             lkx.append(scd)
         except:
             pass
-    lit.append(np.sum(lkx))
-
-st.write("SCD Training set: "+str(round(np.min(lit),2))+" - "+str(round(np.max(lit),2)))       
-st.write("SCD Validation set: "+str(round(np.min(li),2))+" - "+str(round(np.max(li),2)))   
+    lit.append(np.sum(lkx)) 
          
 fig=plt.figure()
 ax=fig.add_axes([0,0,1,1])
@@ -145,5 +142,5 @@ if len(g) > 1:
     st.write("Compound: "+str(round(np.sum(g),2)))
 else:
     st.write("Compound: Part of training set")
-st.write("Training set: "+str(round(np.min(lit),2))+" - "+str(round(np.max(lit),2)))       
-st.write("Validation set: "+str(round(np.min(li),2))+" - "+str(round(np.max(li),2)))   
+st.write("Training set: "+str(round(np.min(lit),2))+" - "+str(round(np.max(lit),2))+" (Mean: "+round(np.mean(lit),2)+"; SD: "+round(np.sd(lit),2)+")")       
+st.write("Validation set: "+str(round(np.min(li),2))+" - "+str(round(np.max(li),2))+" (Mean: "+round(np.mean(li),2)+"; SD: "+round(np.sd(li),2)+")")     
