@@ -9,6 +9,7 @@ import numpy as np
 import pandas as pd
 from rdkit import DataStructs
 from rdkit.Chem.Fingerprints import FingerprintMols
+from rdkit.Chem import AllChem
 
 df  = pd.read_csv("trainvalues.csv")
 x = df['rd_logD']
