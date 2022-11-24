@@ -67,7 +67,7 @@ ax.scatter(x2, y2, color='r',alpha=0.5)
 ax.scatter(logd, mr, color='g',alpha=1)
 ax.set_xlabel('logD')
 ax.set_ylabel('CrippenMR')
-ax.set_title('scatter plot')
+ax.set_title('Compound vs. modeling set')
 
 l=ax.scatter(x, y, color='b',alpha=0.5)
 p=ax.scatter(x2, y2, color='r',alpha=0.5)
