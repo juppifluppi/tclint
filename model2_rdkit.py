@@ -91,9 +91,9 @@ for molx in o:
         g.append("NA")
 #st.write(np.mean(np.sort(g)[-4:]))
 try:
-    st.write(np.sum(g))
+    st.write("Compound: "+str(round(np.sum(g),2))
 except:
-    st.write("Part of training set")
+    st.write("Compound: Part of training set")
 
 li=[]
     
@@ -125,8 +125,8 @@ for k in o:
             pass
     lit.append(np.sum(lkx))
 
-st.write("Training set: "+str(np.min(lit))+" - "+str(np.max(lit)))       
-st.write("Validation set: "+str(np.min(li))+" - "+str(np.max(li)))   
+st.write("SCD Training set: "+str(round(np.min(lit),2))+" - "+str(round(np.max(lit),2)))       
+st.write("SCD Validation set: "+str(round(np.min(li),2))+" - "+str(round(np.max(li),2)))   
          
 fig=plt.figure()
 ax=fig.add_axes([0,0,1,1])
