@@ -11,12 +11,16 @@ import pandas as pd
 df  = pd.read_csv("trainvalues.csv")
 x = df['rd_logD']
 y = df['rd_MR']
-plt.scatter(x, y)
-plt.set_title('scatter plot')
-plt.show()
-a = plt.figure()
 
-st.pyplot(a)
+fig=plt.figure()
+ax=fig.add_axes([0,0,1,1])
+ax.scatter(x, y, color='r')
+ax.set_xlabel('Grades Range')
+ax.set_ylabel('Grades Scored')
+ax.set_title('scatter plot')
+plt.show()
+
+st.pyplot(fig)
 
 st.header('TC/L interaction probability model')
 st.caption("""Input a SMILES code of your molecule of choice (use e.g. https://pubchem.ncbi.nlm.nih.gov/edit3/index.html).
