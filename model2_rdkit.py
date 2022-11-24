@@ -142,5 +142,5 @@ if len(g) > 1:
     st.write("Compound: "+str(round(np.sum(g),2)))
 else:
     st.write("Compound: Part of training set")
-st.write("Training set: "+str(round(np.min(lit),2))+" - "+str(round(np.max(lit),2))+" (Mean: "+str(round(np.mean(lit),2))+"; SD: "+str(round(np.sd(lit),2))+")")       
-st.write("Validation set: "+str(round(np.min(li),2))+" - "+str(round(np.max(li),2))+" (Mean: "+str(round(np.mean(li),2))+"; SD: "+str(round(np.sd(li),2))+")")     
+st.write("Training set: "+str(round(np.min(lit),2))+" - "+str(round(np.max(lit),2))+" (Mean: "+str(round(np.mean(lit),2))+"; SD: "+str(round(np.std(lit),2))+")")       
+st.write("Validation set: "+str(round(np.min(li),2))+" - "+str(round(np.max(li),2))+" (Mean: "+str(round(np.mean(li),2))+"; SD: "+str(round(np.std(li),2))+")")     
