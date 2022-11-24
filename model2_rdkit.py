@@ -125,8 +125,8 @@ for k in o:
             pass
     lit.append(np.sum(lkx))
 
-st.write(str("Training set: "+np.min(lit)+" - "+np.max(lit))       
-st.write(str("Validation set: "+np.min(li)+" - "+np.max(li))   
+st.write("Training set: "+np.min(lit)+" - "+np.max(lit))       
+st.write("Validation set: "+np.min(li)+" - "+np.max(li))   
          
 fig=plt.figure()
 ax=fig.add_axes([0,0,1,1])
