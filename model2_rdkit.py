@@ -110,8 +110,24 @@ for k in ox:
             pass
     li.append(np.sum(lkx))
  
-        
+lit=[] 
 
+for k in o:
+    lkx=[]
+    fp1 = AllChem.GetMorganFingerprint(k, 2)
+    for molx in o:
+        fp2 = AllChem.GetMorganFingerprint(molx, 2)
+        Tan = DataStructs.TanimotoSimilarity(fp1,fp2)
+        try:
+            scd = 2.718281828459045 ** ((-3 * Tan)/(1 - Tan))
+            lkx.append(scd)
+        except:
+            pass
+    lit.append(np.sum(lkx))
+
+st.write(str("Training set: "+np.min(lit)+" - "+np.max(lit))       
+st.write(str("Validation set: "+np.min(li)+" - "+np.max(li))   
+         
 fig=plt.figure()
 ax=fig.add_axes([0,0,1,1])
 ax.scatter(x, y, color='b',alpha=0.5)
