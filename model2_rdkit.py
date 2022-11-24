@@ -78,8 +78,8 @@ fp1 = Chem.RDKFingerprint(mol)
 g=[]
 
 for molx in o:
-    #fp2 = Chem.RDKFingerprint(molx)
-    fp2 = AllChem.GetMorganFingerprint(molx, 2)
+    fp2 = Chem.RDKFingerprint(molx)
+    #p2 = AllChem.GetMorganFingerprint(molx, 2)
     Tan = DataStructs.TanimotoSimilarity(fp1,fp2)
     g.append(Tan)
 st.write(np.mean(np.sort(g)[-4:]))
