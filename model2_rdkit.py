@@ -9,11 +9,12 @@ import numpy as np
 import pandas as pd
 
 df  = pd.read_csv("trainvalues.csv")
-df.plt()  # plots all columns against index
-df.plt(kind='scatter',x='rd_logD',y='rd_MR') # scatter plot
-df.plt(kind='density')  # estimate density function
+x = df['rd_logD']
+y = df['rd_MR']
+a = plt.plot(x,y)
+a = plt.show()
 
-plot0=df.figure
+plot0=a.figure
 st.pyplot(plot0)
 
 fig, ax = plt.subplots()
