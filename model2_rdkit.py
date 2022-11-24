@@ -38,12 +38,7 @@ st.caption("""Input a SMILES code of your molecule of choice (use e.g. https://p
 A probability for interaction with taurocholate/lecithin is computed for the compound at pH 6.5, based on two descriptors: logD and CrippenMR.
 The model is inspired by Mol. Pharmaceutics 2022, 19, 2868−2876 (https://doi.org/10.1021/acs.molpharmaceut.2c00227),
 but was rebuilt with corresponding descriptors from rdkit/scopy instead of MOE/PaDEL, using logD for pH 7.4 instead of 7.0.
-For the same traning and validation sets it shows comparable statistics the published model:""")
-
-st.text("Training set balanced accuracy: 0.86")
-st.text("Training set AUC: 0.93")
-st.text("Validation set balanced accuracy: 0.83")
-st.text("Validation set AUC: 0.93")
+For the same traning and validation sets it shows comparable statistics the published model (balanced accuracy: 0.86/0.83, AUC: 0.93/0.93).""")
 
 st.caption("""A scatter plot shows the properties of the compound in relation to the training and the validation set. SDC applicability
 domain metrics based on the tanimoto similarity of the compound to the training set is given underneath (J. Chem. Inf. Model. 2019, 59, 181−189).
@@ -151,3 +146,5 @@ st.write("SDC applicability domain metrics:")
 st.write("Training set: "+str(round(np.min(lit),2))+" - "+str(round(np.max(lit),2))+" (Mean: "+str(round(np.mean(lit),2))+"; SD: "+str(round(np.std(lit),2))+")")       
 st.write("Validation set: "+str(round(np.min(li),2))+" - "+str(round(np.max(li),2))+" (Mean: "+str(round(np.mean(li),2))+"; SD: "+str(round(np.std(li),2))+")")     
 st.write("Compound: "+str(round(np.sum(g),2)))
+
+
