@@ -45,7 +45,9 @@ qu, ta, sim = [], [], []
 
 # compare all fp pairwise without duplicates
 for n in range(len(fps)-1): # -1 so the last fp will not be used
-    s = DataStructs.BulkTanimotoSimilarity(fps[n], fps[n+1:]) # +1 compare with the next to the last fp
+    s = DataStructs.BulkTanimotoSimilarity(fps[n], fps[n+1:], minPath=1, maxPath=7, fpSize=2048,
+                               bitsPerHash=2, useHs=True, tgtDensity=0.0,
+                               minSize=128) # +1 compare with the next to the last fp
     print(c_smiles[n], c_smiles[n+1:]) # witch mol is compared with what group
     # collect the SMILES and values
     for m in range(len(s)):
