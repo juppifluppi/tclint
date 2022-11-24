@@ -72,8 +72,8 @@ fp1 = Chem.RDKFingerprint(mol)
 
 g=[]
 
-for mol in ms:
-    fp2 = Chem.RDKFingerprint(mol)
+for molx in ms:
+    fp2 = Chem.RDKFingerprint(molx)
     Tan = DataStructs.TanimotoSimilarity(fp1,fp2)
     g.append(Tan)
 st.text(str(g))
