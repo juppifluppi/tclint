@@ -16,7 +16,7 @@ df2  = pd.read_csv("testvalues.csv")
 x2 = df2['rd_logD']
 y2 = df2['rd_MR']
 
-st.pyplot(fig)
+
 
 st.header('TC/L interaction probability model')
 st.caption("""Input a SMILES code of your molecule of choice (use e.g. https://pubchem.ncbi.nlm.nih.gov/edit3/index.html).
