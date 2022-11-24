@@ -78,10 +78,13 @@ except:
 
 fp1 = Chem.RDKFingerprint(mol)
 
+g=[]
+
 for mol in ms:
     fp2 = Chem.RDKFingerprint(mol)
     Tan = DataStructs.TanimotoSimilarity(fp1,fp2)
-    st.text(str(Tan))
+    g.append(Tan)
+st.text(str(g))
 
 
 fig=plt.figure()
