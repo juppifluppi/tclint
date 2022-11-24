@@ -30,8 +30,6 @@ o=[]
 for lines in fil:
     o.append(Chem.MolFromSmiles(lines))
 
-st.write(o)
-
 st.header('TC/L interaction probability model')
 st.caption("""Input a SMILES code of your molecule of choice (use e.g. https://pubchem.ncbi.nlm.nih.gov/edit3/index.html).
 A probability for interaction with taurocholate/lecithin is computed for the compound at pH 6.5, based on two descriptors: logD and CrippenMR.
@@ -78,11 +76,11 @@ fp1 = Chem.RDKFingerprint(mol)
 
 g=[]
 
-for molx in ms:
+for molx in o:
     fp2 = Chem.RDKFingerprint(molx)
     Tan = DataStructs.TanimotoSimilarity(fp1,fp2)
     g.append(Tan)
-st.text(str(g))
+st.write(np.mean(g))
 
 fig=plt.figure()
 ax=fig.add_axes([0,0,1,1])
