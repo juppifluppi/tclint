@@ -12,6 +12,7 @@ df  = pd.read_csv("trainvalues.csv")
 x = df['rd_logD']
 y = df['rd_MR']
 plt.scatter(x, y)
+plt.set_title('scatter plot')
 plt.show()
 a = plt.figure()
 
