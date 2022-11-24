@@ -6,3 +6,4 @@ scopy
 numpy
 pandas
 matplotlib
+scipy
