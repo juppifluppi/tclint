@@ -137,8 +137,7 @@ plt.show()
 
 st.pyplot(fig)
 
-st.write("SCD applicability domain metric:")
-st.write("--------------------------------")
+st.write("SCD applicability domain metrics:")
 if len(g) > 1:
     st.write("Compound: "+str(round(np.sum(g),2)))
 else:
