@@ -22,9 +22,11 @@ y2 = df2['rd_MR']
 df_1 = pd.read_csv('smiles_train.csv')
 df_2 = pd.read_csv('smiles_test.csv')
 
-ms = [Chem.MolFromSmiles(x) for x in df_1]
+o=[]
+for i in df_1:
+    o.append(Chem.MolFromSmiles(i))
 
-st.write(ms)
+st.write(o)
 
 st.header('TC/L interaction probability model')
 st.caption("""Input a SMILES code of your molecule of choice (use e.g. https://pubchem.ncbi.nlm.nih.gov/edit3/index.html).
