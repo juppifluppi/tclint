@@ -22,6 +22,8 @@ y2 = df2['rd_MR']
 df_1 = pd.read_csv('smiles_train.csv')
 df_2 = pd.read_csv('smiles_test.csv')
 
+st.write(str(df_1))
+
 ms = [Chem.MolFromSmiles(x) for x in df_1]
 
 st.header('TC/L interaction probability model')
