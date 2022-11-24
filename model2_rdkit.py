@@ -138,7 +138,7 @@ plt.show()
 st.pyplot(fig)
 
 st.write("SCD applicability domain metrics (J. Chem. Inf. Model. 2019, 59, 181−189):")
-if len(g) > 1:
+if "NA" not in g:
     st.write("Compound: "+str(round(np.sum(g),2)))
 else:
     st.write("Compound: Part of training set")
