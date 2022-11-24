@@ -9,10 +9,12 @@ import numpy as np
 import pandas as pd
 
 df  = pd.read_csv("trainvalues.csv")
-df.plot()
-df.plot(kind='scatter',x="rd_logD",y="rd_MR")
-df.plot(kind='density')
-st.pyplot(df)
+x = df["rd_logD"]
+y = df["rd_MR"]
+
+a = plt.plot(x, y)
+
+st.pyplot(a)
 
 st.header('TC/L interaction probability model')
 st.caption("""Input a SMILES code of your molecule of choice (use e.g. https://pubchem.ncbi.nlm.nih.gov/edit3/index.html).
