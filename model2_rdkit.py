@@ -91,7 +91,7 @@ for molx in o:
         g.append("NA")
 #st.write(np.mean(np.sort(g)[-4:]))
 try:
-    st.write("Compound: "+str(round(np.sum(g),2))
+    st.write("Compound: "+str(round(np.sum(g),2)))
 except:
     st.write("Compound: Part of training set")
 
