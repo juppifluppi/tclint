@@ -72,9 +72,9 @@ try:
     tcl3 = 1 / ( 1 + ( 2.718281828459045 ** ( -1 * ( 0.9872289 + tcl1 + tcl2 ) ) ) )
     
     st.image(im)
-    st.text("logD: " + str(round(logd,2)))
-    st.text("CrippenMR: " + str(round(mr,2)))
-    st.text("TC/L interaction probability: " + str(round(tcl3,2)))
+    st.write("logD: " + str(round(logd,2)))
+    st.write("CrippenMR: " + str(round(mr,2)))
+    st.write("TC/L interaction probability: " + str(round(tcl3,2)))
 
 except:
     pass
