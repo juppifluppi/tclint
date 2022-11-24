@@ -82,8 +82,8 @@ for molx in o:
     #fp2 = Chem.RDKFingerprint(molx)
     fp2 = AllChem.GetMorganFingerprint(molx, 2)
     Tan = DataStructs.TanimotoSimilarity(fp1,fp2)
-    if Tan == 0:
-        Tan = 0.999999
+    if Tan = 0:
+        Tan = 0.99
     scd = 2.718281828459045 ** ((-3 * Tan)/(1 - Tan)) 
     g.append(scd)
 #st.write(np.mean(np.sort(g)[-4:]))
