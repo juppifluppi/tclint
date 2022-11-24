@@ -22,8 +22,12 @@ y2 = df2['rd_MR']
 df_1 = pd.read_csv('smiles_train.csv')
 df_2 = pd.read_csv('smiles_test.csv')
 
+file1 = open('smiles_train.csv', 'r')
+fil = file1.readlines()
+
+
 o=[]
-for i in df_1:
+for lines in fil:
     o.append(Chem.MolFromSmiles(i))
 
 st.write(o)
