@@ -28,7 +28,7 @@ fil = file1.readlines()
 
 o=[]
 for lines in fil:
-    o.append(Chem.MolFromSmiles(i))
+    o.append(Chem.MolFromSmiles(lines))
 
 st.write(o)
 
