@@ -61,7 +61,7 @@ except:
     pass
     
 fig=plt.figure()
-ax=fig.add_axes([0,0,0.5,0.5])
+ax=fig.add_axes([0,0,1,1])
 ax.scatter(x, y, color='b',alpha=0.5)
 ax.scatter(x2, y2, color='r',alpha=0.5)
 ax.scatter(logd, mr, color='g',alpha=1)
