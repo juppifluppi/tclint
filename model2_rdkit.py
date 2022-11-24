@@ -104,7 +104,7 @@ li=[]
     
 for k in ox:
     lkx=[]
-    fp1 = AllChem.GetMorganFingerprint(mol, 2)
+    fp1 = AllChem.GetMorganFingerprint(k, 2)
     for molx in o:
         fp2 = AllChem.GetMorganFingerprint(molx, 2)
         Tan = DataStructs.TanimotoSimilarity(fp1,fp2)
