@@ -41,7 +41,7 @@ but was rebuilt with corresponding descriptors from rdkit/scopy instead of MOE/P
 
 st.caption("""A scatter plot shows the properties of the compound in relation to the training and the validation set. SDC applicability
 domain metrics based on the tanimoto similarity of the compound to the training set is given underneath (J. Chem. Inf. Model. 2019, 59, 181−189).
-Higher values indicate a less reliable prediction.""")
+Higher SDC values and / or large distances to the training set in the plot indicate a less reliable prediction.""")
 
 try:
 
