@@ -7,6 +7,8 @@ import streamlit as st
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+from rdkit import DataStructs
+from rdkit.Chem.Fingerprints import FingerprintMols
 
 df  = pd.read_csv("trainvalues.csv")
 x = df['rd_logD']
@@ -16,7 +18,47 @@ df2  = pd.read_csv("testvalues.csv")
 x2 = df2['rd_logD']
 y2 = df2['rd_MR']
 
+# read and Conconate the csv's
+df_1 = pd.read_csv('first.csv')
+df_2 = pd.read_csv('second.csv')
+df_3 = pd.concat([df_1, df_2])
 
+# proof and make a list of SMILES
+df_smiles = df_3['smiles']
+c_smiles = []
+for ds in df_smiles:
+    try:
+        cs = Chem.CanonSmiles(ds)
+        c_smiles.append(cs)
+    except:
+        print('Invalid SMILES:', ds)
+print()
+
+# make a list of mols
+ms = [Chem.MolFromSmiles(x) for x in c_smiles]
+
+# make a list of fingerprints (fp)
+fps = [FingerprintMols.FingerprintMol(x) for x in ms]
+
+# the list for the dataframe
+qu, ta, sim = [], [], []
+
+# compare all fp pairwise without duplicates
+for n in range(len(fps)-1): # -1 so the last fp will not be used
+    s = DataStructs.BulkTanimotoSimilarity(fps[n], fps[n+1:]) # +1 compare with the next to the last fp
+    print(c_smiles[n], c_smiles[n+1:]) # witch mol is compared with what group
+    # collect the SMILES and values
+    for m in range(len(s)):
+        qu.append(c_smiles[n])
+        ta.append(c_smiles[n+1:][m])
+        sim.append(s[m])
+print()
+
+# build the dataframe and sort it
+d = {'query':qu, 'target':ta, 'Similarity':sim}
+df_final = pd.DataFrame(data=d)
+df_final = df_final.sort_values('Similarity', ascending=False)
+print(df_final)
 
 st.header('TC/L interaction probability model')
 st.caption("""Input a SMILES code of your molecule of choice (use e.g. https://pubchem.ncbi.nlm.nih.gov/edit3/index.html).
