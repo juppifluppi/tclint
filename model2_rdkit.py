@@ -80,7 +80,7 @@ for molx in o:
     fp2 = Chem.RDKFingerprint(molx)
     Tan = DataStructs.TanimotoSimilarity(fp1,fp2)
     g.append(Tan)
-st.write(np.mean(np.sort(g)[:4]))
+st.write(np.mean(np.sort(g)[-4:]))
 
 fig=plt.figure()
 ax=fig.add_axes([0,0,1,1])
