@@ -9,9 +9,9 @@ import numpy as np
 import pandas as pd
 
 df  = pd.read_csv("trainvalues.csv")
-df.plot()  # plots all columns against index
-df.plot(kind='scatter',x='rd_logD',y='rd_MR') # scatter plot
-df.plot(kind='density')  # estimate density function
+df.plt()  # plots all columns against index
+df.plt(kind='scatter',x='rd_logD',y='rd_MR') # scatter plot
+df.plt(kind='density')  # estimate density function
 
 plot0=df.figure
 st.pyplot(plot0)
