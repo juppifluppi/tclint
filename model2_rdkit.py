@@ -12,11 +12,16 @@ df  = pd.read_csv("trainvalues.csv")
 x = df['rd_logD']
 y = df['rd_MR']
 
+df2  = pd.read_csv("testvalues.csv")
+x2 = df2['rd_logD']
+y2 = df2['rd_MR']
+
 fig=plt.figure()
 ax=fig.add_axes([0,0,1,1])
-ax.scatter(x, y, color='r')
-ax.set_xlabel('Grades Range')
-ax.set_ylabel('Grades Scored')
+ax.scatter(x, y, color='b',alpha=0.5)
+ax.scatter(x2, y2, color='r',alpha=0.5)
+ax.set_xlabel('logD')
+ax.set_ylabel('CrippenMR')
 ax.set_title('scatter plot')
 plt.show()
 
