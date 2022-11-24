@@ -26,10 +26,17 @@ df_2 = pd.read_csv('smiles_test.csv')
 file1 = open('smiles_train.csv', 'r')
 fil = file1.readlines()
 
+file2 = open('smiles_test.csv', 'r')
+fil2 = file2.readlines()
+
 
 o=[]
 for lines in fil:
     o.append(Chem.MolFromSmiles(lines))
+    
+ox=[]
+for lines in fil2:
+    ox.append(Chem.MolFromSmiles(lines))
 
 st.header('TC/L interaction probability model')
 st.caption("""Input a SMILES code of your molecule of choice (use e.g. https://pubchem.ncbi.nlm.nih.gov/edit3/index.html).
@@ -92,6 +99,19 @@ try:
     st.write(np.sum(g))
 except:
     st.write("Part of training set")
+
+li=[]
+    
+for k in ox:
+    lkx=[]
+    fp1 = AllChem.GetMorganFingerprint(mol, 2)
+    for molx in o:
+        fp2 = AllChem.GetMorganFingerprint(molx, 2)
+        Tan = DataStructs.TanimotoSimilarity(fp1,fp2)
+        scd = 2.718281828459045 ** ((-3 * Tan)/(1 - Tan))
+        lkx.append(scd)
+     li.append(np.sum(lkx))
+        
 
 fig=plt.figure()
 ax=fig.add_axes([0,0,1,1])
