@@ -19,16 +19,11 @@ df2  = pd.read_csv("testvalues.csv")
 x2 = df2['rd_logD']
 y2 = df2['rd_MR']
 
-# read and Conconate the csv's
-df_1 = pd.read_csv('smiles_train.csv')
-df_2 = pd.read_csv('smiles_test.csv')
-
 file1 = open('smiles_train.csv', 'r')
 fil = file1.readlines()
 
 file2 = open('smiles_test.csv', 'r')
 fil2 = file2.readlines()
-
 
 o=[]
 for lines in fil:
