@@ -40,9 +40,9 @@ The model is inspired by Mol. Pharmaceutics 2022, 19, 2868−2876 (https://doi.o
 but was rebuilt with corresponding descriptors from rdkit/scopy instead of MOE/PaDEL, using logD for pH 7.4 instead of 7.0.
 For the same traning and validation sets it shows comparable statistics the published model (balanced accuracy: 0.86/0.83, AUC: 0.93/0.93).""")
 
-st.caption("""A scatter plot shows the properties of the compound in relation to the training and the validation set. SDC applicability
-domain metrics based on the tanimoto similarity of the compound to the training set is given underneath (J. Chem. Inf. Model. 2019, 59, 181−189).
-Higher SDC values and / or large distances to the training set in the plot can indicate a less reliable prediction.""")
+st.caption("""A scatter plot shows the properties of the compound in relation to the training and the validation set. A SDC applicability
+domain metric based on the tanimoto similarity of the compound to the training set is given underneath (J. Chem. Inf. Model. 2019, 59, 181−189).
+Higher SDC values and / or large distances to the training set in the plot can indicate less reliable predictions.""")
 
 try:
 
