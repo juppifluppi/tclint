@@ -103,9 +103,13 @@ for k in ox:
     for molx in o:
         fp2 = AllChem.GetMorganFingerprint(molx, 2)
         Tan = DataStructs.TanimotoSimilarity(fp1,fp2)
-        scd = 2.718281828459045 ** ((-3 * Tan)/(1 - Tan))
-        lkx.append(scd)
+        try:
+            scd = 2.718281828459045 ** ((-3 * Tan)/(1 - Tan))
+            lkx.append(scd)
+        except:
+            pass
     li.append(np.sum(lkx))
+ 
         
 
 fig=plt.figure()
