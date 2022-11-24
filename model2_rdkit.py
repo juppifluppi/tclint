@@ -34,21 +34,14 @@ for ds in df_smiles:
 ms = [Chem.MolFromSmiles(x) for x in c_smiles]
 fps1 = [FingerprintMols.FingerprintMol(x) for x in ms]
 
-df_smiles = df_2
-c_smiles = []
-for ds in df_smiles:
-    try:
-        cs = Chem.CanonSmiles(ds)
-        c_smiles.append(cs)
-    except:
-        print('Invalid SMILES:', ds)
+ref = Chem.MolFromSmiles('Nc1nc2nc(N)nc(N)c2nc1-c1cccc(Cl)c1')
+fp1 = Chem.RDKFingerprint(ref)
 
-ms = [Chem.MolFromSmiles(x) for x in c_smiles]
-fps2 = [FingerprintMols.FingerprintMol(x) for x in ms]
-
-scores = DataStructs.BulkTanimotoSimilarity(fps2, fps1)
-
-st.text(scores)
+suppl = ms
+for mol in ms:
+    fp2 = Chem.RDKFingerprint(mol)
+    Tan = DataStructs.TanimotoSimilarity(fp1,fp2)
+    st.text(Tan)
 
 st.header('TC/L interaction probability model')
 st.caption("""Input a SMILES code of your molecule of choice (use e.g. https://pubchem.ncbi.nlm.nih.gov/edit3/index.html).
