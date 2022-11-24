@@ -11,10 +11,9 @@ import pandas as pd
 df  = pd.read_csv("trainvalues.csv")
 x = df['rd_logD']
 y = df['rd_MR']
-a = plt.plot(x,y)
+a = plt.figure(x,y)
 
-plot0=a.figure
-st.pyplot(plot0)
+st.pyplot(a)
 
 fig, ax = plt.subplots()
 ax.scatter(arr, bins=20)
