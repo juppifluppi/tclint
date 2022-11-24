@@ -73,14 +73,16 @@ try:
 except:
     pass
 
-fp1 = Chem.RDKFingerprint(mol)
+#fp1 = Chem.RDKFingerprint(mol)
+fp1 = AllChem.GetMorganFingerprint(mol, 2)
 
 g=[]
 
 for molx in o:
-    fp2 = Chem.RDKFingerprint(molx)
-    #p2 = AllChem.GetMorganFingerprint(molx, 2)
+    #fp2 = Chem.RDKFingerprint(molx)
+    fp2 = AllChem.GetMorganFingerprint(molx, 2)
     Tan = DataStructs.TanimotoSimilarity(fp1,fp2)
+    scd = -3 * 
     g.append(Tan)
 st.write(np.mean(np.sort(g)[-4:]))
 
