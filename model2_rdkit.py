@@ -11,7 +11,8 @@ import pandas as pd
 df  = pd.read_csv("trainvalues.csv")
 x = df['rd_logD']
 y = df['rd_MR']
-plt.plot(x,y)
+plt.scatter(x, y)
+plt.show()
 a = plt.figure()
 
 st.pyplot(a)
