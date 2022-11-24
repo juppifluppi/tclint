@@ -88,7 +88,7 @@ for molx in o:
         scd = 2.718281828459045 ** ((-3 * Tan)/(1 - Tan))
         g.append(scd)
     except:
-        g="Part of training set"
+        pass
 
 li=[]
     
@@ -138,9 +138,6 @@ plt.show()
 st.pyplot(fig)
 
 st.write("SCD applicability domain metrics (J. Chem. Inf. Model. 2019, 59, 181−189):")
-if g != "Part of training set":
-    st.write("Compound: "+str(round(np.sum(g),2)))
-else:
-    st.write("Compound: Part of training set")
+st.write("Compound: "+str(round(np.sum(g),2)))
 st.write("Training set: "+str(round(np.min(lit),2))+" - "+str(round(np.max(lit),2))+" (Mean: "+str(round(np.mean(lit),2))+"; SD: "+str(round(np.std(lit),2))+")")       
 st.write("Validation set: "+str(round(np.min(li),2))+" - "+str(round(np.max(li),2))+" (Mean: "+str(round(np.mean(li),2))+"; SD: "+str(round(np.std(li),2))+")")     
