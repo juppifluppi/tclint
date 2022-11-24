@@ -34,15 +34,6 @@ for ds in df_smiles:
 ms = [Chem.MolFromSmiles(x) for x in c_smiles]
 fps1 = [FingerprintMols.FingerprintMol(x) for x in ms]
 
-ref = Chem.MolFromSmiles('Nc1nc2nc(N)nc(N)c2nc1-c1cccc(Cl)c1')
-fp1 = Chem.RDKFingerprint(ref)
-
-suppl = ms
-for mol in ms:
-    fp2 = Chem.RDKFingerprint(mol)
-    Tan = DataStructs.TanimotoSimilarity(fp1,fp2)
-    st.text(str(Tan))
-
 st.header('TC/L interaction probability model')
 st.caption("""Input a SMILES code of your molecule of choice (use e.g. https://pubchem.ncbi.nlm.nih.gov/edit3/index.html).
 A probability for interaction with taurocholate/lecithin is computed for the compound at pH 6.5, based on two descriptors: logD and CrippenMR.
@@ -84,7 +75,15 @@ try:
 
 except:
     pass
-    
+
+fp1 = Chem.RDKFingerprint(mol)
+
+for mol in ms:
+    fp2 = Chem.RDKFingerprint(mol)
+    Tan = DataStructs.TanimotoSimilarity(fp1,fp2)
+    st.text(str(Tan))
+
+
 fig=plt.figure()
 ax=fig.add_axes([0,0,1,1])
 ax.scatter(x, y, color='b',alpha=0.5)
