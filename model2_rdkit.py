@@ -88,12 +88,7 @@ for molx in o:
         scd = 2.718281828459045 ** ((-3 * Tan)/(1 - Tan))
         g.append(scd)
     except:
-        g.append("NA")
-#st.write(np.mean(np.sort(g)[-4:]))
-try:
-    st.write("Compound: "+str(round(np.sum(g),2)))
-except:
-    st.write("Compound: Part of training set")
+        g="Part of training set"
 
 li=[]
     
@@ -145,12 +140,10 @@ plt.show()
 
 st.pyplot(fig)
 
-
-fig=plt.figure()
-ax=fig.add_axes([0,0,1,1])
-ax.hist(li, density=True, bins=50)
-ax.set_ylabel('Probability')
-ax.set_xlabel('Data')
-ax.set_title('Compound vs. modeling set')
-plt.show()
-st.pyplot(fig)
+st.write("SCD applicability domain metric:")
+if len(g) > 1:
+    st.write("Compound: "+str(round(np.sum(g),2)))
+else:
+    st.write("Compound: Part of training set")
+st.write("Training set: "+str(round(np.min(lit),2))+" - "+str(round(np.max(lit),2)))       
+st.write("Validation set: "+str(round(np.min(li),2))+" - "+str(round(np.max(li),2)))   
