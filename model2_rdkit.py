@@ -12,7 +12,6 @@ df  = pd.read_csv("trainvalues.csv")
 x = df['rd_logD']
 y = df['rd_MR']
 a = plt.plot(x,y)
-a = plt.show()
 
 plot0=a.figure
 st.pyplot(plot0)
