@@ -141,7 +141,7 @@ plt.show()
 
 st.pyplot(fig)
 
-st.write("SDC applicability domain metrics (J. Chem. Inf. Model. 2019, 59, 181−189):")
+st.write("SDC applicability domain metrics:")
 st.write("Compound: "+str(round(np.sum(g),2)))
 st.write("Training set: "+str(round(np.min(lit),2))+" - "+str(round(np.max(lit),2))+" (Mean: "+str(round(np.mean(lit),2))+"; SD: "+str(round(np.std(lit),2))+")")       
 st.write("Validation set: "+str(round(np.min(li),2))+" - "+str(round(np.max(li),2))+" (Mean: "+str(round(np.mean(li),2))+"; SD: "+str(round(np.std(li),2))+")")     
