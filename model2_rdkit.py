@@ -110,7 +110,7 @@ for k in ox:
         Tan = DataStructs.TanimotoSimilarity(fp1,fp2)
         scd = 2.718281828459045 ** ((-3 * Tan)/(1 - Tan))
         lkx.append(scd)
-     li.append(np.sum(lkx))
+    li.append(np.sum(lkx))
         
 
 fig=plt.figure()
