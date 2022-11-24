@@ -85,7 +85,7 @@ for mol in ms:
     Tan = DataStructs.TanimotoSimilarity(fp1,fp2)
     g.append(Tan)
 st.text(str(g))
-
+st.text(len(mol))
 
 fig=plt.figure()
 ax=fig.add_axes([0,0,1,1])
