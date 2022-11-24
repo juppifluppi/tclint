@@ -19,12 +19,12 @@ x2 = df2['rd_logD']
 y2 = df2['rd_MR']
 
 # read and Conconate the csv's
-df_1 = pd.read_csv('first.csv')
-df_2 = pd.read_csv('second.csv')
+df_1 = pd.read_csv('smiles_train.csv')
+df_2 = pd.read_csv('smiles_test.csv')
 df_3 = pd.concat([df_1, df_2])
 
 # proof and make a list of SMILES
-df_smiles = df_3['smiles']
+df_smiles = df_3
 c_smiles = []
 for ds in df_smiles:
     try:
