@@ -4,6 +4,5 @@ dimorphite_dl
 padelpy
 scopy
 numpy
-pandas
 matplotlib
 scipy
