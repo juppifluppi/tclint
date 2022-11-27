@@ -37,7 +37,6 @@ try:
 except:
     print("Training/test data sets not found, continuing without comparison.")
     comp = 0
-    sys.exit()
 
 # convert to rdkit mols    
 
