@@ -16,6 +16,8 @@ import sys
 
 # load training and test set data
 
+comp = 1
+
 try:
 
     df  = pd.read_csv("trainvalues.csv")
@@ -33,18 +35,21 @@ try:
     fil2 = file2.readlines()
 
 except:
-    print("Training/test data sets not found.")
+    print("Training/test data sets not found, continuing without comparison.")
+    comp = 0
     sys.exit()
 
 # convert to rdkit mols    
+
+if comp == 1:
+
+    o=[]
+    for lines in fil:
+        o.append(Chem.MolFromSmiles(lines))
     
-o=[]
-for lines in fil:
-    o.append(Chem.MolFromSmiles(lines))
-    
-ox=[]
-for lines in fil2:
-    ox.append(Chem.MolFromSmiles(lines))
+    ox=[]
+    for lines in fil2:
+        ox.append(Chem.MolFromSmiles(lines))
 
 # protonate and pretreat given SMILES, compute descriptors via rdkit/scopy, calculate probability    
     
@@ -86,64 +91,66 @@ except:
     sys.exit()
 
 # copmute ecfp_4 fingerprints to calculate SDC metrics    
-    
-fp1 = AllChem.GetMorganFingerprint(mol, 2)
 
-g=[]
+if comp == 1:
 
-for molx in o:
-    fp2 = AllChem.GetMorganFingerprint(molx, 2)
-    Tan = DataStructs.TanimotoSimilarity(fp1,fp2)
-    try:
-        scd = 2.718281828459045 ** ((-3 * Tan)/(1 - Tan))
-        g.append(scd)
-    except:
-        pass
+    fp1 = AllChem.GetMorganFingerprint(mol, 2)
 
-li=[]
-    
-for k in ox:
-    lkx=[]
-    fp1 = AllChem.GetMorganFingerprint(k, 2)
+    g=[]
+
     for molx in o:
         fp2 = AllChem.GetMorganFingerprint(molx, 2)
         Tan = DataStructs.TanimotoSimilarity(fp1,fp2)
         try:
             scd = 2.718281828459045 ** ((-3 * Tan)/(1 - Tan))
-            lkx.append(scd)
+            g.append(scd)
         except:
             pass
-    li.append(np.sum(lkx))
+
+    li=[]
+    
+    for k in ox:
+        lkx=[]
+        fp1 = AllChem.GetMorganFingerprint(k, 2)
+        for molx in o:
+            fp2 = AllChem.GetMorganFingerprint(molx, 2)
+            Tan = DataStructs.TanimotoSimilarity(fp1,fp2)
+            try:
+                scd = 2.718281828459045 ** ((-3 * Tan)/(1 - Tan))
+                lkx.append(scd)
+            except:
+                pass
+        li.append(np.sum(lkx))
  
-lit=[] 
+    lit=[] 
 
-for k in o:
-    lkx=[]
-    fp1 = AllChem.GetMorganFingerprint(k, 2)
-    for molx in o:
-        fp2 = AllChem.GetMorganFingerprint(molx, 2)
-        Tan = DataStructs.TanimotoSimilarity(fp1,fp2)
-        try:
-            scd = 2.718281828459045 ** ((-3 * Tan)/(1 - Tan))
-            lkx.append(scd)
-        except:
-            pass
-    lit.append(np.sum(lkx)) 
+    for k in o:
+        lkx=[]
+        fp1 = AllChem.GetMorganFingerprint(k, 2)
+        for molx in o:
+            fp2 = AllChem.GetMorganFingerprint(molx, 2)
+            Tan = DataStructs.TanimotoSimilarity(fp1,fp2)
+            try:
+                scd = 2.718281828459045 ** ((-3 * Tan)/(1 - Tan))
+                lkx.append(scd)
+            except:
+                pass
+        lit.append(np.sum(lkx)) 
 
-# output values    
+    # output values    
     
-print("Compound vs modeling sets:")
-print("Training set logD: "+str(round(np.min(x),2))+" - "+str(round(np.max(x),2))+" (Mean: "+str(round(np.mean(x),2))+"; SD: "+str(round(np.std(x),2))+")")       
-print("Training set CrippenMR: "+str(round(np.min(y),2))+" - "+str(round(np.max(y),2))+" (Mean: "+str(round(np.mean(y),2))+"; SD: "+str(round(np.std(y),2))+")")  
-print("Validation set logD: "+str(round(np.min(x2),2))+" - "+str(round(np.max(x2),2))+" (Mean: "+str(round(np.mean(x2),2))+"; SD: "+str(round(np.std(x2),2))+")")       
-print("Validation set CrippenMR: "+str(round(np.min(y2),2))+" - "+str(round(np.max(y2),2))+" (Mean: "+str(round(np.mean(y2),2))+"; SD: "+str(round(np.std(y2),2))+")")  
+    print("Compound vs modeling sets:")
+    print("Training set logD: "+str(round(np.min(x),2))+" - "+str(round(np.max(x),2))+" (Mean: "+str(round(np.mean(x),2))+"; SD: "+str(round(np.std(x),2))+")")       
+    print("Training set CrippenMR: "+str(round(np.min(y),2))+" - "+str(round(np.max(y),2))+" (Mean: "+str(round(np.mean(y),2))+"; SD: "+str(round(np.std(y),2))+")")  
+    print("Validation set logD: "+str(round(np.min(x2),2))+" - "+str(round(np.max(x2),2))+" (Mean: "+str(round(np.mean(x2),2))+"; SD: "+str(round(np.std(x2),2))+")")       
+    print("Validation set CrippenMR: "+str(round(np.min(y2),2))+" - "+str(round(np.max(y2),2))+" (Mean: "+str(round(np.mean(y2),2))+"; SD: "+str(round(np.std(y2),2))+")")  
 
-print("---------------------------------")         
-print("SDC applicability domain metrics:")
-print("Training set SDC: "+str(round(np.min(lit),2))+" - "+str(round(np.max(lit),2))+" (Mean: "+str(round(np.mean(lit),2))+"; SD: "+str(round(np.std(lit),2))+")")       
-print("Validation set SDC: "+str(round(np.min(li),2))+" - "+str(round(np.max(li),2))+" (Mean: "+str(round(np.mean(li),2))+"; SD: "+str(round(np.std(li),2))+")")     
-print("Compound SDC: "+str(round(np.sum(g),2)))
-print("---------------------------------")   
+    print("---------------------------------")         
+    print("SDC applicability domain metrics:")
+    print("Training set SDC: "+str(round(np.min(lit),2))+" - "+str(round(np.max(lit),2))+" (Mean: "+str(round(np.mean(lit),2))+"; SD: "+str(round(np.std(lit),2))+")")       
+    print("Validation set SDC: "+str(round(np.min(li),2))+" - "+str(round(np.max(li),2))+" (Mean: "+str(round(np.mean(li),2))+"; SD: "+str(round(np.std(li),2))+")")     
+    print("Compound SDC: "+str(round(np.sum(g),2)))
+    print("---------------------------------")   
 print("Version: 1.0 (27.11.22)")  
 print("Web version: https://tclint.streamlit.app/")
 print("More info can be found on: https://github.com/juppifluppi/tclint")   
