@@ -151,3 +151,4 @@ st.write("Validation set: "+str(round(np.min(li),2))+" - "+str(round(np.max(li),
 st.write("Compound: "+str(round(np.sum(g),2)))
 
 
+st.caption("Version 1.0 (27.11.22). Visit https://github.com/juppifluppi/tclint for more information and a standalone script.")
