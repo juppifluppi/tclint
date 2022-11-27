@@ -3,15 +3,12 @@
 
 from rdkit import Chem
 from rdkit import DataStructs
-from rdkit.Chem import Draw
 from rdkit.Chem import AllChem
 from rdkit.Chem.Fingerprints import FingerprintMols
 from scopy.ScoPretreat import pretreat
 import scopy.ScoDruglikeness
 from dimorphite_dl import DimorphiteDL
-import matplotlib.pyplot as plt
 import numpy as np
-import pandas as pd
 import sys
 
 # load training and test set data
