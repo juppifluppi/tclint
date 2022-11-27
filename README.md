@@ -28,9 +28,9 @@ dimorphite-dl 1.3.2
 numpy 1.23.4
 ```
 
-## Conda installation from source
+## Conda program installation from source
 
-The model can be installed in a new conda environment with the necessary packages from source using with following commands:
+The model can be installed as program in a new conda environment with the necessary packages from source using with following commands:
 
 1. ```git clone https://github.com/juppifluppi/tclint.git```
 2. ```cd tclint```
@@ -49,6 +49,6 @@ tclint listofsmiles.dat
 Alternatively, enamine_db.html and zinc_db.html contain already calculated TC/L and lipid interaction probabilities for drug molecules with the original models 2 and 3 from the publication, using MOE/PaDEL descriptors (not manually inspected for correct protonation!).
 
 
-## Cite
+## Please cite
 
 [Schlauersbach, Jonas, et al. "Predicting Bile and Lipid Interaction for Drug Substances." Molecular pharmaceutics 19.8 (2022): 2868-2876.](https://doi.org/10.1021/acs.molpharmaceut.2c00227)
