@@ -15,6 +15,10 @@ To use the command-line script (tclint.py) locally, run the following code in th
 ```
 python tclint.py "SMILESCODE" 
 ```
+Instead of a single SMILES code, a ".dat" file can be given, with one SMILES code per line. In this case, the script outputs the properties into "results.dat":
+```
+python tclint.py listofsmiles.dat 
+```
 
 Packages needed for running:
 ```
@@ -37,6 +41,7 @@ The model can be installed in a new conda environment with the necessary package
 You can then use the alias tclint:
 ```
 tclint "SMILESCODE" 
+tclint listofsmiles.dat
 ```
 
 ## Original model databases for TC/L and lipid interactions
