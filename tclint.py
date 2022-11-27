@@ -14,6 +14,8 @@ import numpy as np
 import pandas as pd
 import sys
 
+# load training and test set data
+
 try:
 
     df  = pd.read_csv("trainvalues.csv")
@@ -34,6 +36,8 @@ except:
     print("Training/test data sets not found.")
     sys.exit()
 
+# convert to rdkit mols    
+    
 o=[]
 for lines in fil:
     o.append(Chem.MolFromSmiles(lines))
@@ -42,6 +46,8 @@ ox=[]
 for lines in fil2:
     ox.append(Chem.MolFromSmiles(lines))
 
+# protonate and pretreat given SMILES, compute descriptors via rdkit/scopy, calculate probability    
+    
 try:
 
     SMI = str(sys.argv[1])
@@ -79,6 +85,8 @@ except:
     print("Something is wrong with your SMILES code.")
     sys.exit()
 
+# copmute ecfp_4 fingerprints to calculate SDC metrics    
+    
 fp1 = AllChem.GetMorganFingerprint(mol, 2)
 
 g=[]
@@ -122,6 +130,8 @@ for k in o:
             pass
     lit.append(np.sum(lkx)) 
 
+# output values    
+    
 print("Compound vs modeling sets:")
 print("Training set logD: "+str(round(np.min(x),2))+" - "+str(round(np.max(x),2))+" (Mean: "+str(round(np.mean(x),2))+"; SD: "+str(round(np.std(x),2))+")")       
 print("Training set CrippenMR: "+str(round(np.min(y),2))+" - "+str(round(np.max(y),2))+" (Mean: "+str(round(np.mean(y),2))+"; SD: "+str(round(np.std(y),2))+")")  
