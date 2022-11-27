@@ -26,7 +26,7 @@ numpy 1.23.4
 
 ## Conda installation from source
 
-The model can be installed as a new conda environment from source using the following commands:
+The model can be installed in a new conda environment with the necessary packages from source using with following commands:
 
 1. ```git clone https://github.com/juppifluppi/tclint.git```
 2. ```cd tclint```
