@@ -20,7 +20,6 @@ setup(
         'Source': 'https://github.com/juppifluppi/tclint',
         'Web application': 'http://tclint.streamlit.app',
     },
-    license='MIT',
     packages=find_packages(),
     package_data={'tclint': ['py.typed'],
     '': ['csv.typed']},
@@ -38,13 +37,10 @@ setup(
     classifiers=[
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.7',
-        'Programming Language :: Python :: 3.8',
-        'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent'
     ],
     keywords=[
         'chemistry',
-        'machine learning',
         'property prediction',
     ]
 )
