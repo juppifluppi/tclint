@@ -31,6 +31,4 @@ Alternatively, enamine_db.html and zinc_db.html contain already calculated TC/L 
 
 ## Cite
 
-Please cite:
-
 [Schlauersbach, Jonas, et al. "Predicting Bile and Lipid Interaction for Drug Substances." Molecular pharmaceutics 19.8 (2022): 2868-2876.](https://doi.org/10.1021/acs.molpharmaceut.2c00227)
