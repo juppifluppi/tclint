@@ -30,8 +30,10 @@ setup(
         ]
     },
     install_requires=[
-        'numpy>=1.18.1',
-        'pandas>=1.0.3',
+        'numpy>=1.23.4',        
+        'dimorphite-dl>=1.3.2',
+        'rdkit>=2022.09.1',    
+        'scopy>=1.2.5         
     ],
     python_requires='>=3.7',
     classifiers=[
