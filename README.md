@@ -5,15 +5,15 @@ Statistics regarding the similarity of the compound's properties (logD/CrippenMR
 
 ## Web application
 
-Streamlit web app (tcli_streamlit.py) is accessible at:
+Streamlit web app (tclint_streamlit.py) is accessible at:
 
 https://tcli.streamlit.app/
 
 ## Local command-line script
 
-To use the command-line script (tcli.py) locally, run the following code in the downloaded folder:
+To use the command-line script (tclint.py) locally, run the following code in the downloaded folder:
 ```
-python tcli.py "SMILESCODE" 
+python tclint.py "SMILESCODE" 
 ```
 Conda packages installed for running:
 ```
