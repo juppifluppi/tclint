@@ -35,7 +35,7 @@ try:
     fil2 = file2.readlines()
 
 except:
-    print("Training/test data sets not found, continuing without comparison...")
+    print("Original training/validation sets not found, continuing without comparison...")
     comp = 0
 
 # convert to rdkit mols    
@@ -138,7 +138,7 @@ if comp == 1:
 
     # output values    
     
-    print("Compound vs modeling sets:")
+    print("Modeling sets:")
     print("Training set logD: "+str(round(np.min(x),2))+" - "+str(round(np.max(x),2))+" (Mean: "+str(round(np.mean(x),2))+"; SD: "+str(round(np.std(x),2))+")")       
     print("Training set CrippenMR: "+str(round(np.min(y),2))+" - "+str(round(np.max(y),2))+" (Mean: "+str(round(np.mean(y),2))+"; SD: "+str(round(np.std(y),2))+")")  
     print("Validation set logD: "+str(round(np.min(x2),2))+" - "+str(round(np.max(x2),2))+" (Mean: "+str(round(np.mean(x2),2))+"; SD: "+str(round(np.std(x2),2))+")")       
