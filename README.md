@@ -24,6 +24,6 @@ numpy 1.23.4
 pandas 1.5.1
 ```
 
-## Original model databases
+## Original model databases for TC/L and lipid interactions
 
 Alternatively, enamine_db.html and zinc_db.html contain already calculated TC/L and lipid interaction probabilities for drug molecules with the original models 2 and 3 from the publication, using MOE/PaDEL descriptors (not manually inspected for correct protonation!).
