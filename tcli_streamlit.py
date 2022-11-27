@@ -1,5 +1,12 @@
+### Streamlit web app to compute TC/L interaction probability of compound
+### Version 1.0 (27.11.22): https://github.com/juppifluppi/tcli
+### Author: Josef Kehrein
+
 from rdkit import Chem
+from rdkit import DataStructs
 from rdkit.Chem import Draw
+from rdkit.Chem import AllChem
+from rdkit.Chem.Fingerprints import FingerprintMols
 from scopy.ScoPretreat import pretreat
 import scopy.ScoDruglikeness
 from dimorphite_dl import DimorphiteDL
@@ -7,9 +14,6 @@ import streamlit as st
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-from rdkit import DataStructs
-from rdkit.Chem.Fingerprints import FingerprintMols
-from rdkit.Chem import AllChem
 
 df  = pd.read_csv("trainvalues.csv")
 x = df['rd_logD']
