@@ -1,3 +1,7 @@
+### Command-line python script to compute TC/L interaction probability of compound
+### Version 1.0 (27.11.22): https://github.com/juppifluppi/tcli
+### Author: Josef Kehrein
+
 from rdkit import Chem
 from rdkit import DataStructs
 from rdkit.Chem import Draw
@@ -133,4 +137,4 @@ print("Compound SDC: "+str(round(np.sum(g),2)))
 print("---------------------------------")   
 print("Version: 1.0")  
 print("Web version: https://tcl-interaction2.streamlit.app/")
-print("More info can be found on: https://github.com/juppifluppi/tcl-lipid-interaction")   
+print("More info can be found on: https://github.com/juppifluppi/tcli")   
