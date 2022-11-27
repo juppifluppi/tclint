@@ -125,7 +125,7 @@ for k in o:
     lit.append(np.sum(lkx)) 
          
 fig=plt.figure()
-ax=fig.add_axes([0,0,0.8,0.8])
+ax=fig.add_axes([0,0,0.5,0.5])
 ax.scatter(x, y, color='b',alpha=0.5)
 ax.scatter(x2, y2, color='r',alpha=0.5)
 ax.scatter(logd, mr, color='g',alpha=1,s=150)
