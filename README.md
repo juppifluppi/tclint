@@ -23,7 +23,6 @@ rdkit 2022.09.1
 scopy 1.2.5
 dimorphite-dl 1.3.2
 numpy 1.23.4
-pandas 1.5.1
 ```
 
 ## Original model databases for TC/L and lipid interactions
