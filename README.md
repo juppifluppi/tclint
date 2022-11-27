@@ -25,6 +25,13 @@ dimorphite-dl 1.3.2
 numpy 1.23.4
 ```
 
+Thus, the model can be installed as a new conda environment from source using the following commands:
+1. ```git clone https://github.com/juppifluppi/tclint.git```
+2. ```cd tclint```
+3. ```conda env create -f environment.yml```
+4. ```conda activate tclint```
+5. ```pip install -e .```
+
 ## Original model databases for TC/L and lipid interactions
 
 Alternatively, enamine_db.html and zinc_db.html contain already calculated TC/L and lipid interaction probabilities for drug molecules with the original models 2 and 3 from the publication, using MOE/PaDEL descriptors (not manually inspected for correct protonation!).
