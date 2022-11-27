@@ -34,11 +34,11 @@ for lines in fil2:
     ox.append(Chem.MolFromSmiles(lines))
 
 st.header('TC/L interaction probability model')
-st.text("""Input a SMILES code of your molecule of choice (use e.g. https://pubchem.ncbi.nlm.nih.gov/edit3/index.html).
-A probability for interaction with taurocholate/lecithin is computed for the compound at pH 6.5, based on two descriptors: logD and CrippenMR.
+st.caption("""Input a SMILES code of a molecule (use e.g. https://pubchem.ncbi.nlm.nih.gov/edit3/index.html).
+A probability for interaction with taurocholate/lecithin is computed at pH 6.5, based on two descriptors: logD and CrippenMR.
 The model is inspired by Mol. Pharmaceutics 2022, 19, 2868−2876 (https://doi.org/10.1021/acs.molpharmaceut.2c00227)
-but was rebuilt with corresponding descriptors from rdkit/scopy instead of MOE/PaDEL, using logD for pH 7.4 instead of 7.0.
-For the same traning and validation sets it shows comparable statistics as the published model (balanced accuracy: 0.86/0.83, AUC: 0.93/0.93).""")
+but was built with descriptors from rdkit/scopy instead of MOE/PaDEL, using logD for pH 7.4 instead of 7.0.
+For the same traning and validation sets similar statistics are retrieved (balanced accuracy: 0.86/0.83, AUC: 0.93/0.93).""")
 
 
 try:
