@@ -17,7 +17,7 @@ python tclint.py "SMILESCODE"
 ```
 If the script is not run directly within the downloaded folder containing training/validation datasets, the interaction is computed without further comparison.
 
-Conda packages installed for running:
+Packages needed for running:
 ```
 rdkit 2022.09.1
 scopy 1.2.5
@@ -25,12 +25,20 @@ dimorphite-dl 1.3.2
 numpy 1.23.4
 ```
 
-Thus, the model can be installed as a new conda environment from source using the following commands:
+## Conda installation from source
+
+The model can be installed as a new conda environment from source using the following commands:
+
 1. ```git clone https://github.com/juppifluppi/tclint.git```
 2. ```cd tclint```
 3. ```conda env create -f environment.yml```
 4. ```conda activate tclint```
 5. ```pip install -e .```
+
+You can then use the alias tclint:
+```
+tclint "SMILESCODE" 
+```
 
 ## Original model databases for TC/L and lipid interactions
 
