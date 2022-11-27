@@ -27,3 +27,10 @@ pandas 1.5.1
 ## Original model databases for TC/L and lipid interactions
 
 Alternatively, enamine_db.html and zinc_db.html contain already calculated TC/L and lipid interaction probabilities for drug molecules with the original models 2 and 3 from the publication, using MOE/PaDEL descriptors (not manually inspected for correct protonation!).
+
+
+## Cite
+
+Please cite:
+
+[Schlauersbach, Jonas, et al. "Predicting Bile and Lipid Interaction for Drug Substances." Molecular pharmaceutics 19.8 (2022): 2868-2876.](https://doi.org/10.1021/acs.molpharmaceut.2c00227)
