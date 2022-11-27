@@ -78,7 +78,7 @@ except:
     pass
 
 st.caption("""A scatter plot shows the properties of the compound in relation to the training and the validation set. A SDC applicability
-domain metric based on summed tanimoto similarities to the training set molecules is given underneath (J. Chem. Inf. Model. 2019, 59, 
+domain metric based on summed tanimoto similarities to the training set molecules is given underneath for each case (J. Chem. Inf. Model. 2019, 59, 
 181−189). Higher SDC values and / or large distances to the training set in the plot can indicate less reliable predictions.""")
 
 fp1 = AllChem.GetMorganFingerprint(mol, 2)
