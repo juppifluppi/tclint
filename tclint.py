@@ -151,6 +151,7 @@ if comp == 1:
     print("Validation set SDC: "+str(round(np.min(li),2))+" - "+str(round(np.max(li),2))+" (Mean: "+str(round(np.mean(li),2))+"; SD: "+str(round(np.std(li),2))+")")     
     print("Compound SDC: "+str(round(np.sum(g),2)))
     print("---------------------------------")   
+
 print("Version: 1.0 (27.11.22)")  
 print("Web version: https://tclint.streamlit.app/")
 print("More info can be found on: https://github.com/juppifluppi/tclint")   
