@@ -14,6 +14,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
+# load training and test set data
+
 df  = pd.read_csv("trainvalues.csv")
 x = df['rd_logD']
 y = df['rd_MR']
@@ -27,6 +29,8 @@ fil = file1.readlines()
 
 file2 = open('smiles_test.csv', 'r')
 fil2 = file2.readlines()
+
+# convert to rdkit mols
 
 o=[]
 for lines in fil:
@@ -43,6 +47,7 @@ The model is inspired by Mol. Pharmaceutics 2022, 19, 2868−2876 (https://doi.o
 but was built with descriptors from rdkit/scopy instead of MOE/PaDEL, using logD for pH 7.4 instead of 7.0.
 For the same traning/validation set similar statistics are retrieved (balanced accuracy: 0.86/0.83, AUC: 0.93/0.93).""")
 
+# protonate and pretreat given SMILES, compute descriptors via rdkit/scopy, calculate probability, output values
 
 try:
 
@@ -84,6 +89,8 @@ except:
 st.caption("""A scatter plot shows the properties of the compound in relation to the training and the validation set. A SDC applicability
 domain metric (sum of tanimoto distance-weighted contributions) evaluates structural similarity to the training set molecules (J. Chem. Inf. Model. 2019, 59, 
 181−189). Higher SDC values and / or large distances to the training set in the plot can indicate less reliable predictions.""")
+
+# copmute ecfp_4 fingerprints to calculate SDC metrics
 
 fp1 = AllChem.GetMorganFingerprint(mol, 2)
 
@@ -127,7 +134,9 @@ for k in o:
         except:
             pass
     lit.append(np.sum(lkx)) 
-         
+
+# plot values
+    
 fig=plt.figure()
 ax=fig.add_axes([0,0,1,1])
 ax.scatter(x, y, color='b',alpha=0.5)
@@ -145,10 +154,13 @@ plt.show()
 
 st.pyplot(fig)
 
+# output SDC metrics
+
 st.write("SDC applicability domain metrics:")
 st.write("Training set: "+str(round(np.min(lit),2))+" - "+str(round(np.max(lit),2))+" (Mean: "+str(round(np.mean(lit),2))+"; SD: "+str(round(np.std(lit),2))+")")       
 st.write("Validation set: "+str(round(np.min(li),2))+" - "+str(round(np.max(li),2))+" (Mean: "+str(round(np.mean(li),2))+"; SD: "+str(round(np.std(li),2))+")")     
 st.write("Compound: "+str(round(np.sum(g),2)))
 
+# reference
 
 st.caption("Version 1.0 (27.11.22). Visit https://github.com/juppifluppi/tclint for more information and a standalone script.")
