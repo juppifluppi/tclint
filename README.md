@@ -15,6 +15,8 @@ To use the command-line script (tclint.py) locally, run the following code in th
 ```
 python tclint.py "SMILESCODE" 
 ```
+If the script is not run directly within the downloaded folder containing training/validation datasets, the interaction is computed without further comparison.
+
 Conda packages installed for running:
 ```
 rdkit 2022.09.1
