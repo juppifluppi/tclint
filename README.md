@@ -4,11 +4,19 @@ Python web app and script to compute probability of interaction of molecule with
 Streamlit web app (tcli_streamlit.py) is accessible at:
 https://tcl-interaction2.streamlit.app/
 
-Python command-line script (tcli.py) can be run as follows:
+To use the command-line script (tcli.py) locally, run the following code in the downloaded folder:
 ```
 python tcli.py "SMILESCODE" 
 ```
+Conda packages installed for running:
+```
+rdkit 2022.09.1
+scopy 1.2.5
+dimorphite-dl 1.3.2
+numpy 1.23.4
+pandas 1.5.1
+```
 
-Lipid interaction probability model (model3.py) is currently work in progress.
+Statistics regarding the similarity of the compound's properties (logD/CrippenMR) and chemical structure (SDC applicability domain metric) in relation to the training set are listed to evaluate predictability.
 
 Alternatively, enamine_db.html and zinc_db.html contain already calculated TC/L and lipid interaction probabilities for drug molecules with the original models 2 and 3 from the publication, using MOE/PaDEL descriptors (not manually inspected for correct protonation!).
