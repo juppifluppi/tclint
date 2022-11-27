@@ -35,7 +35,7 @@ try:
     fil2 = file2.readlines()
 
 except:
-    print("Training/test data sets not found, continuing without comparison.")
+    print("Training/test data sets not found, continuing without comparison...")
     comp = 0
 
 # convert to rdkit mols    
