@@ -30,6 +30,43 @@ ox=[]
 for lines in fil2:
     ox.append(Chem.MolFromSmiles(lines))
 
+# if datafile is given, compute properties for each line 
+
+if sys.argv[1].split(".")[-1] == "dat":
+    try:
+        with open("results.dat","a") as f: 
+            f.write("logD" + "\t" + "CrippenMR" + "\t" + "Probability" + "\n")
+        with open(sys.argv[1],"r") as smx:
+            for lines in smx:
+                    SMI = str(lines)
+    
+                    dimorphite_dl = DimorphiteDL(
+                        min_ph = 6.4,
+                        max_ph = 6.6,
+                        max_variants = 1,
+                        label_states = False,
+                        pka_precision = 0.1
+                    )
+                    SMI = str(dimorphite_dl.protonate(SMI)[0])
+    
+                    mol = Chem.MolFromSmiles(SMI)
+                    sdm = pretreat.StandardizeMol()
+                    mol = sdm.disconnect_metals(mol)
+     
+                    logd = scopy.ScoDruglikeness.molproperty.CalculateLogD(mol)
+                    mr = scopy.ScoDruglikeness.molproperty.CalculateMolMR(mol)
+    
+                    tcl1 = ( ( logd - 1.510648) / 1.708574 ) * 1.706694
+                    tcl2 = ( ( mr - 90.62889 ) / 35.36033 ) * 2.4925333
+    
+                    tcl3 = 1 / ( 1 + ( 2.718281828459045 ** ( -1 * ( 0.9872289 + tcl1 + tcl2 ) ) ) )
+                
+                    with open("results.dat","a") as f:                
+                        f.write(str(round(logd,2)) + "\t" + str(round(mr,2)) + "\t" + str(round(tcl3,2)) + "\n")
+    except:
+        print("Something is wrong with your SMILES codes.")
+    sys.exit()
+
 # protonate and pretreat given SMILES, compute descriptors via rdkit/scopy, calculate probability    
     
 try:
