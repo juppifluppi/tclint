@@ -78,7 +78,8 @@ try:
     st.write("TC/L interaction probability: " + str(round(tcl3*100,2)) + " %")
 
 except:
-    pass
+    st.write("Something is wrong with your SMILES code.")
+    st.stop()
 
 st.caption("""A scatter plot shows the properties of the compound in relation to the training and the validation set. A SDC applicability
 domain metric (sum of tanimoto distance-weighted contributions) evaluates structural similarity to the training set molecules (J. Chem. Inf. Model. 2019, 59, 
