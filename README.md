@@ -48,6 +48,9 @@ tclint listofsmiles.dat
 
 Alternatively, enamine_db.html and zinc_db.html contain already calculated TC/L and lipid interaction probabilities for drug molecules with the original models 2 and 3 from the publication, using MOE/PaDEL descriptors (not manually inspected for correct protonation!).
 
+enamine_db.html: Enamine FDA approved drug collection (07.08.2022)
+
+zinc_db.html: ZINC DrugBank (20.02.18)
 
 ## Please cite
 
