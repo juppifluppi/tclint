@@ -33,7 +33,7 @@ setup(
         'numpy>=1.23.4',        
         'dimorphite-dl>=1.3.2',
         'rdkit>=2022.09.1',    
-        'scopy>=1.2.5         
+        'scopy>=1.2.5'         
     ],
     python_requires='>=3.7',
     classifiers=[
