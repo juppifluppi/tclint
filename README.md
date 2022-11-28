@@ -32,12 +32,12 @@ numpy 1.23.4
 
 The model can be installed as program in a new conda environment with all the necessary packages from source in the following way:
 
-1. *go to your local anaconda/envs/ directory*
-2. ```git clone https://github.com/juppifluppi/tclint.git```
-3. ```cd tclint```
-4. ```conda env create -f env.yml```
-5. ```conda activate tclint```
-6. ```pip install -e .```
+0. *(go to your local ~/anaconda3/envs/ directory to install it directly there)*
+1. ```git clone https://github.com/juppifluppi/tclint.git```
+2. ```cd tclint```
+3. ```conda env create -f env.yml```
+4. ```conda activate tclint```
+5. ```pip install -e .```
 
 You can then use the alias tclint:
 ```
