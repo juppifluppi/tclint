@@ -7,7 +7,7 @@ Statistics regarding the similarity of the compound's properties (logD/CrippenMR
 
 Streamlit web app ```tclint_streamlit.py``` is accessible at:
 
-https://tclint.streamlit.app/
+https://tclint.streamlit.app/ [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://tclint.streamlit.app/)
 
 ## Local command-line script
 
