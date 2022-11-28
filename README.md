@@ -34,7 +34,7 @@ The model can be installed as program in a new conda environment with the necess
 
 1. ```git clone https://github.com/juppifluppi/tclint.git```
 2. ```cd tclint```
-3. ```conda env create -f environment.yml```
+3. ```conda env create -f env.yml```
 4. ```conda activate tclint```
 5. ```pip install -e .```
 
