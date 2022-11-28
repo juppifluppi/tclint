@@ -44,7 +44,7 @@ tclint "SMILESCODE"
 tclint listofsmiles.dat
 ```
 
-## Original model databases for TC/L and lipid interactions
+## Databases of original models for TC/L and lipid interactions
 
 Alternatively, ```db_enamine.html``` and ```db_zinc.html``` contain already calculated TC/L and lipid interaction probabilities for drug molecules with the original models 2 and 3 from the publication, using MOE/PaDEL descriptors (not manually inspected for correct protonation!).
 
