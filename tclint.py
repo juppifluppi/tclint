@@ -35,7 +35,7 @@ for lines in fil2:
 if sys.argv[1].split(".")[-1] == "dat":
     try:
         with open("results.dat","a") as f: 
-            f.write("logD" + "\t" + "CrippenMR" + "\t" + "Probability" + "\n")
+            f.write("SMILES" + "\t" + "logD" + "\t" + "CrippenMR" + "\t" + "Probability" + "\n")
         with open(sys.argv[1],"r") as smx:
             for lines in smx:
                     SMI = str(lines)
@@ -62,7 +62,7 @@ if sys.argv[1].split(".")[-1] == "dat":
                     tcl3 = 1 / ( 1 + ( 2.718281828459045 ** ( -1 * ( 0.9872289 + tcl1 + tcl2 ) ) ) )
                 
                     with open("results.dat","a") as f:                
-                        f.write(str(round(logd,2)) + "\t" + str(round(mr,2)) + "\t" + str(round(tcl3,2)) + "\n")
+                        f.write(str(SMI) + "\t" + str(round(logd,2)) + "\t" + str(round(mr,2)) + "\t" + str(round(tcl3,2)) + "\n")
     except:
         print("Something is wrong with your SMILES codes.")
     sys.exit()
