@@ -15,7 +15,7 @@ To use the command-line script ```tclint.py``` locally, run the following code i
 ```
 python tclint.py "SMILESCODE" 
 ```
-Instead of a single SMILES code, a "*.dat" file can be given as input, with one SMILES code per line. In this case, the script outputs the properties for each molecule into "results.dat":
+Instead of a single SMILES code, a "*.dat" file can be given as input, with one SMILES code per line (without parentheses). In this case, the script outputs the properties for each molecule into "results.dat":
 ```
 python tclint.py listofsmiles.dat 
 ```
