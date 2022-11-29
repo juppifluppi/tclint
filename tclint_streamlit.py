@@ -39,19 +39,19 @@ for w in cfmmx:
     cfmm.append(cf)
     zu.append(cd)
 
-#for clx in range(0,250,5):
-#    for dlx in range(-40,70,2):
-#        dlx = dlx / 10
-#        tcl1 = ( ( dlx - 1.510648) / 1.708574 ) * 1.706694
-#        tcl2 = ( ( clx - 90.62889 ) / 35.36033 ) * 2.4925333 
-#        tcl3 = 1 / ( 1 + ( 2.718281828459045 ** ( -1 * ( 0.9872289 + tcl1 + tcl2 ) ) ) )
-#        clf.append(clx)
-#        dlf.append(dlx)
-#        zlf.append(tcl3*100)
+for clx in range(0,250,5):
+    for dlx in range(-40,70,2):
+        dlx = dlx / 10
+        tcl1 = ( ( dlx - 1.510648) / 1.708574 ) * 1.706694
+        tcl2 = ( ( clx - 90.62889 ) / 35.36033 ) * 2.4925333 
+        tcl3 = 1 / ( 1 + ( 2.718281828459045 ** ( -1 * ( 0.9872289 + tcl1 + tcl2 ) ) ) )
+        clf.append(clx)
+        dlf.append(dlx)
+        zlf.append(tcl3*100)
         
-#clf = np.array(clf)
-#dlf = np.array(dlf)
-#zlf = np.array(zlf)
+clf = np.array(clf)
+dlf = np.array(dlf)
+zlf = np.array(zlf)
 
 
 #z_array = np.histogram2d(clf, dlf, bins=[len(range(20,250,10)),len(range(-30,60,10))], weights=zlf)
@@ -216,11 +216,11 @@ ax.plot(zu, cfmm, color='grey',alpha=0.5)
 go1 = []
 go2 = []
 
-#for j in range(1,len(zlf)):
-#    if zlf[j] > 49.999:
-#        ax.scatter(dlf[j],clf[j],color="grey",alpha=0.08,s=50,marker="s")
-#        go1.append(dlf[j])
-#        go2.append(clf[j])
+for j in range(1,len(zlf)):
+    if zlf[j] > 49.999:
+        ax.scatter(dlf[j],clf[j],color="grey",alpha=0.08,s=50,marker="s")
+        go1.append(dlf[j])
+        go2.append(clf[j])
 
 #for j in range(1,len(z)):
 #    if z[j] > 49.999:
@@ -233,7 +233,7 @@ go2 = []
 l=ax.scatter(x, y, color='b',alpha=0.5)
 p=ax.scatter(x2, y2, color='r',alpha=0.5)
 o=ax.scatter(logd, mr, color='g',alpha=1,marker="*")
-#m=ax.scatter(go1,go2,color="grey",alpha=0.08,s=50,marker="s")
+m=ax.scatter(go1,go2,color="grey",alpha=0.08,s=50,marker="s")
 ax.legend((l,p,o,m),("Training set", "Validation set", "Compound", "Probability >= 50 %"),loc="upper left")
 plt.show()
 
