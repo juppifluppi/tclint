@@ -200,7 +200,8 @@ ax.scatter(logd, mr, color='g',alpha=1,s=150,marker="*")
 ax.set_xlabel('logD')
 ax.set_ylabel('CrippenMR')
 ax.set_title('Compound vs. modeling sets')
-ax1.imshow(z_array, extent=[-240,240, -20, 280],alpha=0.1)
+ax1.imshow(z_array, extent=[-240,240, -50, 280],alpha=0.2)
+ax1.get_xaxis().set_visible(False)
 
 for j in range(1,len(z)):
     if z[j] > 49.999:
