@@ -192,17 +192,14 @@ for k in o:
 # plot values
     
 fig=plt.figure()
-ax1=fig.add_axes([0,0,1,1])
-ax=fig.add_subplot(111)
+ax=fig.add_axes([0,0,1,1])
 ax.scatter(x, y, color='b',alpha=0.5,s=50)
 ax.scatter(x2, y2, color='r',alpha=0.5,s=50)
 ax.scatter(logd, mr, color='g',alpha=1,s=150,marker="*")
 ax.set_xlabel('logD')
 ax.set_ylabel('CrippenMR')
 ax.set_title('Compound vs. modeling sets')
-ax1.imshow(z_array, extent=[-80,90,40,200],alpha=0.2)
-ax1.get_xaxis().set_visible(False)
-ax1.get_yaxis().set_visible(False)
+ax.scatter(dlf,clf,color="grey",alpha=0.1)
 
 for j in range(1,len(z)):
     if z[j] > 49.999:
