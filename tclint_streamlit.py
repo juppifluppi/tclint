@@ -202,9 +202,14 @@ ax.set_xlabel('logD')
 ax.set_ylabel('CrippenMR')
 ax.set_title('Compound vs. modeling sets')
 
+go1 = []
+go2 = []
+
 for j in range(1,len(zlf)):
     if zlf[j] > 0.4999:
         ax.scatter(dlf[j],clf[j],color="grey",alpha=0.08,s=50,marker="s",edgecolors='grey')
+        go1.append(dlf[j])
+        go2.append(clf[j])
 
 for j in range(1,len(z)):
     if z[j] > 49.999:
@@ -217,7 +222,8 @@ for j in range(1,len(z2)):
 l=ax.scatter(x, y, color='b',alpha=0.5)
 p=ax.scatter(x2, y2, color='r',alpha=0.5)
 o=ax.scatter(logd, mr, color='g',alpha=1,marker="*")
-ax.legend((l,p,o,ax.scatter(dlf,clf,color="grey",alpha=0.08,marker="s",edgecolors='grey')),("Training set", "Validation set", "Compound", "Probability >= 50 %"),loc="upper left")
+m=ax.scatter(go1,go1,color="grey",alpha=0.08,marker="s",edgecolors='grey'))
+ax.legend((l,p,o,,("Training set", "Validation set", "Compound", "Probability >= 50 %"),loc="upper left")
 plt.show()
 
 st.pyplot(fig)
