@@ -211,13 +211,13 @@ for j in range(1,len(zlf)):
         go1.append(dlf[j])
         go2.append(clf[j])
 
-for j in range(1,len(z)):
-    if z[j] > 49.999:
-        ax.scatter(x[j],y[j], color='b',alpha=0.1,s=200)
+#for j in range(1,len(z)):
+#    if z[j] > 49.999:
+#        ax.scatter(x[j],y[j], color='b',alpha=0.1,s=200)
 
-for j in range(1,len(z2)):
-    if z2[j] > 49.999:
-        ax.scatter(x2[j],y2[j], color='r',alpha=0.1,s=200)
+#for j in range(1,len(z2)):
+#    if z2[j] > 49.999:
+#        ax.scatter(x2[j],y2[j], color='r',alpha=0.1,s=200)
 
 l=ax.scatter(x, y, color='b',alpha=0.5)
 p=ax.scatter(x2, y2, color='r',alpha=0.5)
