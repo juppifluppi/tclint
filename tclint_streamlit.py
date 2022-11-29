@@ -204,7 +204,7 @@ ax.set_title('Compound vs. modeling sets')
 
 for j in range(1,len(zlf)):
     if zlf[j] > 0.4999:
-        ax.scatter(dlf[j],clf[j],color="grey",alpha=0.08,s=50)
+        ax.scatter(dlf[j],clf[j],color="grey",alpha=0.08,s=50,marker="s")
 
 for j in range(1,len(z)):
     if z[j] > 49.999:
