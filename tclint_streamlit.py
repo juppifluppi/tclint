@@ -12,6 +12,7 @@ from dimorphite_dl import DimorphiteDL
 import streamlit as st
 import matplotlib.pyplot as plt
 import numpy as np
+#import pandas as pd
 
 # load training and test set data
 
@@ -28,8 +29,8 @@ clf = []
 dlf = []
 zlf = []
 
-for clx in range(20,250,5):
-    for dlx in range(-30,60,5):
+for clx in range(0,300,5):
+    for dlx in range(-100,100,5):
         dlx = dlx / 10
         tcl1 = ( ( dlx - 1.510648) / 1.708574 ) * 1.706694
         tcl2 = ( ( clx - 90.62889 ) / 35.36033 ) * 2.4925333 
@@ -41,6 +42,10 @@ for clx in range(20,250,5):
 clf = np.array(clf)
 dlf = np.array(dlf)
 zlf = np.array(zlf)
+#df = pd.DataFrame({'x': dlf, 'y': clf})
+#asa = df.groupby('x')['y'].min()
+#asa1 = df.iloc[:, 0].values
+#asa2 = df.iloc[:, 1].values
 
 #z_array = np.histogram2d(clf, dlf, bins=[len(range(20,250,10)),len(range(-30,60,10))], weights=zlf)
 #z_array = z_array[0]    
