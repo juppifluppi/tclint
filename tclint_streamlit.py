@@ -30,7 +30,7 @@ dlf = []
 zlf = []
 
 for clx in range(0,300,5):
-    for dlx in range(-100,100,5):
+    for dlx in range(-50,70,5):
         dlx = dlx / 10
         tcl1 = ( ( dlx - 1.510648) / 1.708574 ) * 1.706694
         tcl2 = ( ( clx - 90.62889 ) / 35.36033 ) * 2.4925333 
@@ -38,11 +38,6 @@ for clx in range(0,300,5):
         clf.append(clx)
         dlf.append(dlx)
         zlf.append(tcl3)
-
-df = pd.DataFrame({'x': dlf, 'y': clf})
-asa = df.groupby('x')['y'].min()
-asa1 = asa.iloc[:,0].values
-asa2 = asa.iloc[:,1].values
         
 clf = np.array(clf)
 dlf = np.array(dlf)
@@ -206,10 +201,10 @@ ax.scatter(logd, mr, color='g',alpha=1,s=150,marker="*")
 ax.set_xlabel('logD')
 ax.set_ylabel('CrippenMR')
 ax.set_title('Compound vs. modeling sets')
-ax.scatter(asa1,asa2,color="grey",alpha=0.05,s=100, marker= "D")
-#for j in range(1,len(zlf)):
-#    if zlf[j] > 0.4999:
-#        ax.scatter(dlf[j],clf[j],color="grey",alpha=0.05,s=100, marker= "D")
+
+for j in range(1,len(zlf)):
+    if zlf[j] > 0.4999:
+        ax.scatter(dlf[j],clf[j],color="grey",alpha=0.05,s=100, marker= "D")
 
 for j in range(1,len(z)):
     if z[j] > 49.999:
