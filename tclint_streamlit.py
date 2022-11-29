@@ -37,7 +37,7 @@ for clx in range(20,250,10):
         zlf.append(tcl3)
 
 z_array = np.nan * np.empty((3,3))
-z_array[clf, dlf] = zlf        
+z_array[int(clf), int(dlf)] = int(zlf)        
         
 # convert to rdkit mols
 
