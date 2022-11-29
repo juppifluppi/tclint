@@ -200,7 +200,7 @@ ax.scatter(logd, mr, color='g',alpha=1,s=150,marker="*")
 ax.set_xlabel('logD')
 ax.set_ylabel('CrippenMR')
 ax.set_title('Compound vs. modeling sets')
-ax1.imshow(z_array, extent=[-3,6,20,240],alpha=0.2)
+ax1.imshow(z_array, extent=[-20,60,10,230],alpha=0.2)
 ax1.get_xaxis().set_visible(False)
 ax1.get_yaxis().set_visible(False)
 
