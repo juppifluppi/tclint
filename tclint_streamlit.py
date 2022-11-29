@@ -237,4 +237,4 @@ st.write("Compound: "+str(round(np.sum(g),2)))
 
 # reference
 
-st.caption("Version 1.0 (27.11.22). Visit our [github](https://github.com/juppifluppi/tclint) for more information and a downloadable version.")
+st.caption("Version 1.1 (29.11.22). Visit the [github page](https://github.com/juppifluppi/tclint) for more information and a downloadable version.")
