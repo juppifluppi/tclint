@@ -179,7 +179,7 @@ ax.set_xlabel('logD')
 ax.set_ylabel('CrippenMR')
 ax.set_title('Compound vs. modeling sets')
 
-for j in range(1,len(z)+1):
+for j in range(1,len(z)):
     if z[j] > 49.999:
         ax.scatter(x[j],y[j], color='y',alpha=0.5,s=150)
 
