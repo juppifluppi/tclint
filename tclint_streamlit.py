@@ -31,7 +31,7 @@ z2 = []
 
 
 cfmm = []
-cfmmx = range(-60,60)
+cfmmx = range(-40,60)
 zu = []
 for w in cfmmx:
     cd = w / 10
