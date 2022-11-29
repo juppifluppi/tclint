@@ -42,10 +42,9 @@ clf = np.array(clf)
 dlf = np.array(dlf)
 zlf = np.array(zlf)
   
-z_array = np.histogram2d(clf, dlf, bins=[len(range(20,250,10)),len(range(-30,60,10))], weights=zlf)
-z_array = z_array[0]    
+#z_array = np.histogram2d(clf, dlf, bins=[len(range(20,250,10)),len(range(-30,60,10))], weights=zlf)
+#z_array = z_array[0]    
 
-st.write(z_array)
 # convert to rdkit mols
 
 o=[]
@@ -194,8 +193,13 @@ for k in o:
     
 fig=plt.figure()
 ax=fig.add_axes([0,0,1,1])
-ax1 = fig.add_subplot(1,50,1)
-ax1.imshow(z_array,interpolation="quadric",extent=(-3,5,20,240), alpha=0.8)
+ax1 = fig.add_subplot(1,1,1)
+#ax1.imshow(z_array,interpolation="quadric",extent=(-3,5,20,240), alpha=0.8)
+triang = tri.Triangulation(dlf, clf)
+interpolator = tri.LinearTriInterpolator(triang, zlf)
+Xi, Yi = np.meshgrid(dlf, clf)
+zi = interpolator(Xi, Yi)
+ax1.contour(dlf, clf, zi, levels=14, linewidths=0.5, colors='k')
 ax.scatter(x, y, color='b',alpha=0.5,s=50)
 ax.scatter(x2, y2, color='r',alpha=0.5,s=50)
 ax.scatter(logd, mr, color='g',alpha=1,s=150,marker="*")
