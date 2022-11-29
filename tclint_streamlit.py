@@ -200,7 +200,7 @@ ax.set_xlabel('logD')
 ax.set_ylabel('CrippenMR')
 ax.set_title('Compound vs. modeling sets')
 ax1 = fig.add_subplot(111, sharex=ax, sharey=ax)
-ax1.imshow(z_array,interpolation="quadric",extent=(-3,5,20,240), alpha=0.8)
+ax1.imshow(z_array,interpolation="quadric",extent=(0, 1, 0, 1), alpha=0.8)
 
 for j in range(1,len(z)):
     if z[j] > 49.999:
