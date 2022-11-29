@@ -42,7 +42,7 @@ clf = np.array(clf)
 dlf = np.array(dlf)
 zlf = np.array(zlf)
   
-z_array = np.histogram2d(dlf, clf, bins=[len(range(-30,60,10)),len(range(20,250,10))], weights=zlf)
+z_array = np.histogram2d(dlf, clf, bins=[len(range(20,250,10)),len(range(-30,60,10))], weights=zlf)
 z_array = z_array[0]    
 
 st.write(z_array)
