@@ -30,17 +30,17 @@ dlf = []
 zlf = []
 
 
-cfmm = []
-cfmmx = range(-40,60)
-zu = []
-for w in cfmmx:
-    cd = w / 10
-    cf = 90.62889 + ( 35.36033 * ( ( np.log( 1 / ( 2.718281828459045 ** ( -0.9872289 + cd ) ) ) ) / 2.4925333 ) )
-    cfmm.append(cf)
-    zu.append(cd)
+#cfmm = []
+#cfmmx = range(-40,60)
+#zu = []
+#for w in cfmmx:
+#    cd = w / 10
+#    cf = 90.62889 + ( 35.36033 * ( ( np.log( 1 / ( 2.718281828459045 ** ( -0.9872289 + cd ) ) ) ) / 2.4925333 ) )
+#    cfmm.append(cf)
+#    zu.append(cd)
 
 for clx in range(0,250,5):
-    for dlx in range(-40,60,5):
+    for dlx in range(-40,60,2):
         dlx = dlx / 10
         tcl1 = ( ( dlx - 1.510648) / 1.708574 ) * 1.706694
         tcl2 = ( ( clx - 90.62889 ) / 35.36033 ) * 2.4925333 
@@ -211,7 +211,7 @@ ax.scatter(logd, mr, color='g',alpha=1,s=200,marker="*")
 ax.set_xlabel('logD')
 ax.set_ylabel('CrippenMR')
 ax.set_title('Compound vs. modeling sets')
-ax.plot(zu, cfmm, color='grey',alpha=0.5, linewidth=2)
+#ax.plot(zu, cfmm, color='grey',alpha=0.5, linewidth=2)
 
 go1 = []
 go2 = []
