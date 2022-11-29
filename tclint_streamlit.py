@@ -239,7 +239,8 @@ o=ax.scatter(logd, mr, color='g',alpha=1,marker="*")
 m=ax.scatter(go1,go2,color="grey",alpha=0.08,s=50,marker="s")
 ax.legend((l,p,o,m),("Training set", "Validation set", "Compound", "Probability >= 50 %"),loc="upper left")
 plt.show()
-
+st.write(go1)
+st.write(go2)
 st.pyplot(fig)
 
 # output SDC metrics
