@@ -12,7 +12,6 @@ from dimorphite_dl import DimorphiteDL
 import streamlit as st
 import matplotlib.pyplot as plt
 import numpy as np
-import pandas as pd
 
 # load training and test set data
 
