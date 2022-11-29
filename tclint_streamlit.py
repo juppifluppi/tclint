@@ -193,7 +193,7 @@ for k in o:
     
 fig=plt.figure()
 ax=fig.add_axes([0,0,1,1])
-ax1=fig.add_subplot(111)
+ax1=fig.add_subplots(111)
 ax.scatter(x, y, color='b',alpha=0.5,s=50)
 ax.scatter(x2, y2, color='r',alpha=0.5,s=50)
 ax.scatter(logd, mr, color='g',alpha=1,s=150,marker="*")
