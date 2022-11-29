@@ -24,18 +24,22 @@ fil2 = ['S(=O)(=O)(N)c1sc(NC(=O)C)nn1', 'SCC(C(=O)N1C(C(=O)[O-])CCC1)C', 'O(C)c1
 z = []
 z2 = []
 
-clf = np.array([])
-dlf = np.array([])
-zlf = np.array([])
+clf = []
+dlf = []
+zlf = []
 
 for clx in range(20,250,10):
     for dlx in range(-30,60,10):
         dlx = dlx / 10
         tcl3 = 1 / ( 1 + ( 2.718281828459045 ** ( -1 * ( 0.9872289 + dlx + clx ) ) ) )
-        clf.append(int(clx))
-        dlf.append(int(dlx))
-        zlf.append(int(tcl3))
+        clf.append(clx)
+        dlf.append(dlx)
+        zlf.append(tcl3)
 
+clf = np.array(clf)
+dlf = np.array(dlf)
+zlf = np.array(zlf)
+        
 z_array = np.histogram2d(clf, dlf, bins=[len(range(20,250,10)),len(range(-30,60,10))], weights=zlf)
         
 # convert to rdkit mols
