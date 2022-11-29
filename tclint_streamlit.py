@@ -24,15 +24,12 @@ fil2 = ['S(=O)(=O)(N)c1sc(NC(=O)C)nn1', 'SCC(C(=O)N1C(C(=O)[O-])CCC1)C', 'O(C)c1
 z = []
 z2 = []
 
-cl = range(0,300)
-dl = range(-6,6,0.1)
-
 clf = []
 dlf = []
 zlf = []
 
-for clx in cl:
-    for dlx in dl:
+for clx in range(0,300,1):
+    for dlx in range(-6,6,0.1):
         tcl3 = 1 / ( 1 + ( 2.718281828459045 ** ( -1 * ( 0.9872289 + dlx + clx ) ) ) )
         clf.append(clx)
         dlf.append(dlf)
