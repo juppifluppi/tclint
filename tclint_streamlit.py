@@ -44,7 +44,7 @@ zlf = np.array(zlf)
 st.write(clf)
 st.write(dlf)
 st.write(zlf)        
-z_array = np.histogram2d(clf, dlf, bins=[len(range(-30,60,10)),len(range(20,250,10))], weights=zlf)
+z_array = np.histogram2d(dlf, clf, bins=[len(range(-30,60,10)),len(range(20,250,10))], weights=zlf)
 z_array = z_array[0]    
 # convert to rdkit mols
 
