@@ -223,7 +223,7 @@ l=ax.scatter(x, y, color='b',alpha=0.5)
 p=ax.scatter(x2, y2, color='r',alpha=0.5)
 o=ax.scatter(logd, mr, color='g',alpha=1,marker="*")
 m=ax.scatter(go1,go1,color="grey",alpha=0.08,marker="s",edgecolors='grey'))
-ax.legend((l,p,o,,("Training set", "Validation set", "Compound", "Probability >= 50 %"),loc="upper left")
+ax.legend((l,p,o,m),("Training set", "Validation set", "Compound", "Probability >= 50 %"),loc="upper left")
 plt.show()
 
 st.pyplot(fig)
