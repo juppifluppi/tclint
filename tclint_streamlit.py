@@ -217,17 +217,17 @@ go1 = []
 go2 = []
 
 for j in range(0,len(zlf)):
-    if zlf[j] > 50:
+    if zlf[j] >= 50:
         ax.scatter(dlf[j],clf[j],color="grey",alpha=0.08,s=50,marker="s")
         go1.append(dlf[j])
         go2.append(clf[j])
 
 for j in range(0,len(z)):
-    if z[j] > 50:
+    if z[j] >= 50:
         ax.scatter(x[j],y[j], color='b',alpha=0.1,s=200)
 
 for j in range(0,len(z2)):
-    if z2[j] > 50:
+    if z2[j] >= 50:
         ax.scatter(x2[j],y2[j], color='r',alpha=0.1,s=200)
 
 l=ax.scatter(x, y, color='b',alpha=0.5)
