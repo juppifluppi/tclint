@@ -25,9 +25,9 @@ fil2 = ['S(=O)(=O)(N)c1sc(NC(=O)C)nn1', 'SCC(C(=O)N1C(C(=O)[O-])CCC1)C', 'O(C)c1
 z = []
 z2 = []
 
-clf = []
-dlf = []
-zlf = []
+#clf = []
+#dlf = []
+#zlf = []
 
 
 cfmm = []
@@ -37,19 +37,19 @@ for w in cfmmx:
     cf = 90.62889 + ( 35.36033 * ( ( np.log( 1 / 2.718281828459045 ** ( -0.9872289 + cd ) ) ) / 2.4925333 ) )
     cfmm.append(cf)
 
-for clx in range(0,250,5):
-    for dlx in range(-40,70,2):
-        dlx = dlx / 10
-        tcl1 = ( ( dlx - 1.510648) / 1.708574 ) * 1.706694
-        tcl2 = ( ( clx - 90.62889 ) / 35.36033 ) * 2.4925333 
-        tcl3 = 1 / ( 1 + ( 2.718281828459045 ** ( -1 * ( 0.9872289 + tcl1 + tcl2 ) ) ) )
-        clf.append(clx)
-        dlf.append(dlx)
-        zlf.append(tcl3*100)
+#for clx in range(0,250,5):
+#    for dlx in range(-40,70,2):
+#        dlx = dlx / 10
+#        tcl1 = ( ( dlx - 1.510648) / 1.708574 ) * 1.706694
+#        tcl2 = ( ( clx - 90.62889 ) / 35.36033 ) * 2.4925333 
+#        tcl3 = 1 / ( 1 + ( 2.718281828459045 ** ( -1 * ( 0.9872289 + tcl1 + tcl2 ) ) ) )
+#        clf.append(clx)
+#        dlf.append(dlx)
+#        zlf.append(tcl3*100)
         
-clf = np.array(clf)
-dlf = np.array(dlf)
-zlf = np.array(zlf)
+#clf = np.array(clf)
+#dlf = np.array(dlf)
+#zlf = np.array(zlf)
 
 
 #z_array = np.histogram2d(clf, dlf, bins=[len(range(20,250,10)),len(range(-30,60,10))], weights=zlf)
@@ -209,7 +209,7 @@ ax.scatter(logd, mr, color='g',alpha=1,s=200,marker="*")
 ax.set_xlabel('logD')
 ax.set_ylabel('CrippenMR')
 ax.set_title('Compound vs. modeling sets')
-ax.scatter(cfmmx, cfmm, color='grey',alpha=0.5,s=50)
+ax.lines(cfmmx/10, cfmm, color='grey',alpha=0.5,s=50)
 
 go1 = []
 go2 = []
@@ -231,7 +231,7 @@ go2 = []
 l=ax.scatter(x, y, color='b',alpha=0.5)
 p=ax.scatter(x2, y2, color='r',alpha=0.5)
 o=ax.scatter(logd, mr, color='g',alpha=1,marker="*")
-m=ax.scatter(go1,go2,color="grey",alpha=0.08,s=50,marker="s")
+#m=ax.scatter(go1,go2,color="grey",alpha=0.08,s=50,marker="s")
 ax.legend((l,p,o,m),("Training set", "Validation set", "Compound", "Probability >= 50 %"),loc="upper left")
 plt.show()
 
