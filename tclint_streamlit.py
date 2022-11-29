@@ -29,8 +29,8 @@ clf = []
 dlf = []
 zlf = []
 
-for clx in range(0,300,5):
-    for dlx in range(-50,70,5):
+for clx in range(0,250,5):
+    for dlx in range(-40,70,5):
         dlx = dlx / 10
         tcl1 = ( ( dlx - 1.510648) / 1.708574 ) * 1.706694
         tcl2 = ( ( clx - 90.62889 ) / 35.36033 ) * 2.4925333 
