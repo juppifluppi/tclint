@@ -40,7 +40,7 @@ for w in cfmmx:
     zu.append(cd)
 
 for clx in range(0,250,5):
-    for dlx in range(-40,70,2):
+    for dlx in range(-40,60,5):
         dlx = dlx / 10
         tcl1 = ( ( dlx - 1.510648) / 1.708574 ) * 1.706694
         tcl2 = ( ( clx - 90.62889 ) / 35.36033 ) * 2.4925333 
