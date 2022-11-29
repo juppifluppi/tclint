@@ -44,10 +44,7 @@ dlf = np.array(dlf)
 zlf = np.array(zlf)
 df = pd.DataFrame({'x': dlf, 'y': clf})
 asa = df.groupby('x')['y'].min()
-asa1 = df.iloc[:, 0].values
-asa2 = df.iloc[:, 1].values
-st.write(asa1)
-st.write(asa2)
+st.write(asa)
 
 #z_array = np.histogram2d(clf, dlf, bins=[len(range(20,250,10)),len(range(-30,60,10))], weights=zlf)
 #z_array = z_array[0]    
