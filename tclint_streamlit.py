@@ -32,12 +32,12 @@ for clx in range(20,250,10):
     for dlx in range(-30,60,10):
         dlx = dlx / 10
         tcl3 = 1 / ( 1 + ( 2.718281828459045 ** ( -1 * ( 0.9872289 + dlx + clx ) ) ) )
-        clf.append(clx)
-        dlf.append(dlx)
-        zlf.append(tcl3)
+        clf.append(int(clx))
+        dlf.append(int(dlx))
+        zlf.append(int(tcl3))
 
 z_array = np.nan * np.empty((3,3))
-z_array[int(clf), int(dlf)] = int(zlf)        
+z_array[clf, dlf] = zlf        
         
 # convert to rdkit mols
 
