@@ -31,7 +31,9 @@ zlf = []
 for clx in range(20,250,10):
     for dlx in range(-30,60,10):
         dlx = dlx / 10
-        tcl3 = 1 / ( 1 + ( 2.718281828459045 ** ( -1 * ( 0.9872289 + dlx + clx ) ) ) )
+        tcl1 = ( ( dlx - 1.510648) / 1.708574 ) * 1.706694
+        tcl2 = ( ( clf - 90.62889 ) / 35.36033 ) * 2.4925333 
+        tcl3 = 1 / ( 1 + ( 2.718281828459045 ** ( -1 * ( 0.9872289 + tcl1 + tcl3 ) ) ) )
         clf.append(clx)
         dlf.append(dlx)
         zlf.append(tcl3)
