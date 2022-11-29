@@ -42,10 +42,10 @@ for clx in range(0,300,5):
 clf = np.array(clf)
 dlf = np.array(dlf)
 zlf = np.array(zlf)
-#df = pd.DataFrame({'x': dlf, 'y': clf})
-#asa = df.groupby('x')['y'].min()
-#asa1 = df.iloc[:, 0].values
-#asa2 = df.iloc[:, 1].values
+df = pd.DataFrame({'x': dlf, 'y': clf})
+asa = df.groupby('x')['y'].min()
+asa1 = df.iloc[:, 0].values
+asa2 = df.iloc[:, 1].values
 
 #z_array = np.histogram2d(clf, dlf, bins=[len(range(20,250,10)),len(range(-30,60,10))], weights=zlf)
 #z_array = z_array[0]    
@@ -204,10 +204,10 @@ ax.scatter(logd, mr, color='g',alpha=1,s=150,marker="*")
 ax.set_xlabel('logD')
 ax.set_ylabel('CrippenMR')
 ax.set_title('Compound vs. modeling sets')
-
-for j in range(1,len(zlf)):
-    if zlf[j] > 0.4999:
-        ax.scatter(dlf[j],clf[j],color="grey",alpha=0.05,s=100, marker= "D")
+ax.scatter(asa1,asa2,color="grey",alpha=0.05,s=100, marker= "D")
+#for j in range(1,len(zlf)):
+#    if zlf[j] > 0.4999:
+#        ax.scatter(dlf[j],clf[j],color="grey",alpha=0.05,s=100, marker= "D")
 
 for j in range(1,len(z)):
     if z[j] > 49.999:
