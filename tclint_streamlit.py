@@ -25,9 +25,9 @@ fil2 = ['S(=O)(=O)(N)c1sc(NC(=O)C)nn1', 'SCC(C(=O)N1C(C(=O)[O-])CCC1)C', 'O(C)c1
 z = []
 z2 = []
 
-#clf = []
-#dlf = []
-#zlf = []
+clf = []
+dlf = []
+zlf = []
 
 
 cfmm = []
