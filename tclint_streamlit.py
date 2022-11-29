@@ -28,8 +28,8 @@ clf = []
 dlf = []
 zlf = []
 
-for clx in range(0,300,5):
-    for dlx in range(-60,60,5):
+for clx in range(0,250,10):
+    for dlx in range(-40,60,10):
         dlx = dlx / 10
         tcl3 = 1 / ( 1 + ( 2.718281828459045 ** ( -1 * ( 0.9872289 + dlx + clx ) ) ) )
         clf.append(clx)
