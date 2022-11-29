@@ -231,7 +231,7 @@ for j in range(0,len(z2)):
         ax.scatter(x2[j],y2[j], color='r',alpha=0.1,s=200)
         
 if tcl3*100 >= 50:
-    ax.scatter(logd,mr, color='g',alpha=0.5,s=250)
+    ax.scatter(logd,mr, color='g',alpha=0.5,s=250,marker="*")
 
 l=ax.scatter(x, y, color='b',alpha=0.5)
 p=ax.scatter(x2, y2, color='r',alpha=0.5)
