@@ -41,11 +41,11 @@ for clx in range(20,250,10):
 clf = np.array(clf)
 dlf = np.array(dlf)
 zlf = np.array(zlf)
-st.write(clf)
-st.write(dlf)
-st.write(zlf)        
+  
 z_array = np.histogram2d(dlf, clf, bins=[len(range(-30,60,10)),len(range(20,250,10))], weights=zlf)
 z_array = z_array[0]    
+
+st.write(z_array)
 # convert to rdkit mols
 
 o=[]
