@@ -204,7 +204,7 @@ ax.set_title('Compound vs. modeling sets')
 
 for j in range(1,len(zlf)):
     if zlf[j] > 0.4999:
-        ax.scatter(dlf[j],clf[j],color="grey",alpha=0.08,s=50,marker="s")
+        ax.scatter(dlf[j],clf[j],color="grey",alpha=0.08,s=50,marker="s",edgecolors='grey')
 
 for j in range(1,len(z)):
     if z[j] > 49.999:
@@ -217,7 +217,7 @@ for j in range(1,len(z2)):
 l=ax.scatter(x, y, color='b',alpha=0.5)
 p=ax.scatter(x2, y2, color='r',alpha=0.5)
 o=ax.scatter(logd, mr, color='g',alpha=1,marker="*")
-ax.legend((l,p,o),("Training set", "Validation set", "Compound"),loc="upper left")
+ax.legend((l,p,o,ax.scatter(dlf,clf,color="grey",alpha=0.08,marker="s",edgecolors='grey')),("Training set", "Validation set", "Compound", "Probability >= 50 %"),loc="upper left")
 plt.show()
 
 st.pyplot(fig)
