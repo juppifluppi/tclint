@@ -30,7 +30,7 @@ dlf = []
 zlf = []
 
 for clx in range(0,250,5):
-    for dlx in range(-40,70,5):
+    for dlx in range(-40,70,2):
         dlx = dlx / 10
         tcl1 = ( ( dlx - 1.510648) / 1.708574 ) * 1.706694
         tcl2 = ( ( clx - 90.62889 ) / 35.36033 ) * 2.4925333 
@@ -204,7 +204,7 @@ ax.set_title('Compound vs. modeling sets')
 
 for j in range(1,len(zlf)):
     if zlf[j] > 0.4999:
-        ax.scatter(dlf[j],clf[j],color="grey",alpha=0.05,s=100, marker= "D")
+        ax.scatter(dlf[j],clf[j],color="grey",alpha=0.05,s=80, marker= "D")
 
 for j in range(1,len(z)):
     if z[j] > 49.999:
