@@ -1,5 +1,5 @@
 ### Streamlit web app to compute TC/L interaction probability of compound
-### Version 1.0 (27.11.22): https://github.com/juppifluppi/tclint
+### Version 1.1 (29.11.22): https://github.com/juppifluppi/tclint
 
 from rdkit import Chem
 from rdkit import DataStructs
