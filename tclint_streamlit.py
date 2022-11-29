@@ -37,7 +37,7 @@ for clx in range(0,250,5):
         tcl3 = 1 / ( 1 + ( 2.718281828459045 ** ( -1 * ( 0.9872289 + tcl1 + tcl2 ) ) ) )
         clf.append(clx)
         dlf.append(dlx)
-        zlf.append(tcl3)
+        zlf.append(tcl3*100)
         
 clf = np.array(clf)
 dlf = np.array(dlf)
@@ -197,7 +197,7 @@ fig=plt.figure()
 ax=fig.add_axes([0,0,1,1])
 ax.scatter(x, y, color='b',alpha=0.5,s=50)
 ax.scatter(x2, y2, color='r',alpha=0.5,s=50)
-ax.scatter(logd, mr, color='g',alpha=1,s=150,marker="*")
+ax.scatter(logd, mr, color='g',alpha=1,s=200,marker="*")
 ax.set_xlabel('logD')
 ax.set_ylabel('CrippenMR')
 ax.set_title('Compound vs. modeling sets')
@@ -206,7 +206,7 @@ go1 = []
 go2 = []
 
 for j in range(1,len(zlf)):
-    if zlf[j] > 0.4999:
+    if zlf[j] > 49.999:
         ax.scatter(dlf[j],clf[j],color="grey",alpha=0.08,s=50,marker="s")
         go1.append(dlf[j])
         go2.append(clf[j])
