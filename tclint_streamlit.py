@@ -218,7 +218,7 @@ go2 = []
 
 for j in range(0,len(zlf)):
     if zlf[j] >= 50:
-        ax.scatter(dlf[j],clf[j],color="grey",alpha=0.08,s=50,marker="s")
+        ax.scatter(dlf[j],clf[j],color="grey",alpha=0.08,s=50)
         go1.append(dlf[j])
         go2.append(clf[j])
 
