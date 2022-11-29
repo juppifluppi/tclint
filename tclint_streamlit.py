@@ -209,7 +209,7 @@ ax.scatter(logd, mr, color='g',alpha=1,s=200,marker="*")
 ax.set_xlabel('logD')
 ax.set_ylabel('CrippenMR')
 ax.set_title('Compound vs. modeling sets')
-ax.lines(cfmmx/10, cfmm, color='grey',alpha=1)
+ax.plot(cfmmx/10, cfmm, color='grey',alpha=1)
 
 go1 = []
 go2 = []
