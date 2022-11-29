@@ -195,8 +195,8 @@ for k in o:
     
 fig=plt.figure()
 ax=fig.add_axes([0,0,1,1])
-ax.scatter(x, y, color='b',alpha=0.5,s=50)
-ax.scatter(x2, y2, color='r',alpha=0.5,s=50)
+ax.scatter(x, y, color='b',alpha=0.5,s=50,c=z, cmap='blue')
+ax.scatter(x2, y2, color='r',alpha=0.5,s=50,c=z2, cmap="red")
 ax.scatter(logd, mr, color='g',alpha=1,s=200,marker="*")
 ax.set_xlabel('logD')
 ax.set_ylabel('CrippenMR')
