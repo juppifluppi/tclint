@@ -215,7 +215,7 @@ for j in range(1,len(z2)):
 l=ax.scatter(x, y, color='b',alpha=0.5)
 p=ax.scatter(x2, y2, color='r',alpha=0.5)
 o=ax.scatter(logd, mr, color='g',alpha=1,marker="*")
-ax.legend((l,p,o),("Training set", "Validation set", "Compound"))
+ax.legend((l,p,o),("Training set", "Validation set", "Compound"),loc="upper left")
 plt.show()
 
 st.pyplot(fig)
