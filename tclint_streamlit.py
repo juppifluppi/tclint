@@ -24,6 +24,20 @@ fil2 = ['S(=O)(=O)(N)c1sc(NC(=O)C)nn1', 'SCC(C(=O)N1C(C(=O)[O-])CCC1)C', 'O(C)c1
 z = []
 z2 = []
 
+cl = range(0,300)
+dl = range(-6,6,0.1)
+
+clf = []
+dlf = []
+zlf = []
+
+for clx in cl:
+    for dlx in dl:
+        tcl3 = 1 / ( 1 + ( 2.718281828459045 ** ( -1 * ( 0.9872289 + dlx + clx ) ) ) )
+        clf.append(clx)
+        dlf.append(dlf)
+        zlf.append(tcl3)
+
 # convert to rdkit mols
 
 o=[]
@@ -186,6 +200,11 @@ for j in range(1,len(z)):
 for j in range(1,len(z2)):
     if z2[j] > 49.999:
         ax.scatter(x2[j],y2[j], color='r',alpha=0.1,s=200)
+
+ax.scatter(dlf,clf,color="grey",alpha=0.001,s=2)
+for j in range(1,len(zlf)):
+    if zlf[j] > 49.999:
+        ax.scatter(dlf[j],clf[j], color='grey',alpha=0.005,s=2)
 
 l=ax.scatter(x, y, color='b',alpha=0.5)
 p=ax.scatter(x2, y2, color='r',alpha=0.5)
