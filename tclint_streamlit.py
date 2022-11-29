@@ -48,7 +48,7 @@ for lines in fil:
     tcl1 = ( ( logd - 1.510648) / 1.708574 ) * 1.706694
     tcl2 = ( ( mr - 90.62889 ) / 35.36033 ) * 2.4925333 
     tcl3 = 1 / ( 1 + ( 2.718281828459045 ** ( -1 * ( 0.9872289 + tcl1 + tcl2 ) ) ) )
-    z.append(tcl3)
+    z.append(tcl3*100)
     
 ox=[]
 for lines in fil2:
@@ -71,7 +71,7 @@ for lines in fil2:
     tcl1 = ( ( logd - 1.510648) / 1.708574 ) * 1.706694
     tcl2 = ( ( mr - 90.62889 ) / 35.36033 ) * 2.4925333 
     tcl3 = 1 / ( 1 + ( 2.718281828459045 ** ( -1 * ( 0.9872289 + tcl1 + tcl2 ) ) ) )
-    z2.append(tcl3)
+    z2.append(tcl3*100)
 
 st.title('TC/L interaction probability model')
 st.caption("""Input a [SMILES code of a molecule](https://pubchem.ncbi.nlm.nih.gov/edit3/index.html).
@@ -181,7 +181,7 @@ ax.set_title('Compound vs. modeling sets')
 
 for j in range(1,len(z)):
     if z[j] > 49.999:
-        ax.scatter(x[j],y[j], color='y',alpha=0.5,s=150)
+        ax.scatter(x[j],y[j], color='b',alpha=0.5,s=150)
 
 
 l=ax.scatter(x, y, color='b',alpha=0.5)
