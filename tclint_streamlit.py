@@ -36,6 +36,9 @@ for clx in range(0,250,10):
         dlf.append(dlf)
         zlf.append(tcl3)
 
+z_array = np.nan * np.empty((3,3))
+z_array[clf, dlf] = zlf        
+        
 # convert to rdkit mols
 
 o=[]
@@ -199,10 +202,7 @@ for j in range(1,len(z2)):
     if z2[j] > 49.999:
         ax.scatter(x2[j],y2[j], color='r',alpha=0.1,s=200)
 
-ax.scatter(dlf,clf,color="grey",alpha=0.001,s=2)
-for j in range(1,len(zlf)):
-    if zlf[j] > 49.999:
-        ax.scatter(dlf[j],clf[j], color='grey',alpha=0.005,s=2)
+im = ax.imshow(z_array,interpolation="quadric")
 
 l=ax.scatter(x, y, color='b',alpha=0.5)
 p=ax.scatter(x2, y2, color='r',alpha=0.5)
