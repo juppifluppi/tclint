@@ -28,12 +28,12 @@ clf = []
 dlf = []
 zlf = []
 
-for clx in range(0,250,10):
-    for dlx in range(-40,60,10):
+for clx in range(20,250,10):
+    for dlx in range(-30,60,10):
         dlx = dlx / 10
         tcl3 = 1 / ( 1 + ( 2.718281828459045 ** ( -1 * ( 0.9872289 + dlx + clx ) ) ) )
         clf.append(clx)
-        dlf.append(dlf)
+        dlf.append(dlx)
         zlf.append(tcl3)
 
 z_array = np.nan * np.empty((3,3))
@@ -187,6 +187,7 @@ for k in o:
     
 fig=plt.figure()
 ax=fig.add_axes([0,0,1,1])
+ax.imshow(z_array,interpolation="quadric")
 ax.scatter(x, y, color='b',alpha=0.5,s=50)
 ax.scatter(x2, y2, color='r',alpha=0.5,s=50)
 ax.scatter(logd, mr, color='g',alpha=1,s=150,marker="*")
@@ -201,8 +202,6 @@ for j in range(1,len(z)):
 for j in range(1,len(z2)):
     if z2[j] > 49.999:
         ax.scatter(x2[j],y2[j], color='r',alpha=0.1,s=200)
-
-im = ax.imshow(z_array,interpolation="quadric")
 
 l=ax.scatter(x, y, color='b',alpha=0.5)
 p=ax.scatter(x2, y2, color='r',alpha=0.5)
