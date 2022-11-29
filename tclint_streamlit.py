@@ -39,12 +39,15 @@ for clx in range(0,300,5):
         dlf.append(dlx)
         zlf.append(tcl3)
 
+df = pd.DataFrame({'x': dlf, 'y': clf})
+asa = df.groupby('x')['y'].min()
+asa1 = asa.iloc[:,0].values
+asa2 = asa.iloc[:,1].values
+        
 clf = np.array(clf)
 dlf = np.array(dlf)
 zlf = np.array(zlf)
-df = pd.DataFrame({'x': dlf, 'y': clf})
-asa = df.groupby('x')['y'].min()
-st.write(asa)
+
 
 #z_array = np.histogram2d(clf, dlf, bins=[len(range(20,250,10)),len(range(-30,60,10))], weights=zlf)
 #z_array = z_array[0]    
