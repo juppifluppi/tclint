@@ -81,8 +81,8 @@ for lines in fil2:
 
     
 st.title('TC/L interaction probability model')
-st.caption("""Input a [SMILES code of a molecule](https://pubchem.ncbi.nlm.nih.gov/edit3/index.html).
-A probability for interaction with taurocholate/lecithin is computed at pH 6.5, based on two descriptors: logD and CrippenMR.
+st.caption("""Input a [molecule SMILES code](https://pubchem.ncbi.nlm.nih.gov/edit3/index.html).
+A taurocholate/lecithin interaction probability is computed at pH 6.5, based on two descriptors: logD and CrippenMR.
 The model is inspired by [Mol. Pharmaceutics 2022, 19, 2868−2876](https://doi.org/10.1021/acs.molpharmaceut.2c00227)
 but was built with descriptors from rdkit/scopy instead of MOE/PaDEL, using logD for pH 7.4 instead of 7.0.
 For the same traning/validation set similar statistics are retrieved (balanced accuracy: 0.86/0.83, AUC: 0.93/0.93).""")
@@ -126,9 +126,8 @@ except:
     st.write("Something is wrong with your SMILES code.")
     st.stop()
 
-st.caption("""A scatter plot shows properties in relation to the training and validation sets. Molecules with ≥ 50 % probability have an additional outline
-and wrongly classified cases are filled green. A SDC applicability
-domain metric (sum of tanimoto distance-weighted contributions) evaluates structural similarity to the training set ([J. Chem. Inf. Model. 2019, 59, 
+st.caption("""The following plot shows the properties in relation to the modeling sets. Molecules with ≥ 50 % probability are shown with an additional outline
+and wrongly classified cases are filled green. A SDC applicability domain metric (sum of tanimoto distance-weighted contributions) evaluates structural similarity to the training set ([J. Chem. Inf. Model. 2019, 59, 
 181−189](https://doi.org/10.1021/acs.jcim.8b00597)). High SDC values and / or large distances to the training set in the plot can indicate less reliable predictions.""")
 
 # copmute ecfp_4 fingerprints to calculate SDC metrics
