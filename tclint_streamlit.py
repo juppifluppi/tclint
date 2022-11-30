@@ -215,7 +215,6 @@ st.pyplot(fig)
 
 st.write("SDC applicability domain metrics:")
 st.write("Training set: "+str(round(np.min(lit),2))+" - "+str(round(np.max(lit),2))+" (Mean: "+str(round(np.mean(lit),2))+"; SD: "+str(round(np.std(lit),2))+")")       
-st.write("Validation set: "+str(round(np.min(li),2))+" - "+str(round(np.max(li),2))+" (Mean: "+str(round(np.mean(li),2))+"; SD: "+str(round(np.std(li),2))+")")     
 st.write("Compound: "+str(round(np.sum(g),2)))
 
 # reference
