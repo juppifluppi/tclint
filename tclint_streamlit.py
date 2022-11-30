@@ -220,10 +220,14 @@ ax.set_title('Compound vs. modeling sets')
 for j in range(0,len(z)):
     if z[j] >= 50:
         ax.scatter(x[j],y[j], color='b',alpha=0.1,s=200)
+        if e1[j] == 0:
+            ax.scatter(x[j],y[j], color='yellow',alpha=1,s=30)
 
 for j in range(0,len(z2)):
     if z2[j] >= 50:
         ax.scatter(x2[j],y2[j], color='r',alpha=0.1,s=200)
+        if e2[j] == 0:
+            ax.scatter(x[j],y[j], color='yellow',alpha=1,s=30)
         
 if tcl3*100 >= 50:
     ax.scatter(logd,mr, color='g',alpha=0.1,s=250)
