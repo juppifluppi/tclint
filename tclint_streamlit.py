@@ -79,7 +79,6 @@ for lines in fil2:
     tcl3 = 1 / ( 1 + ( 2.718281828459045 ** ( -1 * ( 0.9872289 + tcl1 + tcl2 ) ) ) )
     z2.append(tcl3*100)
 
-st.write(z2)
     
 st.title('TC/L interaction probability model')
 st.caption("""Input a [SMILES code of a molecule](https://pubchem.ncbi.nlm.nih.gov/edit3/index.html).
