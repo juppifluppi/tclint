@@ -162,7 +162,6 @@ print("Validation set CrippenMR: "+str(round(np.min(y2),2))+" - "+str(round(np.m
 print("---------------------------------")         
 print("SDC applicability domain metrics:")
 print("Training set: "+str(round(np.min(lit),2))+" - "+str(round(np.max(lit),2))+" (Mean: "+str(round(np.mean(lit),2))+"; SD: "+str(round(np.std(lit),2))+")")       
-print("Validation set: "+str(round(np.min(li),2))+" - "+str(round(np.max(li),2))+" (Mean: "+str(round(np.mean(li),2))+"; SD: "+str(round(np.std(li),2))+")")     
 print("Compound: "+str(round(np.sum(g),2)))
 print("---------------------------------")   
 
