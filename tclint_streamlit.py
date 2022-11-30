@@ -81,7 +81,7 @@ for lines in fil2:
 st.title('TC/L interaction probability model')
 st.caption("""Input a [molecule SMILES code](https://pubchem.ncbi.nlm.nih.gov/edit3/index.html).
 A taurocholate/lecithin interaction probability is computed at pH 6.5, based on two descriptors: logD and CrippenMR.
-The model is inspired by [Mol. Pharmaceutics 2022, 19, 2868−2876](https://doi.org/10.1021/acs.molpharmaceut.2c00227)
+The model is based on [previous results](https://doi.org/10.1021/acs.molpharmaceut.2c00227)
 but was built with descriptors from rdkit/scopy instead of MOE/PaDEL, using logD for pH 7.4 instead of 7.0.
 For the same traning/validation set similar statistics are retrieved (balanced accuracy: 0.86/0.83, AUC: 0.93/0.93).""")
 
