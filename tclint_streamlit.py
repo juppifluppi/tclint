@@ -245,7 +245,7 @@ if tcl3*100 >= 50:
 b, a = np.polyfit(go1, go2, deg=1)
 xseq = np.linspace(-4, 5.5, num=2)
 ax.plot(xseq, a + b * xseq, color="grey", linewidth=10, alpha=0.1)
-knn=ax.scatter(xseq, a + b * xseq, color="grey", s=50, alpha=0.1,edgecolors="grey", marker="s",zorder=1)
+knn=ax.scatter(xseq, a + b * xseq, color="grey", s=30, alpha=0.1,edgecolors="grey", marker="s",zorder=1)
 ax.legend((l,m,p,w,o,j,n,knn),("Training set", "≥ 50 % probability", "Validation set", "≥ 50 % probability", "Compound", "≥ 50 % probability", "Wrong classification", "50 % probability"), ncol=2)
 plt.show()
 st.pyplot(fig)
