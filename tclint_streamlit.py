@@ -209,7 +209,7 @@ b, a = np.polyfit(go1, go2, deg=1)
 xseq = np.linspace(-4, 5.5, num=2)
 ax.plot(xseq, a + b * xseq, color="grey", linewidth=10, alpha=0.1,zorder=1)
 knn=ax.scatter(xseq, a + b * xseq, color="grey", s=30, alpha=0.1,edgecolors="grey", marker="s",zorder=1)
-ax.legend((l,p,o,knn),("Training set", "Validation set", "Compound", "Wrong classification", "50 % threshold"), ncol=1)
+ax.legend((l,p,o,n,knn),("Training set", "Validation set", "Compound", "Wrong classification", "50 % threshold"), ncol=1)
 plt.show()
 st.pyplot(fig)
 
