@@ -126,7 +126,8 @@ except:
     st.write("Something is wrong with your SMILES code.")
     st.stop()
 
-st.caption("""A scatter plot shows the properties of the compound in relation to the training and the validation set. A SDC applicability
+st.caption("""A scatter plot shows properties in relation to the training and validation sets. Molecules with ≥ 50 % probability have an additional outline
+and wrongly classified cases are filled green. A SDC applicability
 domain metric (sum of tanimoto distance-weighted contributions) evaluates structural similarity to the training set molecules ([J. Chem. Inf. Model. 2019, 59, 
 181−189](https://doi.org/10.1021/acs.jcim.8b00597)). Higher SDC values and / or large distances to the training set in the plot can indicate less reliable predictions.""")
 
@@ -208,7 +209,7 @@ b, a = np.polyfit(go1, go2, deg=1)
 xseq = np.linspace(-4, 5.5, num=2)
 ax.plot(xseq, a + b * xseq, color="grey", linewidth=10, alpha=0.1,zorder=1)
 knn=ax.scatter(xseq, a + b * xseq, color="grey", s=30, alpha=0.1,edgecolors="grey", marker="s",zorder=1)
-ax.legend((l,m,p,w,o,n,knn),("Training set", "≥ 50 % probability", "Validation set", "≥ 50 % probability", "Compound", "≥ 50 % probability", "Wrong classification", "50 % probability"), ncol=1)
+ax.legend((l,p,o,knn),("Training set", "Validation set", "Compound", "Wrong classification", "50 % threshold"), ncol=1)
 plt.show()
 st.pyplot(fig)
 
