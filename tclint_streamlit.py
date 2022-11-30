@@ -221,19 +221,19 @@ for j in range(0,len(z)):
     if z[j] >= 50:
         m=ax.scatter(x[j],y[j], color='b',alpha=0.1,s=200)
         if e1[j] == 0:
-            n=ax.scatter(x[j],y[j], color='y',alpha=1,s=20,marker="*",zorder=2)
+            n=ax.scatter(x[j],y[j], color='y',alpha=1,s=20,zorder=2)
     if z[j] < 50:
         if e1[j] == 1:
-            h=ax.scatter(x[j],y[j], color='y',alpha=1,s=20,marker="*",zorder=2)
+            h=ax.scatter(x[j],y[j], color='y',alpha=1,s=20,zorder=2)
             
 for j in range(0,len(z2)):
     if z2[j] >= 50:
         w=ax.scatter(x2[j],y2[j], color='r',alpha=0.1,s=200)
         if e2[j] == 0:
-            r=ax.scatter(x2[j],y2[j], color='y',alpha=1,s=20,marker="*",zorder=2)
+            r=ax.scatter(x2[j],y2[j], color='y',alpha=1,s=20,zorder=2)
     if z2[j] < 50:
         if e2[j] == 1:
-            s=ax.scatter(x2[j],y2[j], color='y',alpha=1,s=20,marker="*",zorder=2)
+            s=ax.scatter(x2[j],y2[j], color='y',alpha=1,s=20,zorder=2)
         
 if tcl3*100 >= 50:
     j=ax.scatter(logd,mr, color='g',alpha=0.1,s=250)
