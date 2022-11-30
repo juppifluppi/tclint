@@ -108,7 +108,7 @@ except:
     st.stop()
 
 st.caption("""A scatter plot shows compound properties in relation to the training and validation sets. Molecules with ≥ 50 % probability are shown with additional borders
-and wrongly classified cases filled green. A SDC applicability domain metric (sum of tanimoto distance-weighted contributions) evaluates structural similarity to the training set molecules
+and wrongly classified cases are filled green. A SDC applicability domain metric (sum of tanimoto distance-weighted contributions) evaluates structural similarity to the training set molecules
 ([J. Chem. Inf. Model. 2019, 59, 181−189](https://doi.org/10.1021/acs.jcim.8b00597)). High SDC values and / or large distances to the training set in the plot can indicate less reliable predictions.""")
 
 # copmute ecfp_4 fingerprints to calculate SDC metrics
