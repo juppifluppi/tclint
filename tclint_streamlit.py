@@ -207,7 +207,7 @@ fig=plt.figure()
 ax=fig.add_axes([0,0,1,1])
 l=ax.scatter(x, y, color='b',alpha=0.5,s=50)
 p=ax.scatter(x2, y2, color='r',alpha=0.5,s=50)
-o=ax.scatter(logd, mr, color='m',alpha=1,s=150,marker="*")
+o=ax.scatter(logd, mr, color='g',alpha=1,s=150,marker="*")
 ax.set_xlabel('logD')
 ax.set_ylabel('CrippenMR')
 ax.set_title('Compound vs. modeling sets')
@@ -236,7 +236,7 @@ for j in range(0,len(z2)):
             s=ax.scatter(x2[j],y2[j], color='y',alpha=1,s=10,zorder=2)
         
 if tcl3*100 >= 50:
-    j=ax.scatter(logd,mr, color='m',alpha=0.1,s=250)
+    j=ax.scatter(logd,mr, color='g',alpha=0.1,s=250)
 
 #l=ax.scatter(x, y, color='b',alpha=0.5)
 #p=ax.scatter(x2, y2, color='r',alpha=0.5)
