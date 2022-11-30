@@ -233,7 +233,7 @@ o=ax.scatter(logd, mr, color='g',alpha=1,marker="*")
 #m=ax.plot(go1,go2,color="grey",alpha=0.2,linewidth=10)
 b, a = np.polyfit(go1, go2, deg=1)
 xseq = np.linspace(-4, 5.5, num=100)
-ax.plot(xseq, a + b * xseq, color="grey", lw=5, alpha=0.2);
+ax.plot(xseq, a + b * xseq, color="grey", lw=8, alpha=0.1);
 #m=np.polyfit(go1, go2, deg=1)
 ax.legend((l,p,o,m),("Training set", "Validation set", "Compound", "Probability >= 50 %"),loc="upper left")
 plt.show()
