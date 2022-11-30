@@ -1,5 +1,5 @@
 ### Command-line python script to compute TC/L interaction probability of compound
-### Version 1.1 (29.11.22): https://github.com/juppifluppi/tclint
+### Version 1.0 (27.11.22): https://github.com/juppifluppi/tclint
 
 from rdkit import Chem
 from rdkit import DataStructs
@@ -168,7 +168,7 @@ print("Validation set: "+str(round(np.min(li),2))+" - "+str(round(np.max(li),2))
 print("Compound: "+str(round(np.sum(g),2)))
 print("---------------------------------")   
 
-print("Version: 1.1 (29.11.22)")  
+print("Version: 1.0 (27.11.22)")  
 print("Web version: https://tclint.streamlit.app/")
 print("More info can be found on: https://github.com/juppifluppi/tclint")   
 sys.exit()
