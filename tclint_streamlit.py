@@ -219,24 +219,24 @@ ax.set_title('Compound vs. modeling sets')
 
 for j in range(0,len(z)):
     if z[j] >= 50:
-        ax.scatter(x[j],y[j], color='b',alpha=0.1,s=200)
+        m=ax.scatter(x[j],y[j], color='b',alpha=0.1,s=200)
         if e1[j] == 0:
-            ax.scatter(x[j],y[j], color='y',alpha=1,s=20,marker="*",zorder=2)
+            n=ax.scatter(x[j],y[j], color='y',alpha=1,s=20,marker="*",zorder=2)
     if z[j] < 50:
         if e1[j] == 1:
-            ax.scatter(x[j],y[j], color='y',alpha=1,s=20,marker="*",zorder=2)
+            h=ax.scatter(x[j],y[j], color='y',alpha=1,s=20,marker="*",zorder=2)
             
 for j in range(0,len(z2)):
     if z2[j] >= 50:
-        ax.scatter(x2[j],y2[j], color='r',alpha=0.1,s=200)
+        w=ax.scatter(x2[j],y2[j], color='r',alpha=0.1,s=200)
         if e2[j] == 0:
-            ax.scatter(x2[j],y2[j], color='y',alpha=1,s=20,marker="*",zorder=2)
+            r=ax.scatter(x2[j],y2[j], color='y',alpha=1,s=20,marker="*",zorder=2)
     if z2[j] < 50:
         if e2[j] == 1:
-            ax.scatter(x2[j],y2[j], color='y',alpha=1,s=20,marker="*",zorder=2)
+            s=ax.scatter(x2[j],y2[j], color='y',alpha=1,s=20,marker="*",zorder=2)
         
 if tcl3*100 >= 50:
-    ax.scatter(logd,mr, color='g',alpha=0.1,s=250)
+    j=ax.scatter(logd,mr, color='g',alpha=0.1,s=250)
 
 #l=ax.scatter(x, y, color='b',alpha=0.5)
 #p=ax.scatter(x2, y2, color='r',alpha=0.5)
@@ -245,7 +245,7 @@ if tcl3*100 >= 50:
 b, a = np.polyfit(go1, go2, deg=1)
 xseq = np.linspace(-4, 5.5, num=100)
 ax.plot(xseq, a + b * xseq, ":", color="grey", lw=8, alpha=0.1)
-ax.legend((l,p,o),("Training set", "Validation set", "Compound"))
+ax.legend((l,p,o,n),("Training set", "Validation set", "Compound", "Wrongly classified by model"))
 plt.show()
 st.pyplot(fig)
 
