@@ -45,15 +45,7 @@ for lines in fil:
     sdm = pretreat.StandardizeMol()
     mol = sdm.disconnect_metals(mol)
     o.append(mol)
-    
-    #logd = scopy.ScoDruglikeness.molproperty.CalculateLogD(mol)
-    #mr = scopy.ScoDruglikeness.molproperty.CalculateMolMR(mol)
-
-    #tcl1 = ( ( logd - 1.510648) / 1.708574 ) * 1.706694
-    #tcl2 = ( ( mr - 90.62889 ) / 35.36033 ) * 2.4925333 
-    #tcl3 = 1 / ( 1 + ( 2.718281828459045 ** ( -1 * ( 0.9872289 + tcl1 + tcl2 ) ) ) )
-    #z.append(tcl3*100)
-    
+     
 ox=[]
 for lines in fil2:
     dimorphite_dl = DimorphiteDL(
@@ -68,14 +60,6 @@ for lines in fil2:
     sdm = pretreat.StandardizeMol()
     mol = sdm.disconnect_metals(mol)
     ox.append(mol)
-    
-    #logd = scopy.ScoDruglikeness.molproperty.CalculateLogD(mol)
-    #mr = scopy.ScoDruglikeness.molproperty.CalculateMolMR(mol)
-
-    #tcl1 = ( ( logd - 1.510648) / 1.708574 ) * 1.706694
-    #tcl2 = ( ( mr - 90.62889 ) / 35.36033 ) * 2.4925333 
-    #tcl3 = 1 / ( 1 + ( 2.718281828459045 ** ( -1 * ( 0.9872289 + tcl1 + tcl2 ) ) ) )
-    #z2.append(tcl3*100)
     
 st.title('TC/L interaction probability model')
 st.caption("""Input a [SMILES code of a molecule](https://pubchem.ncbi.nlm.nih.gov/edit3/index.html).
@@ -178,7 +162,7 @@ fig=plt.figure()
 ax=fig.add_axes([0,0,1,1])
 l=ax.scatter(x, y, color='b',alpha=0.5,s=50)
 p=ax.scatter(x2, y2, color='r',alpha=0.5,s=50)
-o=ax.scatter(logd, mr, color='#FF00FF',alpha=1,s=80,marker="D",zorder=2)
+o=ax.scatter(logd, mr, color='#FF00FF',alpha=1,s=70,marker="D",zorder=2)
 ax.set_xlabel('logD')
 ax.set_ylabel('CrippenMR')
 ax.set_title('Compound vs. modeling sets')
