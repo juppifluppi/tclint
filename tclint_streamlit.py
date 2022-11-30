@@ -105,7 +105,7 @@ try:
     mol = sdm.disconnect_metals(mol)
     
     m = Chem.MolFromSmiles(SMI)
-    im = Draw.MolToImage(m)
+    im = Draw.MolToImage(m,fitImage=True)
     
     logd = scopy.ScoDruglikeness.molproperty.CalculateLogD(mol)
     mr = scopy.ScoDruglikeness.molproperty.CalculateMolMR(mol)
