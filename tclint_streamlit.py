@@ -205,9 +205,9 @@ for k in o:
     
 fig=plt.figure()
 ax=fig.add_axes([0,0,1,1])
-ax.scatter(x, y, color='b',alpha=0.5,s=50)
-ax.scatter(x2, y2, color='r',alpha=0.5,s=50)
-ax.scatter(logd, mr, color='g',alpha=1,s=150,marker="*")
+l=ax.scatter(x, y, color='b',alpha=0.5,s=50)
+p=ax.scatter(x2, y2, color='r',alpha=0.5,s=50)
+o=ax.scatter(logd, mr, color='g',alpha=1,s=150,marker="*")
 ax.set_xlabel('logD')
 ax.set_ylabel('CrippenMR')
 ax.set_title('Compound vs. modeling sets')
@@ -238,9 +238,9 @@ for j in range(0,len(z2)):
 if tcl3*100 >= 50:
     ax.scatter(logd,mr, color='g',alpha=0.1,s=250)
 
-l=ax.scatter(x, y, color='b',alpha=0.5)
-p=ax.scatter(x2, y2, color='r',alpha=0.5)
-o=ax.scatter(logd, mr, color='g',alpha=1,marker="*")
+#l=ax.scatter(x, y, color='b',alpha=0.5)
+#p=ax.scatter(x2, y2, color='r',alpha=0.5)
+#o=ax.scatter(logd, mr, color='g',alpha=1,marker="*")
 #m=ax.plot(go1,go2,color="grey",alpha=0.2,linewidth=10)
 b, a = np.polyfit(go1, go2, deg=1)
 xseq = np.linspace(-4, 5.5, num=100)
