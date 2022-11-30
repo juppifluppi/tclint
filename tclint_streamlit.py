@@ -207,7 +207,7 @@ fig=plt.figure()
 ax=fig.add_axes([0,0,1,1])
 l=ax.scatter(x, y, color='b',alpha=0.5,s=50)
 p=ax.scatter(x2, y2, color='r',alpha=0.5,s=50)
-o=ax.scatter(logd, mr, color='#FF00FF',alpha=1,s=150,marker="*",zorder=2)
+o=ax.scatter(logd, mr, color='#FF00FF',alpha=1,s=150,marker="D",zorder=2)
 ax.set_xlabel('logD')
 ax.set_ylabel('CrippenMR')
 ax.set_title('Compound vs. modeling sets')
@@ -236,7 +236,7 @@ for j in range(0,len(z2)):
             s=ax.scatter(x2[j],y2[j], color='y',alpha=1,s=10,zorder=2)
         
 if tcl3*100 >= 50:
-    j=ax.scatter(logd,mr, color='pink',alpha=0.1,s=250,zorder=2)
+    j=ax.scatter(logd,mr, color='#FF00FF',alpha=0.1,s=250,marker="D",zorder=2)
 
 #l=ax.scatter(x, y, color='b',alpha=0.5)
 #p=ax.scatter(x2, y2, color='r',alpha=0.5)
@@ -244,8 +244,8 @@ if tcl3*100 >= 50:
 #m=ax.plot(go1,go2,color="grey",alpha=0.2,linewidth=10)
 b, a = np.polyfit(go1, go2, deg=1)
 xseq = np.linspace(-4, 5.5, num=100)
-ax.plot(xseq, a + b * xseq, ":", color="grey", lw=8, alpha=0.1)
-ax.legend((l,p,o,n),("Training set", "Validation set", "Compound", "Wrong classification"))
+knn=ax.scatter(xseq, a + b * xseq, color="grey", alpha=0.1)
+ax.legend((l,p,o,n,knn),("Training set", "Validation set", "Compound", "Wrong classification", "50 % probability"))
 plt.show()
 st.pyplot(fig)
 
