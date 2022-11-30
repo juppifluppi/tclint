@@ -179,7 +179,7 @@ fig=plt.figure()
 ax=fig.add_axes([0,0,1,1])
 l=ax.scatter(x, y, color='b',alpha=0.5,s=50)
 p=ax.scatter(x2, y2, color='r',alpha=0.5,s=50)
-o=ax.scatter(logd, mr, color='#FF00FF',alpha=1,s=80,marker="D",zorder=2)
+o=ax.scatter(logd, mr, color='#FF00FF',alpha=1,s=60,marker="D",zorder=2)
 ax.set_xlabel('logD')
 ax.set_ylabel('CrippenMR')
 ax.set_title('Compound vs. modeling sets')
@@ -202,6 +202,9 @@ for j in range(0,len(z2)):
         if e2[j] == 1:
             s=ax.scatter(x2[j],y2[j], color='y',alpha=1,s=10,zorder=2)
 
+if tcl3*100 >= 50:
+    ax.scatter(logd, mr, color='#FF00FF',alpha=0.1,s=160,marker="D",zorder=2)
+
 b, a = np.polyfit(go1, go2, deg=1)
 xseq = np.linspace(-4, 5.5, num=2)
 ax.plot(xseq, a + b * xseq, color="grey", linewidth=10, alpha=0.1,zorder=1)
@@ -219,4 +222,4 @@ st.write("Compound: "+str(round(np.sum(g),2)))
 
 # reference
 
-st.caption("Version 1.2 (30.11.22). Visit the [github page](https://github.com/juppifluppi/tclint) for more information and a downloadable version.")
+st.caption("Version 1.2 (30.11.22). Visit [github](https://github.com/juppifluppi/tclint) for more information and a downloadable version.")
