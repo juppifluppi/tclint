@@ -107,7 +107,8 @@ except:
     st.write("Something is wrong with your SMILES code.")
     st.stop()
 
-st.caption("""A scatter plot shows the properties of the compound in relation to the training and the validation set. A SDC applicability
+st.caption("""A scatter plot shows the properties of the compound in relation to the training and the validation set. Compounds with ≥ 50 % probability (above the grey threshold line) are shown with additional transparent outline,
+wrongly classified cases are depicted as points filled with green. A SDC applicability
 domain metric (sum of tanimoto distance-weighted contributions) evaluates structural similarity to the training set molecules ([J. Chem. Inf. Model. 2019, 59, 
 181−189](https://doi.org/10.1021/acs.jcim.8b00597)). Higher SDC values and / or large distances to the training set in the plot can indicate less reliable predictions.""")
 
