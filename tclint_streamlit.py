@@ -1,5 +1,5 @@
 ### Streamlit web app to compute TC/L interaction probability of compound
-### Version 1.2 (30.11.22): https://github.com/juppifluppi/tclint
+### Version 1.0 (30.11.22): https://github.com/juppifluppi/tclint
 
 from rdkit import Chem
 from rdkit import DataStructs
@@ -125,7 +125,7 @@ except:
     st.stop()
 
 st.caption("""The following plot shows the properties in relation to the modeling sets. Molecules with ≥ 50 % probability are shown with an additional outline
-and wrongly classified cases are filled green. A [SDC applicability domain metric](https://doi.org/10.1021/acs.jcim.8b00597) (sum of tanimoto distance-weighted contributions) evaluates structural similarity to the training set. High SDC values and / or large distances to the training set in the plot can indicate less reliable predictions.""")
+and wrongly classified cases are filled green. A [SDC applicability domain metric](https://doi.org/10.1021/acs.jcim.8b00597) (sum of tanimoto distance-weighted contributions) evaluates structural similarity to the training set. Higher SDC values and / or large distances to the training set in the plot can indicate less reliable predictions.""")
 
 # copmute tanimoto ecfp_4 fingerprints to calculate SDC metrics
 
@@ -221,4 +221,4 @@ st.write("Compound: "+str(round(np.sum(g),2)))
 
 # reference
 
-st.caption("Version 1.2 (30.11.22). Visit [github](https://github.com/juppifluppi/tclint) for more information and a downloadable version.")
+st.caption("Version 1.0 (30.11.22). Visit [github](https://github.com/juppifluppi/tclint) for more information and a downloadable version.")
