@@ -219,7 +219,7 @@ ax.set_title('Compound vs. modeling sets')
 
 for j in range(0,len(z)):
     if z[j] >= 50:
-        m=ax.scatter(x[j],y[j], color='b',alpha=0.1,s=200)
+        m=ax.scatter(x[j],y[j], color='b',alpha=0.1,s=200,marker="s")
         if e1[j] == 0:
             n=ax.scatter(x[j],y[j], color='y',alpha=1,s=10,zorder=2)
     if z[j] < 50:
@@ -228,7 +228,7 @@ for j in range(0,len(z)):
             
 for j in range(0,len(z2)):
     if z2[j] >= 50:
-        w=ax.scatter(x2[j],y2[j], color='r',alpha=0.1,s=200)
+        w=ax.scatter(x2[j],y2[j], color='r',alpha=0.1,s=200,marker="s")
         if e2[j] == 0:
             r=ax.scatter(x2[j],y2[j], color='y',alpha=1,s=10,zorder=2)
     if z2[j] < 50:
@@ -245,7 +245,7 @@ if tcl3*100 >= 50:
 b, a = np.polyfit(go1, go2, deg=1)
 xseq = np.linspace(-4, 5.5, num=100)
 knn=ax.scatter(xseq, a + b * xseq, color="grey", s=100, alpha=0.1)
-ax.legend((l,p,o,n,knn),("Training set", "Validation set", "Compound", "Wrong classification", "50 % probability"))
+ax.legend((l,p,o,n,knn,m),("Training set", "Validation set", "Compound", "Wrong classification", "50 % probability", "> 50 % probability"))
 plt.show()
 st.pyplot(fig)
 
