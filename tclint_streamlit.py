@@ -245,7 +245,7 @@ if tcl3*100 >= 50:
 b, a = np.polyfit(go1, go2, deg=1)
 xseq = np.linspace(-4, 5.5, num=100)
 ax.plot(xseq, a + b * xseq, ":", color="grey", lw=8, alpha=0.1)
-ax.legend((l,p,o,n),("Training set", "Validation set", "Compound", "Wrongly classified by model"))
+ax.legend((l,p,o,n),("Training set", "Validation set", "Compound", "Wrong classification"))
 plt.show()
 st.pyplot(fig)
 
