@@ -201,7 +201,7 @@ for j in range(0,len(z2)):
             s=ax.scatter(x2[j],y2[j], color='y',alpha=1,s=10,zorder=2)
 
 if tcl3*100 >= 50:
-    q=ax.scatter(logd, mr, color='lime',alpha=0.1,s=160,marker="D",zorder=2)
+    q=ax.scatter(logd, mr, color='lime',alpha=0.1,s=180,marker="D",zorder=2)
 
 b, a = np.polyfit(go1, go2, deg=1)
 xseq = np.linspace(-4, 5.5, num=2)
