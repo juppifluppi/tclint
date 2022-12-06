@@ -184,7 +184,7 @@ ax.set_title('Compound vs. modeling sets')
 
 for j in range(0,len(z)):
     if z[j] >= 50:
-        m=ax.scatter(x[j],y[j], color='b',alpha=0.1,s=200)
+        m=ax.scatter(x[j],y[j], color='b',alpha=0.1,s=160)
         if e1[j] == 0:
             n=ax.scatter(x[j],y[j], color='y',alpha=1,s=10,zorder=2)
     if z[j] < 50:
@@ -193,7 +193,7 @@ for j in range(0,len(z)):
             
 for j in range(0,len(z2)):
     if z2[j] >= 50:
-        w=ax.scatter(x2[j],y2[j], color='r',alpha=0.1,s=200)
+        w=ax.scatter(x2[j],y2[j], color='r',alpha=0.1,s=160)
         if e2[j] == 0:
             r=ax.scatter(x2[j],y2[j], color='y',alpha=1,s=10,zorder=2)
     if z2[j] < 50:
