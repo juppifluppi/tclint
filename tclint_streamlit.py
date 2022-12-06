@@ -124,7 +124,7 @@ except:
     st.write("Something is wrong with your SMILES code.")
     st.stop()
 
-st.caption("""The following plot shows the properties in relation to the modeling sets. Molecules with ≥ 50 % probability are shown with additional outlines. A [SDC metric](https://doi.org/10.1021/acs.jcim.8b00597) (sum of tanimoto distance-weighted contributions) evaluates structural similarity to the training set. Higher SDC values and / or large distances to the training set in the plot can indicate less reliable predictions.""")
+st.caption("""The following plot shows the properties in relation to the modeling sets. A [SDC metric](https://doi.org/10.1021/acs.jcim.8b00597) (sum of tanimoto distance-weighted contributions) evaluates structural similarity to the training set. Higher SDC values and / or large distances to the training set in the plot can indicate less reliable predictions.""")
 
 # copmute tanimoto ecfp_4 fingerprints to calculate SDC metrics
 
