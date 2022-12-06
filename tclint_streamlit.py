@@ -175,9 +175,9 @@ for k in o:
     
 fig=plt.figure()
 ax=fig.add_axes([0,0,1,1])
-l=ax.scatter(x, y, color='b',alpha=0.5,s=10)
+l=ax.scatter(x, y, color='b',alpha=0.5,s=50)
 p=ax.scatter(x2, y2, color='r',alpha=0.5,s=50)
-o=ax.scatter(logd, mr, color='lime',alpha=1,s=10,marker="D",zorder=2)
+o=ax.scatter(logd, mr, color='lime',alpha=1,s=50,marker="D",zorder=2)
 ax.set_xlabel('logD')
 ax.set_ylabel('CrippenMR')
 ax.set_title('Compound vs. modeling sets')
