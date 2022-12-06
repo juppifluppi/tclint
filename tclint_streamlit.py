@@ -201,13 +201,13 @@ for j in range(0,len(z2)):
             s=ax.scatter(x2[j],y2[j], color='y',alpha=1,s=10,zorder=2)
 
 if tcl3*100 >= 50:
-    ax.scatter(logd, mr, color='lime',alpha=0.1,s=160,marker="D",zorder=2)
+    b=ax.scatter(logd, mr, color='lime',alpha=0.1,s=160,marker="D",zorder=2)
 
 b, a = np.polyfit(go1, go2, deg=1)
 xseq = np.linspace(-4, 5.5, num=2)
 ax.plot(xseq, a + b * xseq, color="grey", linewidth=10, alpha=0.1,zorder=1)
 knn=ax.scatter(xseq, a + b * xseq, color="grey", s=30, alpha=0.1,edgecolors="grey", marker="s",zorder=1)
-ax.legend((l,m,p,w,o,n,knn),("Training set", "≥ 50 % probability", "Validation set", "≥ 50 % probability", "Compound", "Wrong classification", "50 % threshold"), ncol=1)
+ax.legend((l,m,p,w,o,b,n,knn),("Training set", "≥ 50 % probability", "Validation set", "≥ 50 % probability", "Compound","≥ 50 % probability", "Wrong classification", "50 % threshold"), ncol=2)
 plt.show()
 st.pyplot(fig)
 
