@@ -99,7 +99,7 @@ try:
     print("Compound properties:")  
     print("logD: " + str(round(logd,2)))
     print("CrippenMR: " + str(round(mr,2)))
-    print("TC/L interaction probability: " + str(round(tcl3*100,2)) + " %")
+    print("TC/L interaction probability: " + str(int(round(tcl3*100,2))) + " %")
     print("---------------------------------")  
 
 except:
