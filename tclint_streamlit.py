@@ -218,7 +218,7 @@ for j in range(0,len(test_prob)):
 
 # use calculated values for threshold line to fit regression line
 
-b, a = np.polyfit(tresh_x, thresh_y, deg=1)
+b, a = np.polyfit(thresh_x, thresh_y, deg=1)
 xseq = np.linspace(-4, 5.5, num=2)
 ax.plot(xseq, a + b * xseq, color="grey", linewidth=10, alpha=0.1,zorder=1)
 knn=ax.scatter(xseq, a + b * xseq, color="grey", s=30, alpha=0.1,edgecolors="grey", marker="s",zorder=1)
