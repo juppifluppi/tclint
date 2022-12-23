@@ -157,13 +157,16 @@ for k in train_mols:
 # output values
 
 print("TC/L interaction probability model")
-print("---------------------------------")    
-print("Modeling sets:")
-print("Training set logD: "+str(round(np.min(train_logD),2))+" - "+str(round(np.max(train_logD),2))+" (Mean: "+str(round(np.mean(train_logD),2))+"; SD: "+str(round(np.std(train_logD),2))+")")       
-print("Training set CrippenMR: "+str(round(np.min(train_MR),2))+" - "+str(round(np.max(train_MR),2))+" (Mean: "+str(round(np.mean(train_MR),2))+"; SD: "+str(round(np.std(train_MR),2))+")")  
-print("Validation set logD: "+str(round(np.min(test_logD),2))+" - "+str(round(np.max(test_logD),2))+" (Mean: "+str(round(np.mean(test_logD),2))+"; SD: "+str(round(np.std(test_logD),2))+")")       
-print("Validation set CrippenMR: "+str(round(np.min(test_MR),2))+" - "+str(round(np.max(test_MR),2))+" (Mean: "+str(round(np.mean(test_MR),2))+"; SD: "+str(round(np.std(test_MR),2))+")")  
-print("---------------------------------")         
+print("---------------------------------")  
+
+# uncomment this section to show properties of training and validation sets
+# print("Modeling sets:")
+# print("Training set logD: "+str(round(np.min(train_logD),2))+" - "+str(round(np.max(train_logD),2))+" (Mean: "+str(round(np.mean(train_logD),2))+"; SD: "+str(round(np.std(train_logD),2))+")")       
+# print("Training set CrippenMR: "+str(round(np.min(train_MR),2))+" - "+str(round(np.max(train_MR),2))+" (Mean: "+str(round(np.mean(train_MR),2))+"; SD: "+str(round(np.std(train_MR),2))+")")  
+# print("Validation set logD: "+str(round(np.min(test_logD),2))+" - "+str(round(np.max(test_logD),2))+" (Mean: "+str(round(np.mean(test_logD),2))+"; SD: "+str(round(np.std(test_logD),2))+")")       
+# print("Validation set CrippenMR: "+str(round(np.min(test_MR),2))+" - "+str(round(np.max(test_MR),2))+" (Mean: "+str(round(np.mean(test_MR),2))+"; SD: "+str(round(np.std(test_MR),2))+")")  
+# print("---------------------------------")         
+
 print("SDC applicability domain metrics:")
 print("Training set: "+str(round(np.min(train_sdc),2))+" - "+str(round(np.max(train_sdc),2))+" (Mean: "+str(round(np.mean(train_sdc),2))+"; SD: "+str(round(np.std(train_sdc),2))+")")       
 print("Compound: "+str(round(np.sum(compound_sdc),2)))
