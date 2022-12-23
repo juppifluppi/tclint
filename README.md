@@ -30,7 +30,7 @@ numpy 1.23.4
 
 ## Conda program installation from source
 
-The model can be installed as program in a new conda environment with all the necessary packages listed above from source in the following way:
+The model can be installed as program in a new conda environment with all the necessary packages listed above in the following way:
 
 1. (go to your local ~/anaconda3/envs/ directory)
 2. ```git clone https://github.com/juppifluppi/tclint.git```
