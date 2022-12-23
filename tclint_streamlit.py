@@ -77,7 +77,7 @@ for lines in train_SMI:
 test_mols = []
 test_prob = []
 
-for lines in fil2:
+for lines in test_SMI:
     dimorphite_dl = DimorphiteDL(
         min_ph = 6.4,
         max_ph = 6.6,
