@@ -14,7 +14,7 @@ from dimorphite_dl import DimorphiteDL
 import numpy as np
 import sys
 import warnings
-warnings.filterwarnings('ignore)
+warnings.filterwarnings("ignore")
 
 # load values for training set used for model building (SMILES,logD,MR,class)
 
