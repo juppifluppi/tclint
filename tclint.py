@@ -13,6 +13,8 @@ import scopy.ScoDruglikeness
 from dimorphite_dl import DimorphiteDL
 import numpy as np
 import sys
+import warnings
+warnings.filterwarnings('ignore)
 
 # load values for training set used for model building (SMILES,logD,MR,class)
 
@@ -50,7 +52,7 @@ for lines in train_SMI:
 
 if sys.argv[1].split(".")[-1] == "dat":
     try:
-        with open("results.dat","a") as f: 
+        with open("tclint_results.dat","a") as f: 
             f.write("SMILES" + "\t" + "logD" + "\t" + "CrippenMR" + "\t" + "Probability" + "\n")
         with open(sys.argv[1],"r") as smx:
             for lines in smx:
