@@ -156,7 +156,7 @@ for k in train_mols:
 
 print("TC/L interaction probability model")
 print("---------------------------------")    
- print("Modeling sets:")
+print("Modeling sets:")
 print("Training set logD: "+str(round(np.min(train_logD),2))+" - "+str(round(np.max(train_logD),2))+" (Mean: "+str(round(np.mean(train_logD),2))+"; SD: "+str(round(np.std(x),2))+")")       
 print("Training set CrippenMR: "+str(round(np.min(train_MR),2))+" - "+str(round(np.max(train_MR),2))+" (Mean: "+str(round(np.mean(train_MR),2))+"; SD: "+str(round(np.std(train_MR),2))+")")  
 print("Validation set logD: "+str(round(np.min(test_logD),2))+" - "+str(round(np.max(test_logD),2))+" (Mean: "+str(round(np.mean(test_logD),2))+"; SD: "+str(round(np.std(test_logD),2))+")")       
