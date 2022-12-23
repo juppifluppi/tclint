@@ -1,5 +1,5 @@
 # TC/L interaction probability model
-Python web app and script to compute probability of interaction of a molecule with taurocholate/lecithin at pH 6.5, based on two descriptors: logD and CrippenMR. The model is inspired by [Mol. Pharmaceutics 2022, 19, 2868−2876](https://doi.org/10.1021/acs.molpharmaceut.2c00227) but was built with descriptors from rdkit/scopy instead of MOE/PaDEL, using logD for pH 7.4 instead of 7.0. For the same traning/validation set similar statistics are retrieved (balanced accuracy: 0.86/0.83, AUC: 0.93/0.93).
+Python web app and local command-line script to compute probability of interaction of a molecule with taurocholate/lecithin at pH 6.5, based on two descriptors: logD and CrippenMR. The model is inspired by [Mol. Pharmaceutics 2022, 19, 2868−2876](https://doi.org/10.1021/acs.molpharmaceut.2c00227) but was built with descriptors from rdkit/scopy instead of MOE/PaDEL, using logD for pH 7.4 instead of 7.0. For the same traning/validation set similar statistics are retrieved (balanced accuracy: 0.86/0.83, AUC: 0.93/0.93).
 
 Statistics regarding the similarity of the compound's properties (logD/CrippenMR) and chemical structure (SDC applicability domain metric, [J. Chem. Inf. Model. 2019, 59, 1, 181–189](https://doi.org/10.1021/acs.jcim.8b00597)) in relation to the training set are listed to further assess predictability.
 
@@ -30,7 +30,7 @@ numpy 1.23.4
 
 ## Conda program installation from source
 
-The model can be installed as program in a new conda environment with all the necessary packages from source in the following way:
+The model can be installed as program in a new conda environment with all the necessary packages listed above from source in the following way:
 
 1. (go to your local ~/anaconda3/envs/ directory)
 2. ```git clone https://github.com/juppifluppi/tclint.git```
