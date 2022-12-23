@@ -13,8 +13,6 @@ import scopy.ScoDruglikeness
 from dimorphite_dl import DimorphiteDL
 import numpy as np
 import sys
-import warnings
-warnings.filterwarnings("ignore",message="WARNING: ")
 
 # load values for training set used for model building (SMILES,logD,MR,class)
 
