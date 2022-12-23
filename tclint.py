@@ -86,7 +86,7 @@ if sys.argv[1].split(".")[-1] == "dat":
         print("Something is wrong with your SMILES codes.")
     sys.exit()
 
-# if SMILES codes are given as input: protonate via dimorphite at pH 6.5 and convert to rdkit mol, then calculate probability
+# if SMILES code is given as input: protonate via dimorphite at pH 6.5 and convert to rdkit mol, then calculate probability
     
 try:
 
