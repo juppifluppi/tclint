@@ -147,13 +147,12 @@ for k in train_mols:
             pass
     train_sdc.append(np.sum(values)) 
 
-# plot values of training set, validation set and user compound
+# plot values of training and validation sets
     
 fig=plt.figure()
 ax=fig.add_axes([0,0,1,1])
 l=ax.scatter(train_logD, train_MR, color='b',alpha=0.5,s=50)
 p=ax.scatter(test_logD, test_MR, color='r',alpha=0.5,s=50)
-o=ax.scatter(logd, mr, color='lime',alpha=1,s=50,marker="D",zorder=2)
 ax.set_xlabel('logD')
 ax.set_ylabel('CrippenMR')
 ax.set_title('Compound vs. modeling sets')
@@ -180,6 +179,10 @@ for j in range(0,len(test_prob)):
         if test_class[j] == 1:
             s=ax.scatter(test_logD[j],test_MR[j], color='y',alpha=1,s=10,zorder=2)
 
+# plot user compound
+            
+o=ax.scatter(logd, mr, color='lime',alpha=1,s=50,marker="D",zorder=2)            
+            
 # use calculated values for threshold line to fit regression line
 
 b, a = np.polyfit(thresh_x, thresh_y, deg=1)
