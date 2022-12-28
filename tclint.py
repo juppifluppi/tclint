@@ -2,7 +2,7 @@
 ### Josef Kehrein
 ### Version 1.0 (28.12.22): https://github.com/juppifluppi/tclint
 
-# load modules
+# load modules, define error output for hiding dimorphite warnings
 
 from rdkit import Chem
 from rdkit import DataStructs
@@ -13,6 +13,15 @@ import scopy.ScoDruglikeness
 from dimorphite_dl import DimorphiteDL
 import numpy as np
 import sys
+
+from contextlib import contextmanager,redirect_stderr,redirect_stdout
+from os import devnull
+@contextmanager
+def suppress_stdout_stderr():
+    """A context manager that redirects stdout and stderr to devnull"""
+    with open(devnull, 'w') as fnull:
+        with redirect_stderr(fnull) as err, redirect_stdout(fnull) as out:
+            yield (err, out)
 
 # load values for training set used for model building (SMILES, logD, MR, class)
 
@@ -39,8 +48,9 @@ for lines in train_SMI:
         label_states = False,
         pka_precision = 0.1
     )
-
-    SMI = str(dimorphite_dl.protonate(lines)[0])
+    
+    with suppress_stdout_stderr():
+        SMI = str(dimorphite_dl.protonate(lines)[0])
     mol = Chem.MolFromSmiles(SMI)
     sdm = pretreat.StandardizeMol()
     mol = sdm.disconnect_metals(mol)
@@ -63,7 +73,8 @@ if sys.argv[1].split(".")[-1] == "dat":
                         label_states = False,
                         pka_precision = 0.1
                     )
-                    SMI = str(dimorphite_dl.protonate(SMI)[0])
+                    with suppress_stdout_stderr():
+                        SMI = str(dimorphite_dl.protonate(SMI)[0])
     
                     mol = Chem.MolFromSmiles(SMI)
                     sdm = pretreat.StandardizeMol()
@@ -99,7 +110,8 @@ try:
         label_states = False,
         pka_precision = 0.1
     )
-    SMI = str(dimorphite_dl.protonate(SMI)[0])
+    with suppress_stdout_stderr():
+        SMI = str(dimorphite_dl.protonate(SMI)[0])
     
     mol = Chem.MolFromSmiles(SMI)
     sdm = pretreat.StandardizeMol()
