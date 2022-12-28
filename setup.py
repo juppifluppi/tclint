@@ -16,7 +16,7 @@ setup(
     long_description=long_description,
     long_description_content_type='text/markdown',
     url='https://github.com/juppifluppi/tclint',
-    download_url=f'https://github.com/juppifluppi/tclint/v_{__version__}.tar.gz',
+    download_url=f'https://github.com/juppifluppi/tclint/archive/refs/tags/v_{__version__}.tar.gz',
     project_urls={
         'Source': 'https://github.com/juppifluppi/tclint',
         'Web application': 'http://tclint.streamlit.app',
