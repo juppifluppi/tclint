@@ -11,6 +11,7 @@ setup(
     version='1.0',
     author='Josef Kehrein',
     author_email='josef.kehrein@helsinki.fi',
+    license='MIT',
     description='Predict interaction of molecule with lecithin/taurocholate',
     long_description=long_description,
     long_description_content_type='text/markdown',
@@ -39,11 +40,13 @@ setup(
     classifiers=[
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.7',
+        'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent'
     ],
     keywords=[
         'chemistry',
         'property prediction',
+        'logistic regression'
     ]
 )
 
