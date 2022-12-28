@@ -1,6 +1,6 @@
 ### Streamlit web app to compute TC/L interaction probability of compound
 ### Josef Kehrein
-### Version 1.0 (28.12.22): https://github.com/juppifluppi/tclint
+### Version 1.3 (28.12.22): https://github.com/juppifluppi/tclint
 
 # load modules
 
@@ -236,4 +236,4 @@ st.write("Compound: "+str(round(np.sum(compound_sdc),2)))
 
 # reference
 
-st.caption("Version 1.0 (28.12.22). Visit [github](https://github.com/juppifluppi/tclint) for more information and a downloadable version.")
+st.caption("Version 1.3 (28.12.22). Visit [github](https://github.com/juppifluppi/tclint) for more information and a downloadable version.")
