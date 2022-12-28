@@ -2,7 +2,7 @@
 ### Josef Kehrein
 ### Version 1.0 (28.12.22): https://github.com/juppifluppi/tclint
 
-# load modules, define error output for hiding dimorphite warnings
+# load modules, hide dimorphite-dl warnings and define protonation settings
 
 from rdkit import Chem
 from rdkit import DataStructs
@@ -13,15 +13,23 @@ import scopy.ScoDruglikeness
 from dimorphite_dl import DimorphiteDL
 import numpy as np
 import sys
-
 from contextlib import contextmanager,redirect_stderr,redirect_stdout
 from os import devnull
+
 @contextmanager
 def suppress_stdout_stderr():
     """A context manager that redirects stdout and stderr to devnull"""
     with open(devnull, 'w') as fnull:
         with redirect_stderr(fnull) as err, redirect_stdout(fnull) as out:
             yield (err, out)
+
+dimorphite_dl = DimorphiteDL(
+    min_ph = 6.4,
+    max_ph = 6.6,
+    max_variants = 1,
+    label_states = False,
+    pka_precision = 0.1
+)
 
 # load values for training set used for model building (SMILES, logD, MR, class)
 
@@ -41,13 +49,13 @@ test_class = [0,0,1,1,1,1,1,0,0,1,0,1,1,1,0,0,0,0]
 
 train_mols=[]
 for lines in train_SMI:
-    dimorphite_dl = DimorphiteDL(
-        min_ph = 6.4,
-        max_ph = 6.6,
-        max_variants = 1,
-        label_states = False,
-        pka_precision = 0.1
-    )
+#    dimorphite_dl = DimorphiteDL(
+#        min_ph = 6.4,
+#        max_ph = 6.6,
+#        max_variants = 1,
+#        label_states = False,
+#        pka_precision = 0.1
+#    )
     
     with suppress_stdout_stderr():
         SMI = str(dimorphite_dl.protonate(lines)[0])
@@ -66,13 +74,13 @@ if sys.argv[1].split(".")[-1] == "dat":
             for lines in smx:
                     SMI = str(lines)
     
-                    dimorphite_dl = DimorphiteDL(
-                        min_ph = 6.4,
-                        max_ph = 6.6,
-                        max_variants = 1,
-                        label_states = False,
-                        pka_precision = 0.1
-                    )
+#                    dimorphite_dl = DimorphiteDL(
+#                        min_ph = 6.4,
+#                        max_ph = 6.6,
+#                        max_variants = 1,
+#                        label_states = False,
+#                        pka_precision = 0.1
+#                    )
                     with suppress_stdout_stderr():
                         SMI = str(dimorphite_dl.protonate(SMI)[0])
     
@@ -103,13 +111,13 @@ try:
 
     SMI = str(sys.argv[1])
     
-    dimorphite_dl = DimorphiteDL(
-        min_ph = 6.4,
-        max_ph = 6.6,
-        max_variants = 1,
-        label_states = False,
-        pka_precision = 0.1
-    )
+#    dimorphite_dl = DimorphiteDL(
+#        min_ph = 6.4,
+#        max_ph = 6.6,
+#        max_variants = 1,
+#        label_states = False,
+#        pka_precision = 0.1
+#    )
     with suppress_stdout_stderr():
         SMI = str(dimorphite_dl.protonate(SMI)[0])
     
