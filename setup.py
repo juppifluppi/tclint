@@ -8,7 +8,7 @@ with open('README.md', encoding='utf-8') as f:
 
 setup(
     name='tclint',
-    version='1.0',
+    version='1.3',
     author='Josef Kehrein',
     author_email='josef.kehrein@helsinki.fi',
     license='MIT',
