@@ -2,7 +2,7 @@
 ### Josef Kehrein
 ### Version 1.3 (28.12.22): https://github.com/juppifluppi/tclint
 
-# load modules
+# load modules and define protonation settings
 
 from rdkit import Chem
 from rdkit import DataStructs
@@ -15,6 +15,14 @@ from dimorphite_dl import DimorphiteDL
 import streamlit as st
 import matplotlib.pyplot as plt
 import numpy as np
+
+dimorphite_dl = DimorphiteDL(
+    min_ph = 6.4,
+    max_ph = 6.6,
+    max_variants = 1,
+    label_states = False,
+    pka_precision = 0.1
+)
 
 # description of model
 
@@ -48,25 +56,14 @@ thresh_y = [155,155,150,150,145,145,140,135,135,130,130,125,125,120,120,115,110,
 
 train_mols = []
 train_prob = []
-
 for lines in train_SMI:
-    dimorphite_dl = DimorphiteDL(
-        min_ph = 6.4,
-        max_ph = 6.6,
-        max_variants = 1,
-        label_states = False,
-        pka_precision = 0.1
-    )
-
     SMI = str(dimorphite_dl.protonate(lines)[0])
     mol = Chem.MolFromSmiles(SMI)
     sdm = pretreat.StandardizeMol()
     mol = sdm.disconnect_metals(mol)
-    train_mols.append(mol)
-    
+    train_mols.append(mol)    
     logd = scopy.ScoDruglikeness.molproperty.CalculateLogD(mol)
     mr = scopy.ScoDruglikeness.molproperty.CalculateMolMR(mol)
-
     tcl1 = ( ( logd - 1.510648) / 1.708574 ) * 1.706694
     tcl2 = ( ( mr - 90.62889 ) / 35.36033 ) * 2.4925333 
     tcl3 = 1 / ( 1 + ( 2.718281828459045 ** ( -1 * ( 0.9872289 + tcl1 + tcl2 ) ) ) )
@@ -76,24 +73,14 @@ for lines in train_SMI:
 
 test_mols = []
 test_prob = []
-
 for lines in test_SMI:
-    dimorphite_dl = DimorphiteDL(
-        min_ph = 6.4,
-        max_ph = 6.6,
-        max_variants = 1,
-        label_states = False,
-        pka_precision = 0.1
-    )
     SMI = str(dimorphite_dl.protonate(lines)[0])
     mol = Chem.MolFromSmiles(SMI)
     sdm = pretreat.StandardizeMol()
     mol = sdm.disconnect_metals(mol)
-    test_mols.append(mol)
-    
+    test_mols.append(mol)    
     logd = scopy.ScoDruglikeness.molproperty.CalculateLogD(mol)
     mr = scopy.ScoDruglikeness.molproperty.CalculateMolMR(mol)
-
     tcl1 = ( ( logd - 1.510648) / 1.708574 ) * 1.706694
     tcl2 = ( ( mr - 90.62889 ) / 35.36033 ) * 2.4925333 
     tcl3 = 1 / ( 1 + ( 2.718281828459045 ** ( -1 * ( 0.9872289 + tcl1 + tcl2 ) ) ) )
@@ -102,33 +89,18 @@ for lines in test_SMI:
 # do the same for the input SMILES of the user, output molecular descriptors and probability
 
 try:
-
-    SMI = st.text_input('Enter SMILES code', 'CC(C)NCC(COC1=CC=C(C=C1)CCOC)O')
-    
-    dimorphite_dl = DimorphiteDL(
-        min_ph = 6.4,
-        max_ph = 6.6,
-        max_variants = 1,
-        label_states = False,
-        pka_precision = 0.1
-    )
-    SMI = str(dimorphite_dl.protonate(SMI)[0])
-    
+    SMI = st.text_input('Enter SMILES code', 'CC(C)NCC(COC1=CC=C(C=C1)CCOC)O')  
+    SMI = str(dimorphite_dl.protonate(SMI)[0])    
     mol = Chem.MolFromSmiles(SMI)
     sdm = pretreat.StandardizeMol()
-    mol = sdm.disconnect_metals(mol)
-    
+    mol = sdm.disconnect_metals(mol)    
     m = Chem.MolFromSmiles(SMI)
-    im = Draw.MolToImage(m,fitImage=True)
-    
+    im = Draw.MolToImage(m,fitImage=True)    
     logd = scopy.ScoDruglikeness.molproperty.CalculateLogD(mol)
-    mr = scopy.ScoDruglikeness.molproperty.CalculateMolMR(mol)
-    
+    mr = scopy.ScoDruglikeness.molproperty.CalculateMolMR(mol)    
     tcl1 = ( ( logd - 1.510648) / 1.708574 ) * 1.706694
-    tcl2 = ( ( mr - 90.62889 ) / 35.36033 ) * 2.4925333
-    
-    tcl3 = 1 / ( 1 + ( 2.718281828459045 ** ( -1 * ( 0.9872289 + tcl1 + tcl2 ) ) ) )
-    
+    tcl2 = ( ( mr - 90.62889 ) / 35.36033 ) * 2.4925333    
+    tcl3 = 1 / ( 1 + ( 2.718281828459045 ** ( -1 * ( 0.9872289 + tcl1 + tcl2 ) ) ) )    
     st.image(im)
     st.write("logD: " + str(round(logd,2)))
     st.write("CrippenMR: " + str(round(mr,2)))
@@ -150,7 +122,6 @@ st.caption("""The following plot shows the properties in relation to the modelin
 
 fp1 = AllChem.GetMorganFingerprint(mol, 2)
 compound_sdc=[]
-
 for k in train_mols:
     fp2 = AllChem.GetMorganFingerprint(k, 2)
     Tan = DataStructs.TanimotoSimilarity(fp1,fp2)
@@ -163,7 +134,6 @@ for k in train_mols:
 # compare training set compounds between each other 
  
 train_sdc=[]
-
 for k in train_mols:
     values=[]
     fp1 = AllChem.GetMorganFingerprint(k, 2)
@@ -181,14 +151,9 @@ for k in train_mols:
     
 fig=plt.figure()
 ax=fig.add_axes([0,0,1,1])
-
-# training set
 l=ax.scatter(train_logD, train_MR, color='b',alpha=0.5,s=50)
-# validation set
 p=ax.scatter(test_logD, test_MR, color='r',alpha=0.5,s=50)
-# compound
 o=ax.scatter(logd, mr, color='lime',alpha=1,s=50,marker="D",zorder=2)
-
 ax.set_xlabel('logD')
 ax.set_ylabel('CrippenMR')
 ax.set_title('Compound vs. modeling sets')
