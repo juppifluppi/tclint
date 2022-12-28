@@ -16,6 +16,7 @@ import sys
 from contextlib import contextmanager,redirect_stderr,redirect_stdout
 from os import devnull
 
+@contextmanager
 def suppress_stdout_stderr():
     with open(devnull, 'w') as fnull:
         with redirect_stderr(fnull) as err, redirect_stdout(fnull) as out:
