@@ -47,15 +47,7 @@ test_class = [0,0,1,1,1,1,1,0,0,1,0,1,1,1,0,0,0,0]
 # convert training set to rdkit mols for SDC metrics calculation
 
 train_mols=[]
-for lines in train_SMI:
-#    dimorphite_dl = DimorphiteDL(
-#        min_ph = 6.4,
-#        max_ph = 6.6,
-#        max_variants = 1,
-#        label_states = False,
-#        pka_precision = 0.1
-#    )
-    
+for lines in train_SMI: 
     with suppress_stdout_stderr():
         SMI = str(dimorphite_dl.protonate(lines)[0])
     mol = Chem.MolFromSmiles(SMI)
@@ -72,29 +64,16 @@ if sys.argv[1].split(".")[-1] == "dat":
         with open(sys.argv[1],"r") as smx:
             for lines in smx:
                     SMI = str(lines)
-    
-#                    dimorphite_dl = DimorphiteDL(
-#                        min_ph = 6.4,
-#                        max_ph = 6.6,
-#                        max_variants = 1,
-#                        label_states = False,
-#                        pka_precision = 0.1
-#                    )
                     with suppress_stdout_stderr():
                         SMI = str(dimorphite_dl.protonate(SMI)[0])
-    
                     mol = Chem.MolFromSmiles(SMI)
                     sdm = pretreat.StandardizeMol()
                     mol = sdm.disconnect_metals(mol)
-     
                     logd = scopy.ScoDruglikeness.molproperty.CalculateLogD(mol)
                     mr = scopy.ScoDruglikeness.molproperty.CalculateMolMR(mol)
-    
                     tcl1 = ( ( logd - 1.510648) / 1.708574 ) * 1.706694
                     tcl2 = ( ( mr - 90.62889 ) / 35.36033 ) * 2.4925333
-    
                     tcl3 = 1 / ( 1 + ( 2.718281828459045 ** ( -1 * ( 0.9872289 + tcl1 + tcl2 ) ) ) )
-                
                     with open("tclint_results.dat","a") as f:                
                         f.write(str(SMI) + "\t" + str(round(logd,2)) + "\t" + str(round(mr,2)) + "\t" + str(int(round(tcl3*100,0))) + "\n")
 
@@ -107,29 +86,16 @@ if sys.argv[1].split(".")[-1] == "dat":
 # if SMILES code is given as input: protonate via dimorphite-dl at pH 6.5 and convert to rdkit mol, then calculate probability
     
 try:
-
     SMI = str(sys.argv[1])
-    
-#    dimorphite_dl = DimorphiteDL(
-#        min_ph = 6.4,
-#        max_ph = 6.6,
-#        max_variants = 1,
-#        label_states = False,
-#        pka_precision = 0.1
-#    )
     with suppress_stdout_stderr():
-        SMI = str(dimorphite_dl.protonate(SMI)[0])
-    
+        SMI = str(dimorphite_dl.protonate(SMI)[0])    
     mol = Chem.MolFromSmiles(SMI)
     sdm = pretreat.StandardizeMol()
-    mol = sdm.disconnect_metals(mol)
-     
+    mol = sdm.disconnect_metals(mol)     
     logd = scopy.ScoDruglikeness.molproperty.CalculateLogD(mol)
-    mr = scopy.ScoDruglikeness.molproperty.CalculateMolMR(mol)
-    
+    mr = scopy.ScoDruglikeness.molproperty.CalculateMolMR(mol)    
     tcl1 = ( ( logd - 1.510648) / 1.708574 ) * 1.706694
-    tcl2 = ( ( mr - 90.62889 ) / 35.36033 ) * 2.4925333
-    
+    tcl2 = ( ( mr - 90.62889 ) / 35.36033 ) * 2.4925333    
     tcl3 = 1 / ( 1 + ( 2.718281828459045 ** ( -1 * ( 0.9872289 + tcl1 + tcl2 ) ) ) )
 
 # output error if SMILES cannot be recognized
@@ -144,7 +110,6 @@ except:
 
 fp1 = AllChem.GetMorganFingerprint(mol, 2)
 compound_sdc=[]
-
 for k in train_mols:
     fp2 = AllChem.GetMorganFingerprint(k, 2)
     Tan = DataStructs.TanimotoSimilarity(fp1,fp2)
@@ -157,7 +122,6 @@ for k in train_mols:
 # compare training set compounds between each other 
  
 train_sdc=[]
-
 for k in train_mols:
     values=[]
     fp1 = AllChem.GetMorganFingerprint(k, 2)
@@ -173,13 +137,11 @@ for k in train_mols:
 
 # output values
 
-# uncomment this section to also show properties of training and validation sets, as shown in matplotlib plot in the web app
-# print("Modeling sets:")
+# uncomment this section to also show properties of training and validation sets, as shown in plot in the web app
 # print("Training set logD: "+str(round(np.min(train_logD),2))+" - "+str(round(np.max(train_logD),2))+" (Mean: "+str(round(np.mean(train_logD),2))+"; SD: "+str(round(np.std(train_logD),2))+")")       
 # print("Training set CrippenMR: "+str(round(np.min(train_MR),2))+" - "+str(round(np.max(train_MR),2))+" (Mean: "+str(round(np.mean(train_MR),2))+"; SD: "+str(round(np.std(train_MR),2))+")")  
 # print("Validation set logD: "+str(round(np.min(test_logD),2))+" - "+str(round(np.max(test_logD),2))+" (Mean: "+str(round(np.mean(test_logD),2))+"; SD: "+str(round(np.std(test_logD),2))+")")       
-# print("Validation set CrippenMR: "+str(round(np.min(test_MR),2))+" - "+str(round(np.max(test_MR),2))+" (Mean: "+str(round(np.mean(test_MR),2))+"; SD: "+str(round(np.std(test_MR),2))+")")  
-# print("---------------------------------")         
+# print("Validation set CrippenMR: "+str(round(np.min(test_MR),2))+" - "+str(round(np.max(test_MR),2))+" (Mean: "+str(round(np.mean(test_MR),2))+"; SD: "+str(round(np.std(test_MR),2))+")")          
 
 print("Training set SDC: "+str(round(np.min(train_sdc),2))+" - "+str(round(np.max(train_sdc),2))+" (Mean: "+str(round(np.mean(train_sdc),2))+"; SD: "+str(round(np.std(train_sdc),2))+")")       
 print("Compound SDC: "+str(round(np.sum(compound_sdc),2)))
