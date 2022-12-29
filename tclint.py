@@ -106,44 +106,44 @@ else:
 
 # compare user compound to training set
 
-fp1 = AllChem.GetMorganFingerprint(mol, 2)
-compound_sdc=[]
-for k in train_mols:
-    fp2 = AllChem.GetMorganFingerprint(k, 2)
-    Tan = DataStructs.TanimotoSimilarity(fp1,fp2)
-    try:
-        sdc = 2.718281828459045 ** ((-3 * Tan)/(1 - Tan))
-        compound_sdc.append(sdc)
-    except:
-        pass
- 
-# compare training set compounds between each other 
- 
-train_sdc=[]
-for k in train_mols:
-    values=[]
-    fp1 = AllChem.GetMorganFingerprint(k, 2)
-    for molx in train_mols:
-        fp2 = AllChem.GetMorganFingerprint(molx, 2)
+    fp1 = AllChem.GetMorganFingerprint(mol, 2)
+    compound_sdc=[]
+    for k in train_mols:
+        fp2 = AllChem.GetMorganFingerprint(k, 2)
         Tan = DataStructs.TanimotoSimilarity(fp1,fp2)
         try:
             sdc = 2.718281828459045 ** ((-3 * Tan)/(1 - Tan))
-            values.append(sdc)
+            compound_sdc.append(sdc)
         except:
             pass
-    train_sdc.append(np.sum(values)) 
+ 
+# compare training set compounds between each other 
+ 
+    train_sdc=[]
+    for k in train_mols:
+        values=[]
+        fp1 = AllChem.GetMorganFingerprint(k, 2)
+        for molx in train_mols:
+            fp2 = AllChem.GetMorganFingerprint(molx, 2)
+            Tan = DataStructs.TanimotoSimilarity(fp1,fp2)
+            try:
+                sdc = 2.718281828459045 ** ((-3 * Tan)/(1 - Tan))
+                values.append(sdc)
+            except:
+                pass
+        train_sdc.append(np.sum(values)) 
 
 # output values
 
 # uncomment this section to also show properties of training and validation sets, as shown in plot in the web app
-# print("Training set logD: "+str(round(np.min(train_logD),2))+" - "+str(round(np.max(train_logD),2))+" (Mean: "+str(round(np.mean(train_logD),2))+"; SD: "+str(round(np.std(train_logD),2))+")")       
-# print("Training set CrippenMR: "+str(round(np.min(train_MR),2))+" - "+str(round(np.max(train_MR),2))+" (Mean: "+str(round(np.mean(train_MR),2))+"; SD: "+str(round(np.std(train_MR),2))+")")  
-# print("Validation set logD: "+str(round(np.min(test_logD),2))+" - "+str(round(np.max(test_logD),2))+" (Mean: "+str(round(np.mean(test_logD),2))+"; SD: "+str(round(np.std(test_logD),2))+")")       
-# print("Validation set CrippenMR: "+str(round(np.min(test_MR),2))+" - "+str(round(np.max(test_MR),2))+" (Mean: "+str(round(np.mean(test_MR),2))+"; SD: "+str(round(np.std(test_MR),2))+")")          
+    # print("Training set logD: "+str(round(np.min(train_logD),2))+" - "+str(round(np.max(train_logD),2))+" (Mean: "+str(round(np.mean(train_logD),2))+"; SD: "+str(round(np.std(train_logD),2))+")")       
+    # print("Training set CrippenMR: "+str(round(np.min(train_MR),2))+" - "+str(round(np.max(train_MR),2))+" (Mean: "+str(round(np.mean(train_MR),2))+"; SD: "+str(round(np.std(train_MR),2))+")")  
+    # print("Validation set logD: "+str(round(np.min(test_logD),2))+" - "+str(round(np.max(test_logD),2))+" (Mean: "+str(round(np.mean(test_logD),2))+"; SD: "+str(round(np.std(test_logD),2))+")")       
+    # print("Validation set CrippenMR: "+str(round(np.min(test_MR),2))+" - "+str(round(np.max(test_MR),2))+" (Mean: "+str(round(np.mean(test_MR),2))+"; SD: "+str(round(np.std(test_MR),2))+")")          
 
-print("Training set SDC: "+str(round(np.min(train_sdc),2))+" - "+str(round(np.max(train_sdc),2))+" (Mean: "+str(round(np.mean(train_sdc),2))+"; SD: "+str(round(np.std(train_sdc),2))+")")       
-print("Compound SDC: "+str(round(np.sum(compound_sdc),2)))
-print("Compound logD: " + str(round(logd,2)))
-print("Compound CrippenMR: " + str(round(mr,2)))
-print("Compound TC/L interaction probability: " + str(int(round(tcl3*100,0))) + " %")
+    print("Training set SDC: "+str(round(np.min(train_sdc),2))+" - "+str(round(np.max(train_sdc),2))+" (Mean: "+str(round(np.mean(train_sdc),2))+"; SD: "+str(round(np.std(train_sdc),2))+")")       
+    print("Compound SDC: "+str(round(np.sum(compound_sdc),2)))
+    print("Compound logD: " + str(round(logd,2)))
+    print("Compound CrippenMR: " + str(round(mr,2)))
+    print("Compound TC/L interaction probability: " + str(int(round(tcl3*100,0))) + " %")
 sys.exit()
