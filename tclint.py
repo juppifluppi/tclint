@@ -58,28 +58,27 @@ for lines in train_SMI:
 # if datafile (*.dat) is given as input: compute properties for each line 
 
 if sys.argv[1].split(".")[-1] == "dat":
-    try:
-        with open("tclint_results.dat","a") as f: 
-            f.write("SMILES" + "\t" + "logD" + "\t" + "CrippenMR" + "\t" + "Probability" + "\n")
-        with open(sys.argv[1],"r") as smx:
-            for lines in smx:
-                try:
-                    SMI = str(lines)
-                    with suppress_stdout_stderr():
-                        SMI = str(dimorphite_dl.protonate(SMI)[0])
-                    mol = Chem.MolFromSmiles(SMI)
-                    sdm = pretreat.StandardizeMol()
-                    mol = sdm.disconnect_metals(mol)
-                    logd = scopy.ScoDruglikeness.molproperty.CalculateLogD(mol)
-                    mr = scopy.ScoDruglikeness.molproperty.CalculateMolMR(mol)
-                    tcl1 = ( ( logd - 1.510648) / 1.708574 ) * 1.706694
-                    tcl2 = ( ( mr - 90.62889 ) / 35.36033 ) * 2.4925333
-                    tcl3 = 1 / ( 1 + ( 2.718281828459045 ** ( -1 * ( 0.9872289 + tcl1 + tcl2 ) ) ) )
-                    with open("tclint_results.dat","a") as f:                
-                        f.write(str(SMI) + "\t" + str(round(logd,2)) + "\t" + str(round(mr,2)) + "\t" + str(int(round(tcl3*100,0))) + "\n")
-                except:
-                    with open("tclint_results.dat","a") as f:
-                        f.write("Something is wrong with your SMILES code:" + str(lines) + "\n")
+    with open("tclint_results.dat","a") as f: 
+        f.write("SMILES" + "\t" + "logD" + "\t" + "CrippenMR" + "\t" + "Probability" + "\n")
+    with open(sys.argv[1],"r") as smx:
+        for lines in smx:
+            try:
+                SMI = str(lines)
+                with suppress_stdout_stderr():
+                    SMI = str(dimorphite_dl.protonate(SMI)[0])
+                mol = Chem.MolFromSmiles(SMI)
+                sdm = pretreat.StandardizeMol()
+                mol = sdm.disconnect_metals(mol)
+                logd = scopy.ScoDruglikeness.molproperty.CalculateLogD(mol)
+                mr = scopy.ScoDruglikeness.molproperty.CalculateMolMR(mol)
+                tcl1 = ( ( logd - 1.510648) / 1.708574 ) * 1.706694
+                tcl2 = ( ( mr - 90.62889 ) / 35.36033 ) * 2.4925333
+                tcl3 = 1 / ( 1 + ( 2.718281828459045 ** ( -1 * ( 0.9872289 + tcl1 + tcl2 ) ) ) )
+                with open("tclint_results.dat","a") as f:                
+                    f.write(str(SMI) + "\t" + str(round(logd,2)) + "\t" + str(round(mr,2)) + "\t" + str(int(round(tcl3*100,0))) + "\n")
+            except:
+                with open("tclint_results.dat","a") as f:
+                    f.write("Something is wrong with your SMILES code:" + str(lines) + "\n")
 
 # if SMILES code is given as input: protonate via dimorphite-dl at pH 6.5 and convert to rdkit mol, then calculate probability
     
