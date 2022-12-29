@@ -63,6 +63,7 @@ if sys.argv[1].split(".")[-1] == "dat":
             f.write("SMILES" + "\t" + "logD" + "\t" + "CrippenMR" + "\t" + "Probability" + "\n")
         with open(sys.argv[1],"r") as smx:
             for lines in smx:
+                try:
                     SMI = str(lines)
                     with suppress_stdout_stderr():
                         SMI = str(dimorphite_dl.protonate(SMI)[0])
@@ -76,12 +77,9 @@ if sys.argv[1].split(".")[-1] == "dat":
                     tcl3 = 1 / ( 1 + ( 2.718281828459045 ** ( -1 * ( 0.9872289 + tcl1 + tcl2 ) ) ) )
                     with open("tclint_results.dat","a") as f:                
                         f.write(str(SMI) + "\t" + str(round(logd,2)) + "\t" + str(round(mr,2)) + "\t" + str(int(round(tcl3*100,0))) + "\n")
-
-# output error if SMILES cannot be recognized
-
-    except:
-        print("Something is wrong with your SMILES codes.")
-    sys.exit()
+                except:
+                    with open("tclint_results.dat","a") as f:
+                        f.write("Something is wrong with your SMILES code:" + str(lines) + "\n")
 
 # if SMILES code is given as input: protonate via dimorphite-dl at pH 6.5 and convert to rdkit mol, then calculate probability
     
