@@ -1,6 +1,6 @@
 from setuptools import find_packages, setup
 
-__version__ = "1.3"
+__version__ = "1.4"
 
 # Load README
 with open('README.md', encoding='utf-8') as f:
@@ -8,7 +8,7 @@ with open('README.md', encoding='utf-8') as f:
 
 setup(
     name='tclint',
-    version='1.3',
+    version='1.4',
     author='Josef Kehrein',
     author_email='josef.kehrein@helsinki.fi',
     license='MIT',
