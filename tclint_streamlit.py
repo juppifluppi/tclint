@@ -1,6 +1,6 @@
 ### Streamlit web app to compute TC/L interaction probability of compound
 ### Josef Kehrein
-### Version 1.3 (28.12.22): https://github.com/juppifluppi/tclint
+### Version 1.4 (29.12.22): https://github.com/juppifluppi/tclint
 
 # load modules and define protonation settings
 
