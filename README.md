@@ -11,7 +11,7 @@ https://tclint.streamlit.app/
 
 To use the command-line script ```tclint.py``` locally, run the following code in the downloaded folder:
 ```
-python tclint.py SMILESCODE 
+python tclint.py "SMILESCODE" 
 ```
 Instead of a single SMILES code, a ```*.dat``` file can be provided as input, with one SMILES code per line (without parentheses). In this case, the script outputs the properties for each molecule into ```tclint_results.dat```:
 ```
@@ -39,7 +39,7 @@ The model can be installed as program in a new conda environment with all the ne
 
 You can then use the alias tclint:
 ```
-tclint SMILESCODE 
+tclint "SMILESCODE" 
 tclint listofsmiles.dat
 ```
 
