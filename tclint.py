@@ -78,28 +78,29 @@ if sys.argv[1].split(".")[-1] == "dat":
                     f.write(str(SMI) + "\t" + str(round(logd,2)) + "\t" + str(round(mr,2)) + "\t" + str(int(round(tcl3*100,0))) + "\n")
             except:
                 with open("tclint_results.dat","a") as f:
-                    f.write("Something is wrong with your SMILES code:" + str(lines) + "\n")
+                    f.write("Something is wrong with your SMILES code: " + str(lines))
 
 # if SMILES code is given as input: protonate via dimorphite-dl at pH 6.5 and convert to rdkit mol, then calculate probability
-    
-try:
-    SMI = str(sys.argv[1])
-    with suppress_stdout_stderr():
-        SMI = str(dimorphite_dl.protonate(SMI)[0])    
-    mol = Chem.MolFromSmiles(SMI)
-    sdm = pretreat.StandardizeMol()
-    mol = sdm.disconnect_metals(mol)     
-    logd = scopy.ScoDruglikeness.molproperty.CalculateLogD(mol)
-    mr = scopy.ScoDruglikeness.molproperty.CalculateMolMR(mol)    
-    tcl1 = ( ( logd - 1.510648) / 1.708574 ) * 1.706694
-    tcl2 = ( ( mr - 90.62889 ) / 35.36033 ) * 2.4925333    
-    tcl3 = 1 / ( 1 + ( 2.718281828459045 ** ( -1 * ( 0.9872289 + tcl1 + tcl2 ) ) ) )
+
+else:
+    try:
+        SMI = str(sys.argv[1])
+        with suppress_stdout_stderr():
+            SMI = str(dimorphite_dl.protonate(SMI)[0])    
+        mol = Chem.MolFromSmiles(SMI)
+        sdm = pretreat.StandardizeMol()
+        mol = sdm.disconnect_metals(mol)     
+        logd = scopy.ScoDruglikeness.molproperty.CalculateLogD(mol)
+        mr = scopy.ScoDruglikeness.molproperty.CalculateMolMR(mol)    
+        tcl1 = ( ( logd - 1.510648) / 1.708574 ) * 1.706694
+        tcl2 = ( ( mr - 90.62889 ) / 35.36033 ) * 2.4925333    
+        tcl3 = 1 / ( 1 + ( 2.718281828459045 ** ( -1 * ( 0.9872289 + tcl1 + tcl2 ) ) ) )
 
 # output error if SMILES cannot be recognized
 
-except:
-    print("Something is wrong with your SMILES code.")
-    sys.exit()
+    except:
+        print("Something is wrong with your SMILES code.")
+        sys.exit()
 
 # compute tanimoto ecfp_4 fingerprints (approximately radius = 2 of MorganFingerprint) to calculate SDC metrics
 
