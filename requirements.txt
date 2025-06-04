@@ -7,3 +7,5 @@ numpy
 pandas
 matplotlib
 scipy
+dimorphite-dl
+scopy
