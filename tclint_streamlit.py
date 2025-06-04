@@ -15,7 +15,7 @@ from dimorphite_dl import protonate_smiles
 import streamlit as st
 import matplotlib.pyplot as plt
 import numpy as np
-
+import subprocess
 
 def run_dimorphite(SMI):
     command = [
