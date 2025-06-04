@@ -1,4 +1,4 @@
-rdkit-pypi
+rdkit
 stmol
 dimorphite_dl
 padelpy
