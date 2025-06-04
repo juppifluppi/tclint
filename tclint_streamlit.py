@@ -11,18 +11,28 @@ from rdkit.Chem import AllChem
 from rdkit.Chem.Fingerprints import FingerprintMols
 from scopy.ScoPretreat import pretreat
 import scopy.ScoDruglikeness
-from dimorphite_dl import DimorphiteDL
+from dimorphite_dl import protonate_smiles
 import streamlit as st
 import matplotlib.pyplot as plt
 import numpy as np
 
-dimorphite_dl = DimorphiteDL(
-    min_ph = 6.4,
-    max_ph = 6.6,
-    max_variants = 1,
-    label_states = False,
-    pka_precision = 0.1
-)
+
+def run_dimorphite(SMI):
+    command = [
+        "dimorphite_dl",
+        "--ph_min", "6.4",
+        "--ph_max", "6.6",
+        "--precision", "0.1",
+        "--max_variants", "1",
+        "--silent",
+        SMI
+    ]
+    result = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+    
+    if result.returncode != 0:
+        raise RuntimeError(f"Dimorphite-DL failed:\n{result.stderr}")
+    
+    return result.stdout.strip()
 
 # description of model
 
@@ -57,7 +67,7 @@ thresh_y = [155,155,150,150,145,145,140,135,135,130,130,125,125,120,120,115,110,
 train_mols = []
 train_prob = []
 for lines in train_SMI:
-    SMI = str(dimorphite_dl.protonate(lines)[0])
+    SMI = run_dimorphite(lines)
     mol = Chem.MolFromSmiles(SMI)
     sdm = pretreat.StandardizeMol()
     mol = sdm.disconnect_metals(mol)
@@ -74,7 +84,7 @@ for lines in train_SMI:
 test_mols = []
 test_prob = []
 for lines in test_SMI:
-    SMI = str(dimorphite_dl.protonate(lines)[0])
+    SMI = run_dimorphite(lines)
     mol = Chem.MolFromSmiles(SMI)
     sdm = pretreat.StandardizeMol()
     mol = sdm.disconnect_metals(mol)
@@ -90,7 +100,7 @@ for lines in test_SMI:
 
 try:
     SMI = st.text_input('Enter SMILES code', 'CC(C)NCC(COC1=CC=C(C=C1)CCOC)O')  
-    SMI = str(dimorphite_dl.protonate(SMI)[0])    
+    SMI = run_dimorphite(SMI) 
     mol = Chem.MolFromSmiles(SMI)
     sdm = pretreat.StandardizeMol()
     mol = sdm.disconnect_metals(mol)    
