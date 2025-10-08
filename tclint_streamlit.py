@@ -24,7 +24,7 @@ def run_dimorphite(SMI):
         "--ph_max", "6.6",
         "--precision", "0.1",
         "--max_variants", "1",
-        "--silent",
+        #"--silent",
         SMI
     ]
     result = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
