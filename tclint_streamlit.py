@@ -216,4 +216,4 @@ st.write("Compound: "+str(round(np.sum(compound_sdc),2)))
 
 # reference
 
-st.caption("Version 1.5 (04.06.25). Visit [github](https://github.com/juppifluppi/tclint) for more information and a downloadable version.")
+st.caption("Version 1.6 (08.10.25). Visit [github](https://github.com/juppifluppi/tclint) for more information and a downloadable version.")
