@@ -37,6 +37,8 @@ def run_dimorphite(SMI):
 # description of model
 
 st.title('TC/L interaction probability model')
+st.caption("This web application is not actively maintained anymore as the model is now integrated in our [new web application](https://muctcl.streamlit.app/) incorporating drug-bile with drug-mucin interactions!")
+
 st.caption("""Input a [molecule SMILES code](https://pubchem.ncbi.nlm.nih.gov/edit3/index.html).
 A taurocholate/lecithin interaction probability is computed at pH 6.5, based on two descriptors: logD and CrippenMR.
 The model is based on [our previous study](https://doi.org/10.1021/acs.molpharmaceut.2c00227)
