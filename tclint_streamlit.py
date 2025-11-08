@@ -17,6 +17,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 import subprocess
 
+st.set_page_config(page_title="tclint")
+
 def run_dimorphite(SMI):
     command = [
         "dimorphite_dl",
